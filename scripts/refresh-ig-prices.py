@@ -20,9 +20,11 @@ def load_catalog():
         [
             "node",
             "-e",
-            'const fs=require("fs");const t=fs.readFileSync("js/catalog.js","utf8");'
-            'eval(t.replace("window.JEUXSTASH_CATALOG","global.C"));'
-            "console.log(JSON.stringify(global.C));",
+            'const fs=require("fs");'
+            'const t=fs.readFileSync("js/catalog.js","utf8");'
+            "global.window=global;"
+            "eval(t);"
+            "console.log(JSON.stringify(global.JEUXSTASH_CATALOG));",
         ],
         cwd=ROOT,
         text=True,
