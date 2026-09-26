@@ -43,9 +43,12 @@ def fetch(url: str) -> str:
 def scrape(url: str):
     html = fetch(url)
     avail = re.search(r'itemprop="availability"\s+content="([^"]+)"', html)
+    # Priorité au prix produit (itemprop / data-price-eur), pas un "price" JSON aléatoire
     price = re.search(r'itemprop="price"\s+content="([0-9.]+)"', html)
     if not price:
-        price = re.search(r'"price"\s*:\s*"([0-9.]+)"', html)
+        price = re.search(r'data-price-eur="([0-9.]+)"', html)
+    if not price:
+        price = re.search(r'data-price="([0-9.]+)"', html)
     stock = "ok"
     if avail:
         a = avail.group(1).lower()

@@ -222,10 +222,11 @@ nav .nav-current {
   width: 100%;
   height: auto;
   aspect-ratio: 460 / 215;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+  object-position: center center;
   display: block;
   border-radius: 10px;
+  background: #12161c;
 }
 
 .hero-feature strong {
@@ -487,7 +488,7 @@ nav .nav-current {
 .game-cover-link {
   display: block;
   position: relative;
-  background: #14181f;
+  background: #12161c;
   line-height: 0;
   overflow: hidden;
 }
@@ -496,15 +497,14 @@ nav .nav-current {
   display: block;
   width: 100%;
   aspect-ratio: 460 / 215;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
-  background: #14181f;
+  background: #12161c;
   transition: transform 0.3s ease;
-  will-change: transform;
 }
 
 .game-card:hover .game-cover {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .game-badges {
