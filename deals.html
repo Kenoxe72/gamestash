@@ -38,11 +38,11 @@
     </div>
 
     <div class="deals-toolbar">
-      <label class="search-wrap">
-        <span class="sr-only">Rechercher un jeu</span>
-        <input id="deals-search" type="search" placeholder="Rechercher un jeu…" autocomplete="off" />
-      </label>
-      <div class="deals-controls">
+      <div class="deals-search-row">
+        <label class="search-wrap">
+          <span class="sr-only">Rechercher un jeu</span>
+          <input id="deals-search" type="search" placeholder="Rechercher un jeu…" autocomplete="off" />
+        </label>
         <label class="sort-wrap">
           <span class="sr-only">Trier</span>
           <select id="deals-sort">
@@ -52,29 +52,43 @@
             <option value="name">A → Z</option>
           </select>
         </label>
-        <label class="check-chip">
-          <input type="checkbox" id="deals-stock" />
-          <span>En stock</span>
-        </label>
-        <label class="check-chip">
-          <input type="checkbox" id="deals-under20" />
-          <span>&lt; 20&nbsp;€</span>
-        </label>
       </div>
-      <div id="deals-platforms" class="filter-row" role="group" aria-label="Plateforme">
-        <button type="button" class="chip is-active" data-platform="all">Toutes</button>
-        <button type="button" class="chip" data-platform="pc">PC</button>
-        <button type="button" class="chip" data-platform="ps5">PS5</button>
-        <button type="button" class="chip" data-platform="switch">Switch</button>
-        <button type="button" class="chip" data-platform="xbox">Xbox</button>
-      </div>
-      <div id="deals-filters" class="filter-row" role="group" aria-label="Style de jeu">
-        <button type="button" class="chip is-active" data-filter="all">Tous</button>
-        <button type="button" class="chip" data-filter="hot">Hot</button>
-        <button type="button" class="chip" data-filter="coop">Coop</button>
-        <button type="button" class="chip" data-filter="chill">Chill</button>
-        <button type="button" class="chip" data-filter="action">Action</button>
-        <button type="button" class="chip" data-filter="sport">Sport</button>
+
+      <div class="deals-filters">
+        <div class="filter-group">
+          <span class="filter-label">Plateforme</span>
+          <div id="deals-platforms" class="filter-row" role="group" aria-label="Plateforme">
+            <button type="button" class="chip is-active" data-platform="all">Tous</button>
+            <button type="button" class="chip" data-platform="pc">PC</button>
+            <button type="button" class="chip" data-platform="ps5">PS5</button>
+            <button type="button" class="chip" data-platform="switch">Switch</button>
+            <button type="button" class="chip" data-platform="xbox">Xbox</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Style</span>
+          <div id="deals-filters" class="filter-row" role="group" aria-label="Style de jeu">
+            <button type="button" class="chip is-active" data-filter="all">Tous</button>
+            <button type="button" class="chip" data-filter="hot">Hot</button>
+            <button type="button" class="chip" data-filter="coop">Coop</button>
+            <button type="button" class="chip" data-filter="chill">Chill</button>
+            <button type="button" class="chip" data-filter="action">Action</button>
+            <button type="button" class="chip" data-filter="sport">Sport</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Options</span>
+          <div class="filter-row deals-options">
+            <label class="chip check-chip">
+              <input type="checkbox" id="deals-stock" />
+              <span>En stock</span>
+            </label>
+            <label class="chip check-chip">
+              <input type="checkbox" id="deals-under20" />
+              <span>&lt; 20&nbsp;€</span>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -114,8 +128,8 @@
   </footer>
 
   <script src="/js/config.js"></script>
-  <script src="/js/catalog.js?v=20260926h"></script>
-  <script src="/js/deals.js?v=20260926h"></script>
+  <script src="/js/catalog.js?v=20260926i"></script>
+  <script src="/js/deals.js?v=20260926i"></script>
   <script src="/js/ui.js"></script>
   <script src="/js/seo.js"></script>
   <script src="/js/track.js"></script>
