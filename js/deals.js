@@ -16,8 +16,9 @@
       .replace(/>/g, "&gt;");
   }
 
-  function coverUrl(steamId) {
-    return "https://cdn.cloudflare.steamstatic.com/steam/apps/" + steamId + "/header.jpg";
+  function coverUrl(game) {
+    if (game.cover) return game.cover;
+    return "https://cdn.cloudflare.steamstatic.com/steam/apps/" + game.steam + "/header.jpg";
   }
 
   function cardHTML(game) {
@@ -37,7 +38,7 @@
       ig +
       '" rel="sponsored noopener" target="_blank">' +
       '<img class="game-cover" src="' +
-      coverUrl(game.steam) +
+      coverUrl(game) +
       '" alt="' +
       name +
       '" width="460" height="215" loading="lazy" />' +

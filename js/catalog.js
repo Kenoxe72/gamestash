@@ -6,6 +6,7 @@ window.JEUXSTASH_CATALOG = [
     tag: "Hot",
     cats: ["hot", "action", "coop"],
     steam: 1867240,
+    cover: "https://gaming-cdn.com/images/products/21740/616x353/wardogs-pc-steam-cover.jpg",
     ig: "https://www.instant-gaming.com/fr/21740-acheter-wardogs-pc-steam/?igr=gamer-47bd4c",
     gg: "https://gg.deals/games/?title=WARDOGS"
   },
