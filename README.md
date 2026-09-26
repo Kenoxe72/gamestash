@@ -1,20 +1,18 @@
 # JeuxStash
 
-Site pour **choisir un jeu ce soir** et **payer moins cher** (guides courts + liens Instant Gaming / GG.deals).
+Guides courts + prix Instant Gaming / GG.deals.
 
-## En ligne
+**Site :** https://jeuxstash.pages.dev  
+**Code :** https://github.com/Kenoxe72/jeuxstash
 
-https://jeuxstash.pages.dev
-
-Code : https://github.com/Kenoxe72/jeuxstash
-
-## Local
+## Mettre à jour le site
 
 ```bash
-cd ~/Projects/stash-jeux
-python3 -m http.server 8080
+./deploy.sh
 ```
 
-→ http://127.0.0.1:8080
+## Voir en local
 
-Affiliation Instant Gaming : `igr=gamer-47bd4c`
+```bash
+python3 -m http.server 8080
+```
