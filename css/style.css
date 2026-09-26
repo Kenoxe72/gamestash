@@ -168,6 +168,48 @@ nav .nav-current {
   margin-top: 1.35rem;
 }
 
+.hero-feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.6rem;
+  max-width: 520px;
+  padding: 0.55rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 180, 84, 0.35);
+  background: linear-gradient(135deg, rgba(255, 180, 84, 0.14), rgba(20, 24, 30, 0.95));
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-feature:hover {
+  border-color: rgba(255, 180, 84, 0.7);
+  transform: translateY(-2px);
+}
+
+.hero-feature img {
+  width: 160px;
+  max-width: 42%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.hero-feature strong {
+  display: block;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.hero-feature em {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
