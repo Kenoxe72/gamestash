@@ -620,6 +620,19 @@ nav .nav-current {
   font-size: 0.88rem;
 }
 
+.builder-amazon {
+  display: inline-block;
+  margin-top: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.builder-amazon:hover {
+  text-decoration: underline;
+}
+
 .game-card.is-oos .game-cover,
 .hero-feature.is-oos img {
   filter: grayscale(0.35) brightness(0.82);
