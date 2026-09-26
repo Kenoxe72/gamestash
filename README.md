@@ -13,7 +13,7 @@ python3 -m http.server 8080
 
 ## En ligne
 
-https://gamestash.netlify.app
+https://gamestash-fr.netlify.app
 
 Déploiement auto via GitHub → Netlify (chaque push sur `main` republie le site).
 
