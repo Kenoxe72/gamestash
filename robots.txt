@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jeuxstash.netlify.app/sitemap.xml
+Sitemap: https://jeuxstash.pages.dev/sitemap.xml

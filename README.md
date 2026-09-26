@@ -4,7 +4,7 @@ Site pour **choisir un jeu ce soir** et **payer moins cher** (guides courts + li
 
 ## En ligne
 
-https://jeuxstash.netlify.app
+https://jeuxstash.pages.dev
 
 Code : https://github.com/Kenoxe72/jeuxstash
 
