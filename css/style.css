@@ -633,6 +633,31 @@ nav .nav-current {
   text-decoration: underline;
 }
 
+.builder-prebuilt {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 180, 84, 0.35);
+  background: rgba(255, 180, 84, 0.08);
+}
+
+.builder-prebuilt p {
+  margin: 0 0 0.85rem;
+  color: #f0e6d6;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.builder-diy-title {
+  margin: 0 0 0.75rem;
+  font-family: Outfit, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
 .game-card.is-oos .game-cover,
 .hero-feature.is-oos img {
   filter: grayscale(0.35) brightness(0.82);
