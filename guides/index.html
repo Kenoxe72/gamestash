@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mini-guides — JeuxStash</title>
   <meta name="description" content="Mini-guides ultra courts : Instant Gaming, Elden Ring, Cyberpunk, Game Pass, sport, clés. Puis tu compares le prix." />
-  <link rel="canonical" href="https://jeuxstash.pages.dev/guides/" />
+  <link rel="canonical" href="https://www.jeuxstash.fr/guides/" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,70 +32,26 @@
         <p class="eyebrow">Lecture courte</p>
         <h2>Mini-guides</h2>
         <p>1–2 minutes. Puis tu décides — et tu compares le prix.</p>
+        <p id="guides-season-note" class="fine"></p>
       </div>
     </div>
 
-    <div class="guide-grid">
+    <div class="guide-grid" data-rotate>
+      <!-- fallback SEO / no-JS : evergreen -->
       <a class="guide-card guide-card--featured" href="/guides/instant-gaming-fiable.html">
         <span class="guide-num">01</span>
         <span class="guide-kicker">Avis</span>
         <strong>Instant Gaming fiable ?</strong>
         <span>Avis clair avant d’acheter une clé.</span>
       </a>
-      <a class="guide-card" href="/guides/cyberpunk-pas-cher.html">
-        <img class="guide-thumb" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg" alt="" loading="lazy" width="460" height="215" />
-        <span class="guide-num">02</span>
-        <span class="guide-kicker">Prix</span>
-        <strong>Cyberpunk pas cher</strong>
-        <span>Standard vs Ultimate, où l’acheter.</span>
-      </a>
-      <a class="guide-card" href="/guides/elden-ring-pas-cher.html">
-        <img class="guide-thumb" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="" loading="lazy" width="460" height="215" />
-        <span class="guide-num">03</span>
-        <span class="guide-kicker">Prix</span>
-        <strong>Elden Ring pas cher</strong>
-        <span>Standard ou DLC, où l’acheter.</span>
-      </a>
       <a class="guide-card" href="/guides/acheter-jeux-pas-cher.html">
-        <span class="guide-num">04</span>
+        <span class="guide-num">02</span>
         <span class="guide-kicker">Budget</span>
         <strong>Payer moins cher</strong>
         <span>3 règles. C’est tout.</span>
       </a>
-      <a class="guide-card" href="/guides/jeux-ce-soir-pas-cher.html">
-        <span class="guide-num">05</span>
-        <span class="guide-kicker">Idées</span>
-        <strong>Jouer pas cher</strong>
-        <span>6 idées + liens prix.</span>
-      </a>
-      <a class="guide-card" href="/guides/game-pass-vs-acheter.html">
-        <span class="guide-num">06</span>
-        <span class="guide-kicker">Choix</span>
-        <strong>Game Pass ou acheter</strong>
-        <span>Le calcul en 30 secondes.</span>
-      </a>
-      <a class="guide-card" href="/guides/meilleurs-jeux-coop-2026.html">
-        <img class="guide-thumb" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/header.jpg" alt="" loading="lazy" width="460" height="215" />
-        <span class="guide-num">07</span>
-        <span class="guide-kicker">Coop</span>
-        <strong>Jeux coop</strong>
-        <span>Quoi lancer à deux.</span>
-      </a>
-      <a class="guide-card" href="/guides/pc-gaming-petit-budget.html">
-        <span class="guide-num">08</span>
-        <span class="guide-kicker">PC</span>
-        <strong>PC petit budget</strong>
-        <span>Où mettre l’argent.</span>
-      </a>
-      <a class="guide-card" href="/guides/meilleurs-jeux-sport-2026.html">
-        <img class="guide-thumb" src="https://cdn.cloudflare.steamstatic.com/steam/apps/2669320/header.jpg" alt="" loading="lazy" width="460" height="215" />
-        <span class="guide-num">09</span>
-        <span class="guide-kicker">Sport</span>
-        <strong>Jeux de sport</strong>
-        <span>Faut-il racheter chaque année ?</span>
-      </a>
       <a class="guide-card" href="/guides/cles-jeux-legitimes.html">
-        <span class="guide-num">10</span>
+        <span class="guide-num">03</span>
         <span class="guide-kicker">Sécurité</span>
         <strong>Clés safe</strong>
         <span>Éviter les pièges.</span>
@@ -110,5 +66,13 @@
       <a href="/a-propos.html">À propos</a>
     </div>
   </footer>
+  <script src="/js/season.js"></script>
+  <script src="/js/guides-data.js"></script>
+  <script src="/js/guides-list.js"></script>
+
+  <script src="/js/config.js"></script>
+    <script src="/js/ui.js"></script>
+    <script src="/js/seo.js"></script>
+  <script src="/js/track.js"></script>
 </body>
 </html>

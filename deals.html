@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Prix des jeux — JeuxStash</title>
   <meta name="description" content="Compare et achète moins cher : catalogue Instant Gaming affilié + comparaison multi-boutiques via GG.deals." />
-  <link rel="canonical" href="https://jeuxstash.pages.dev/deals.html" />
+  <link rel="canonical" href="https://www.jeuxstash.fr/deals.html" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,7 +31,7 @@
     <div class="section-head">
       <div>
         <h2>Prix & bons plans</h2>
-        <p>Acheter = Instant Gaming (affiliation). Comparer = plusieurs boutiques.</p>
+        <p>Tu repères, tu compares, tu prends. Zéro blabla. <span id="deals-updated" class="fine"></span></p>
       </div>
       <span id="deals-count" class="deals-count"></span>
     </div>
@@ -41,6 +41,25 @@
         <span class="sr-only">Rechercher un jeu</span>
         <input id="deals-search" type="search" placeholder="Rechercher un jeu…" autocomplete="off" />
       </label>
+      <div class="deals-controls">
+        <label class="sort-wrap">
+          <span class="sr-only">Trier</span>
+          <select id="deals-sort">
+            <option value="featured">En stock d’abord</option>
+            <option value="price-asc">Prix ↑</option>
+            <option value="price-desc">Prix ↓</option>
+            <option value="name">A → Z</option>
+          </select>
+        </label>
+        <label class="check-chip">
+          <input type="checkbox" id="deals-stock" />
+          <span>En stock</span>
+        </label>
+        <label class="check-chip">
+          <input type="checkbox" id="deals-under20" />
+          <span>&lt; 20&nbsp;€</span>
+        </label>
+      </div>
       <div id="deals-filters" class="filter-row" role="group" aria-label="Filtres">
         <button type="button" class="chip is-active" data-filter="all">Tous</button>
         <button type="button" class="chip" data-filter="hot">Hot</button>
@@ -52,9 +71,9 @@
     </div>
 
     <div class="aff-strip">
-      <p><strong>Pas dans la liste ?</strong> Cherche n’importe quel titre sur Instant Gaming avec notre lien.</p>
+      <p><strong>Pas trouvé ton jeu&nbsp;?</strong> Cherche-le direct sur Instant Gaming — même lien affilié, même prix pour toi.</p>
       <div class="row">
-        <a class="btn buy small" href="https://www.instant-gaming.com/fr/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Ouvrir Instant Gaming</a>
+        <a class="btn buy small" href="https://www.instant-gaming.com/fr/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Chercher sur Instant Gaming</a>
         <a class="btn ghost small" href="https://www.instant-gaming.com/fr/tendances/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Tendances</a>
         <a class="btn ghost small" href="https://gg.deals/" rel="noopener" target="_blank">Comparer partout</a>
       </div>
@@ -64,8 +83,8 @@
     <p id="deals-empty" class="deals-empty" hidden>Aucun jeu pour ce filtre. Essayez « Tous » ou une autre recherche.</p>
 
     <div class="aff-box">
-      <h3>Comment ça marche</h3>
-      <p><strong>Acheter</strong> → page produit Instant Gaming (commission possible pour JeuxStash, sans surcoût). <strong>Comparer</strong> → GG.deals pour vérifier le moins cher ailleurs avant de payer.</p>
+      <h3>Tranquille</h3>
+      <p><strong>Voir le prix</strong> ouvre Instant Gaming (on touche une petite com’ si tu achètes — toi tu paies pareil). <strong>Comparer</strong> = GG.deals pour checker ailleurs avant de cliquer.</p>
     </div>
   </main>
 
@@ -82,10 +101,15 @@
       <a href="/a-propos.html">À propos</a>
       <a href="/mentions-legales.html">Mentions</a>
     </div>
-    <p class="fine">Liens Instant Gaming affiliés — sans surcoût pour toi.</p>
+    <p class="fine">Prix Instant Gaming indicatifs. « Comparer » → GG.deals.</p>
   </footer>
 
   <script src="/js/catalog.js"></script>
   <script src="/js/deals.js"></script>
+
+  <script src="/js/config.js"></script>
+    <script src="/js/ui.js"></script>
+    <script src="/js/seo.js"></script>
+  <script src="/js/track.js"></script>
 </body>
 </html>

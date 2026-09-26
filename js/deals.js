@@ -4,9 +4,31 @@
   const filters = document.getElementById("deals-filters");
   const empty = document.getElementById("deals-empty");
   const countEl = document.getElementById("deals-count");
+  const sortEl = document.getElementById("deals-sort");
+  const stockOnly = document.getElementById("deals-stock");
+  const under20 = document.getElementById("deals-under20");
+  const updatedEl = document.getElementById("deals-updated");
   if (!grid || !window.JEUXSTASH_CATALOG) return;
 
   let activeCat = "all";
+
+  if (updatedEl && window.JEUXSTASH_PRICES_UPDATED) {
+    try {
+      const d = new Date(window.JEUXSTASH_PRICES_UPDATED + "T12:00:00");
+      updatedEl.textContent =
+        "Prix maj. " +
+        d.toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" });
+    } catch (e) {
+      updatedEl.textContent = "Prix maj. " + window.JEUXSTASH_PRICES_UPDATED;
+    }
+  }
+
+  // ?q= / #hash prefill
+  try {
+    const params = new URLSearchParams(location.search);
+    const q0 = params.get("q") || (location.hash ? decodeURIComponent(location.hash.slice(1)) : "");
+    if (q0 && search) search.value = q0;
+  } catch (e) {}
 
   function esc(str) {
     return String(str)
@@ -21,6 +43,36 @@
     return "https://cdn.cloudflare.steamstatic.com/steam/apps/" + game.steam + "/header.jpg";
   }
 
+  function formatPrice(n) {
+    if (n == null || Number.isNaN(n)) return null;
+    return (
+      Number(n).toLocaleString("fr-FR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }) + "\u00a0€"
+    );
+  }
+
+  function badgesHTML(game) {
+    const out = game.stock === "out";
+    const price = formatPrice(game.price);
+    let html = "";
+    if (out) html += '<span class="game-badge game-badge--out">Rupture</span>';
+    if (price) html += '<span class="game-badge game-badge--price">' + price + "</span>";
+    return html ? '<span class="game-badges">' + html + "</span>" : "";
+  }
+
+  function guideLink(game) {
+    const map = {
+      "Elden Ring": "/guides/elden-ring-pas-cher.html",
+      "Cyberpunk 2077": "/guides/cyberpunk-pas-cher.html",
+      "Baldur's Gate 3": "/guides/baldurs-gate-3-pas-cher.html",
+      "Forza Horizon 5": "/guides/forza-horizon-5-pas-cher.html",
+    };
+    const href = map[game.name];
+    return href ? '<a class="btn ghost small" href="' + href + '">Guide</a>' : "";
+  }
+
   function cardHTML(game) {
     const cats = (game.cats || []).join(" ");
     const name = esc(game.name);
@@ -28,8 +80,14 @@
     const tag = esc(game.tag || "");
     const ig = esc(game.ig);
     const gg = esc(game.gg);
+    const oos = game.stock === "out";
+    const buy = oos
+      ? '<span class="btn buy small is-oos" aria-disabled="true">Rupture</span>'
+      : '<a class="btn buy small" href="' + ig + '" rel="sponsored noopener" target="_blank">Voir le prix</a>';
     return (
-      '<article class="game-card" data-name="' +
+      '<article class="game-card' +
+      (oos ? " is-oos" : "") +
+      '" data-name="' +
       game.name.toLowerCase().replace(/"/g, "") +
       '" data-cats="' +
       cats +
@@ -42,6 +100,7 @@
       '" alt="' +
       name +
       '" width="460" height="215" loading="lazy" />' +
+      badgesHTML(game) +
       "</a>" +
       '<div class="game-card-body">' +
       '<span class="tag">' +
@@ -54,14 +113,46 @@
       blurb +
       "</p>" +
       '<div class="row">' +
-      '<a class="btn buy small" href="' +
-      ig +
-      '" rel="sponsored noopener" target="_blank">Acheter</a>' +
+      buy +
       '<a class="btn ghost small" href="' +
       gg +
       '" rel="noopener" target="_blank">Comparer</a>' +
+      guideLink(game) +
       "</div></div></article>"
     );
+  }
+
+  function sortList(list) {
+    const mode = sortEl ? sortEl.value : "featured";
+    const copy = list.slice();
+    if (mode === "price-asc") {
+      copy.sort(function (a, b) {
+        const pa = a.price == null ? 9999 : a.price;
+        const pb = b.price == null ? 9999 : b.price;
+        return pa - pb;
+      });
+    } else if (mode === "price-desc") {
+      copy.sort(function (a, b) {
+        const pa = a.price == null ? -1 : a.price;
+        const pb = b.price == null ? -1 : b.price;
+        return pb - pa;
+      });
+    } else if (mode === "name") {
+      copy.sort(function (a, b) {
+        return a.name.localeCompare(b.name, "fr");
+      });
+    } else {
+      // featured: en stock d’abord, puis prix croissant
+      copy.sort(function (a, b) {
+        const sa = a.stock === "ok" ? 0 : 1;
+        const sb = b.stock === "ok" ? 0 : 1;
+        if (sa !== sb) return sa - sb;
+        const pa = a.price == null ? 9999 : a.price;
+        const pb = b.price == null ? 9999 : b.price;
+        return pa - pb;
+      });
+    }
+    return copy;
   }
 
   function render(list) {
@@ -72,12 +163,23 @@
 
   function apply() {
     const q = (search && search.value ? search.value : "").trim().toLowerCase();
-    const list = window.JEUXSTASH_CATALOG.filter(function (g) {
+    let list = window.JEUXSTASH_CATALOG.filter(function (g) {
       const catOk = activeCat === "all" || (g.cats || []).indexOf(activeCat) !== -1;
       const qOk = !q || g.name.toLowerCase().indexOf(q) !== -1 || (g.blurb || "").toLowerCase().indexOf(q) !== -1;
-      return catOk && qOk;
+      const stockOk = !stockOnly || !stockOnly.checked || g.stock === "ok";
+      const cheapOk = !under20 || !under20.checked || (g.price != null && g.price > 0 && g.price < 20);
+      return catOk && qOk && stockOk && cheapOk;
     });
+    list = sortList(list);
     render(list);
+
+    // sync ?q= without reload spam
+    try {
+      const url = new URL(location.href);
+      if (q) url.searchParams.set("q", q);
+      else url.searchParams.delete("q");
+      history.replaceState(null, "", url.pathname + url.search + url.hash);
+    } catch (e) {}
   }
 
   if (filters) {
@@ -93,6 +195,9 @@
   }
 
   if (search) search.addEventListener("input", apply);
+  if (sortEl) sortEl.addEventListener("change", apply);
+  if (stockOnly) stockOnly.addEventListener("change", apply);
+  if (under20) under20.addEventListener("change", apply);
 
   apply();
 })();

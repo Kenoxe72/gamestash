@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Suivi clics (local) — JeuxStash</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <main class="article">
+    <p class="back-nav"><a class="back-link" href="/">← Accueil</a></p>
+    <h1>Suivi clics (ce navigateur)</h1>
+    <p class="tldr"><strong>Rappel :</strong> ça compte les clics <em>sur cette machine</em>. Pour le vrai trafic : Cloudflare Web Analytics + GA4 (voir <code>js/config.js</code>). Les ventes = tableau Instant Gaming affilié.</p>
+    <p id="summary" class="meta"></p>
+    <pre id="out" style="white-space:pre-wrap;background:#12161c;padding:1rem;border-radius:12px;border:1px solid var(--line);font-size:0.85rem;color:#d9d2c6;overflow:auto"></pre>
+    <p><button type="button" class="btn ghost small" id="clear">Vider ce journal</button></p>
+  </main>
+  <script src="/js/config.js"></script>
+    <script src="/js/ui.js"></script>
+    <script src="/js/seo.js"></script>
+  <script src="/js/track.js"></script>
+  <script>
+    function render() {
+      var rows = (window.JEUXSTASH_clickStats && window.JEUXSTASH_clickStats()) || [];
+      var ig = rows.filter(function (r) { return r.e === "ig_click"; }).length;
+      var cmp = rows.filter(function (r) { return r.e === "compare_click"; }).length;
+      document.getElementById("summary").textContent =
+        rows.length + " events · " + ig + " Instant Gaming · " + cmp + " Comparer";
+      document.getElementById("out").textContent = rows.length
+        ? rows
+            .slice()
+            .reverse()
+            .map(function (r) {
+              return new Date(r.t).toLocaleString("fr-FR") + " | " + r.e + " | " + r.l + " | " + r.p;
+            })
+            .join("\n")
+        : "Aucun clic tracké ici pour l’instant. Clique un bouton « Voir le prix » sur le site, puis reviens.";
+    }
+    document.getElementById("clear").onclick = function () {
+      localStorage.removeItem("jeuxstash_clicks");
+      render();
+    };
+    render();
+  </script>
+</body>
+</html>

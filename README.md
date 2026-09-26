@@ -2,7 +2,7 @@
 
 Guides courts + prix Instant Gaming / GG.deals.
 
-**Site :** https://jeuxstash.pages.dev  
+**Site :** https://www.jeuxstash.fr  
 **Code :** https://github.com/Kenoxe72/jeuxstash
 
 ## Mettre à jour le site
