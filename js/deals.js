@@ -97,7 +97,7 @@
         "</span>";
     } else if (hasAmz && out) {
       html +=
-        '<span class="game-badge game-badge--price game-badge--amz" title="Voir le prix boîte sur Amazon">Boîte Amazon</span>';
+        '<span class="game-badge game-badge--price game-badge--amz" title="Voir le prix sur Amazon">Sur Amazon</span>';
     }
     return html ? '<span class="game-badges">' + html + "</span>" : "";
   }
@@ -148,7 +148,7 @@
           cls +
           '" href="' +
           esc(amazonGameUrl(amzQ)) +
-          '" rel="sponsored noopener" target="_blank" title="Version physique — prix sur Amazon">Boîte Amazon</a>'
+          '" rel="sponsored noopener" target="_blank" title="Version physique — prix sur Amazon">Sur Amazon</a>'
       );
     }
 
