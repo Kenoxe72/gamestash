@@ -44,9 +44,9 @@ window.JEUXSTASH_SEASON = (function () {
       label: "Hiver",
       eyebrow: "Soldes & soirées canapé",
       blurb: "Gros solo, chill, et promos de fin d’année.",
-      heroPrefer: ["Baldur's Gate 3", "Cyberpunk 2077", "Call of Duty: Black Ops 6", "Hades", "Stardew Valley"],
+      heroPrefer: ["Elden Ring", "Baldur's Gate 3", "Cyberpunk 2077", "Hades", "Stardew Valley"],
       boost: ["chill", "hot"],
-      guideBoost: ["call-of-duty-pas-cher", "gta-6-pas-cher", "game-pass-vs-acheter", "acheter-jeux-pas-cher"],
+      guideBoost: ["elden-ring-pas-cher", "gta-6-pas-cher", "game-pass-vs-acheter", "acheter-jeux-pas-cher"],
     },
     printemps: {
       label: "Printemps",
@@ -68,9 +68,9 @@ window.JEUXSTASH_SEASON = (function () {
       label: "Automne",
       eyebrow: "Rentrée gaming",
       blurb: "Nouveautés, RPG, gros titres en promo.",
-      heroPrefer: ["Call of Duty: Black Ops 6", "Grand Theft Auto VI", "EA Sports FC 27", "Elden Ring", "Baldur's Gate 3"],
+      heroPrefer: ["Elden Ring", "Call of Duty: Black Ops 7", "Grand Theft Auto VI", "EA Sports FC 27", "Baldur's Gate 3"],
       boost: ["hot", "action"],
-      guideBoost: ["call-of-duty-pas-cher", "gta-6-pas-cher", "ea-fc-pas-cher", "elden-ring-pas-cher", "instant-gaming-fiable"],
+      guideBoost: ["elden-ring-pas-cher", "call-of-duty-pas-cher", "gta-6-pas-cher", "ea-fc-pas-cher", "instant-gaming-fiable"],
     },
   };
 

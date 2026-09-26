@@ -222,23 +222,23 @@ window.JEUXSTASH_CATALOG = [
     ]
   },
   {
-    "name": "Call of Duty: Black Ops 6",
-    "blurb": "Le COD du moment. Battle.net — compare avant le plein pot.",
+    "name": "Call of Duty: Black Ops 7",
+    "blurb": "Le COD actuel. Battle.net — compare avant le plein pot.",
     "tag": "Hot",
     "cats": [
       "hot",
       "action"
     ],
-    "steam": 2933080,
-    "cover": "https://gaming-cdn.com/images/products/13629/616x353/call-of-duty-black-ops-6-pc-cover.jpg",
-    "ig": "https://www.instant-gaming.com/fr/13629-acheter-call-of-duty-black-ops-6-pc-jeu-battle-net/?igr=gamer-47bd4c",
-    "gg": "https://gg.deals/games/?title=Call+of+Duty+Black+Ops+6",
-    "price": 57.99,
+    "steam": 3606480,
+    "cover": "https://gaming-cdn.com/images/products/15595/616x353/call-of-duty-black-ops-7-pc-battle-net-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/15595-acheter-call-of-duty-black-ops-7-pc-battle-net/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Call+of+Duty+Black+Ops+7",
+    "price": 63.29,
     "stock": "ok",
     "platforms": [
       "pc"
     ],
-    "amazon": "Call of Duty Black Ops 6"
+    "amazon": "Call of Duty Black Ops 7"
   },
   {
     "name": "Grand Theft Auto VI",
@@ -793,7 +793,7 @@ window.JEUXSTASH_CATALOG = [
     "amazon": "Astro Bot PS5"
   },
   {
-    "name": "Call of Duty: Black Ops 6",
+    "name": "Call of Duty: Black Ops 7",
     "blurb": "COD sur Xbox / PC. Compare avant le plein pot.",
     "tag": "Xbox",
     "cats": [
@@ -804,12 +804,12 @@ window.JEUXSTASH_CATALOG = [
       "xbox",
       "pc"
     ],
-    "cover": "https://gaming-cdn.com/images/products/17161/616x353/call-of-duty-black-ops-6-xbox-series-x-s-xbox-one-cover.jpg",
-    "ig": "https://www.instant-gaming.com/fr/17161-acheter-call-of-duty-black-ops-6-xbox-series-x-s-xbox-one-jeu-microsoft-store/?igr=gamer-47bd4c",
-    "gg": "https://gg.deals/games/?title=Call+of+Duty+Black+Ops+6",
-    "price": null,
+    "cover": "https://gaming-cdn.com/images/products/20546/616x353/call-of-duty-black-ops-7-cross-gen-bundle-xbox-one-xbox-series-x-s-pc-microsoft-store-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/20546-acheter-call-of-duty-black-ops-7-cross-gen-bundle-xbox-one-xbox-series-x-s-pc-microsoft-store/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Call+of+Duty+Black+Ops+7",
+    "price": 52.69,
     "stock": "ok",
-    "amazon": "Call of Duty Black Ops 6 Xbox"
+    "amazon": "Call of Duty Black Ops 7 Xbox"
   },
   {
     "name": "Halo Infinite Campaign",
