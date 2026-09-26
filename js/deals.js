@@ -8,43 +8,56 @@
 
   let activeCat = "all";
 
+  function esc(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
   function coverUrl(steamId) {
     return "https://cdn.cloudflare.steamstatic.com/steam/apps/" + steamId + "/header.jpg";
   }
 
   function cardHTML(game) {
     const cats = (game.cats || []).join(" ");
+    const name = esc(game.name);
+    const blurb = esc(game.blurb || "");
+    const tag = esc(game.tag || "");
+    const ig = esc(game.ig);
+    const gg = esc(game.gg);
     return (
       '<article class="game-card" data-name="' +
-      game.name.toLowerCase() +
+      game.name.toLowerCase().replace(/"/g, "") +
       '" data-cats="' +
       cats +
       '">' +
       '<a class="game-cover-link" href="' +
-      game.ig +
+      ig +
       '" rel="sponsored noopener" target="_blank">' +
       '<img class="game-cover" src="' +
       coverUrl(game.steam) +
       '" alt="' +
-      game.name +
+      name +
       '" width="460" height="215" loading="lazy" />' +
       "</a>" +
       '<div class="game-card-body">' +
       '<span class="tag">' +
-      game.tag +
+      tag +
       "</span>" +
       "<h3>" +
-      game.name +
+      name +
       "</h3>" +
       "<p>" +
-      game.blurb +
+      blurb +
       "</p>" +
       '<div class="row">' +
       '<a class="btn buy small" href="' +
-      game.ig +
+      ig +
       '" rel="sponsored noopener" target="_blank">Acheter</a>' +
       '<a class="btn ghost small" href="' +
-      game.gg +
+      gg +
       '" rel="noopener" target="_blank">Comparer</a>' +
       "</div></div></article>"
     );

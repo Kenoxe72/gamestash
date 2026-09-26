@@ -429,6 +429,29 @@ nav a:hover {
   padding: 1.8rem 1.2rem 2.8rem;
 }
 
+.back-nav {
+  margin: 0 0 1rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.back-link:hover,
+.article .back-link:hover {
+  color: var(--accent);
+}
+
+.article .back-link {
+  color: var(--muted);
+}
+
 .article .meta {
   color: var(--muted);
   font-size: 0.85rem;
