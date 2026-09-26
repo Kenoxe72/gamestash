@@ -1,12 +1,12 @@
-# GameStash
+# JeuxStash
 
 Site pour **choisir un jeu ce soir** et **payer moins cher** (guides courts + liens Instant Gaming / GG.deals).
 
 ## En ligne
 
-https://gamestash-fr.netlify.app
+https://jeuxstash.netlify.app
 
-Code : https://github.com/Kenoxe72/gamestash
+Code : https://github.com/Kenoxe72/jeuxstash
 
 ## Local
 
