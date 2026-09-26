@@ -170,5 +170,95 @@ window.JEUXSTASH_CATALOG = [
     steam: 1172620,
     ig: "https://www.instant-gaming.com/fr/967-acheter-sea-of-thieves-2026-edition-pc-xbox-one-xbox-series-x-s-microsoft-store/?igr=gamer-47bd4c",
     gg: "https://gg.deals/games/?title=Sea+of+Thieves"
+  },
+  {
+    name: "Watch Dogs",
+    blurb: "Pirater Chicago. Souvent soldé.",
+    tag: "Action",
+    cats: ["action", "hot"],
+    steam: 243470,
+    ig: "https://www.instant-gaming.com/fr/254-acheter-watch-dogs-pc-jeu-ubisoft-connect-europe/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=Watch+Dogs"
+  },
+  {
+    name: "Watch Dogs 2",
+    blurb: "San Francisco, hacking fun. Excellent rapport qualité/prix.",
+    tag: "Hot",
+    cats: ["action", "hot", "chill"],
+    steam: 447040,
+    ig: "https://www.instant-gaming.com/fr/1365-acheter-watch-dogs-2-pc-jeu-ubisoft-connect-europe/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=Watch+Dogs+2"
+  },
+  {
+    name: "Watch Dogs Legion",
+    blurb: "Recrute n’importe qui à Londres.",
+    tag: "Action",
+    cats: ["action", "hot"],
+    steam: 2231380,
+    ig: "https://www.instant-gaming.com/fr/2540-acheter-watch-dogs-legion-pc-jeu-ubisoft-connect-europe/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=Watch+Dogs+Legion"
+  },
+  {
+    name: "Far Cry 5",
+    blurb: "Open world chaos. Très souvent en promo.",
+    tag: "Action",
+    cats: ["action", "hot"],
+    steam: 552520,
+    ig: "https://www.instant-gaming.com/fr/1842-acheter-far-cry-5-pc-jeu-ubisoft-connect-europe/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=Far+Cry+5"
+  },
+  {
+    name: "Far Cry 6",
+    blurb: "Dictature tropicale + armes folles.",
+    tag: "Action",
+    cats: ["action", "hot"],
+    steam: 2369390,
+    ig: "https://www.instant-gaming.com/fr/7080-acheter-far-cry-6-pc-jeu-ubisoft-connect-europe/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=Far+Cry+6"
+  },
+  {
+    name: "Assassin's Creed Odyssey",
+    blurb: "Grèce antique immense. Longue durée.",
+    tag: "Hot",
+    cats: ["action", "chill", "hot"],
+    steam: 812140,
+    ig: "https://www.instant-gaming.com/fr/2648-acheter-assassin-s-creed-odyssey-pc-jeu-ubisoft-connect-europe/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=Assassin%27s+Creed+Odyssey"
+  },
+  {
+    name: "The Witcher 3",
+    blurb: "GOTY. Le RPG à prendre en promo.",
+    tag: "Hot",
+    cats: ["hot", "chill", "action"],
+    steam: 292030,
+    ig: "https://www.instant-gaming.com/fr/1497-acheter-the-witcher-3-wild-hunt-complete-edition-pc-gog-com/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=The+Witcher+3"
+  },
+  {
+    name: "Hogwarts Legacy",
+    blurb: "Poudlard open world. Souvent soldé.",
+    tag: "Hot",
+    cats: ["hot", "chill", "action"],
+    steam: 990080,
+    ig: "https://www.instant-gaming.com/fr/7072-acheter-hogwarts-legacy-l-heritage-de-poudlard-pc-jeu-steam-europe-us-canada/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=Hogwarts+Legacy"
+  },
+  {
+    name: "God of War",
+    blurb: "Kratos + Atreus. Solo narratif fort.",
+    tag: "Hot",
+    cats: ["hot", "action", "chill"],
+    steam: 1593500,
+    ig: "https://www.instant-gaming.com/fr/7325-acheter-god-of-war-pc-jeu-steam-europe/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=God+of+War"
+  },
+  {
+    name: "Marvel's Spider-Man",
+    blurb: "Swinguer à New York. Remaster PC.",
+    tag: "Action",
+    cats: ["action", "hot"],
+    steam: 1817070,
+    ig: "https://www.instant-gaming.com/fr/11907-acheter-marvel-s-spider-man-remastered-pc-jeu-steam/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=Marvel%27s+Spider-Man+Remastered"
   }
 ];
