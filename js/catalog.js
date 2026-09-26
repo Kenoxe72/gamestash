@@ -222,20 +222,78 @@ window.JEUXSTASH_CATALOG = [
     ]
   },
   {
-    "name": "EA Sports FC",
-    "blurb": "Compare avant d’acheter plein pot.",
-    "tag": "Sport",
+    "name": "Call of Duty: Black Ops 6",
+    "blurb": "Le COD du moment. Battle.net — compare avant le plein pot.",
+    "tag": "Hot",
     "cats": [
-      "sport"
+      "hot",
+      "action"
     ],
-    "steam": 2669320,
-    "ig": "https://www.instant-gaming.com/fr/21656-acheter-ea-sports-fc-27-pc-ea-app/?igr=gamer-47bd4c",
-    "gg": "https://gg.deals/games/?title=EA+Sports+FC",
-    "price": 56.99,
+    "steam": 2933080,
+    "cover": "https://gaming-cdn.com/images/products/13629/616x353/call-of-duty-black-ops-6-pc-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/13629-acheter-call-of-duty-black-ops-6-pc-jeu-battle-net/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Call+of+Duty+Black+Ops+6",
+    "price": 57.99,
     "stock": "ok",
     "platforms": [
       "pc"
-    ]
+    ],
+    "amazon": "Call of Duty Black Ops 6"
+  },
+  {
+    "name": "Grand Theft Auto VI",
+    "blurb": "Précommande PC Rockstar. Surveille le prix avant le jour J.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/2462/616x353/grand-theft-auto-vi-pc-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/2462-acheter-grand-theft-auto-vi-pc-rockstar/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Grand+Theft+Auto+VI",
+    "price": null,
+    "stock": "out",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Grand Theft Auto VI"
+  },
+  {
+    "name": "Minecraft",
+    "blurb": "Java & Bedrock. Petit prix, durée de vie infinie.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "chill",
+      "coop"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/12567/616x353/minecraft-java-bedrock-edition-pc-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/12567-acheter-minecraft-java-bedrock-edition-pc/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Minecraft",
+    "price": 23.99,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Minecraft Java Bedrock"
+  },
+  {
+    "name": "EA Sports FC 27",
+    "blurb": "Le foot 2026/27. Compare avant d’acheter plein pot.",
+    "tag": "Sport",
+    "cats": [
+      "sport",
+      "hot"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/21656/616x353/ea-sports-fc-27-pc-ea-app-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/21656-acheter-ea-sports-fc-27-pc-ea-app/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=EA+Sports+FC+27",
+    "price": 37.25,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "EA Sports FC 27"
   },
   {
     "name": "Baldur's Gate 3",
@@ -735,21 +793,23 @@ window.JEUXSTASH_CATALOG = [
     "amazon": "Astro Bot PS5"
   },
   {
-    "name": "EA Sports FC 25",
-    "blurb": "Foot PS4 & PS5. Compare avant le plein pot.",
-    "tag": "PS5",
+    "name": "Call of Duty: Black Ops 6",
+    "blurb": "COD sur Xbox / PC. Compare avant le plein pot.",
+    "tag": "Xbox",
     "cats": [
-      "sport"
+      "hot",
+      "action"
     ],
     "platforms": [
-      "ps5"
+      "xbox",
+      "pc"
     ],
-    "cover": "https://gaming-cdn.com/images/products/17254/616x353/ea-sports-fc-25-playstation-5-playstation-4-cover.jpg",
-    "ig": "https://www.instant-gaming.com/fr/17254-acheter-ea-sports-fc-25-playstation-5-playstation-4-jeu-playstation-store/?igr=gamer-47bd4c",
-    "gg": "https://gg.deals/game/ea-sports-fc-25/",
+    "cover": "https://gaming-cdn.com/images/products/17161/616x353/call-of-duty-black-ops-6-xbox-series-x-s-xbox-one-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/17161-acheter-call-of-duty-black-ops-6-xbox-series-x-s-xbox-one-jeu-microsoft-store/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Call+of+Duty+Black+Ops+6",
     "price": null,
-    "stock": "out",
-    "amazon": "EA Sports FC 25 PS5"
+    "stock": "ok",
+    "amazon": "Call of Duty Black Ops 6 Xbox"
   },
   {
     "name": "Halo Infinite Campaign",

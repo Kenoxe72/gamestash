@@ -1,6 +1,36 @@
 /* Catalogue des guides — rotation saisonnière (les fichiers HTML restent en ligne) */
 window.JEUXSTASH_GUIDES = [
   {
+    id: "call-of-duty-pas-cher",
+    href: "/guides/call-of-duty-pas-cher.html",
+    title: "Call of Duty pas cher",
+    blurb: "Black Ops 6 : où l’acheter sans se faire avoir.",
+    kicker: "Prix",
+    thumb: "https://gaming-cdn.com/images/products/13629/616x353/call-of-duty-black-ops-6-pc-cover.jpg",
+    evergreen: true,
+    seasons: ["automne", "hiver"],
+  },
+  {
+    id: "gta-6-pas-cher",
+    href: "/guides/gta-6-pas-cher.html",
+    title: "GTA 6 pas cher",
+    blurb: "Précommande PC : prix, pièges, quand acheter.",
+    kicker: "Prix",
+    thumb: "https://gaming-cdn.com/images/products/2462/616x353/grand-theft-auto-vi-pc-cover.jpg",
+    evergreen: true,
+    seasons: ["automne", "hiver", "ete"],
+  },
+  {
+    id: "ea-fc-pas-cher",
+    href: "/guides/ea-fc-pas-cher.html",
+    title: "EA Sports FC 27 pas cher",
+    blurb: "FC 27 : Standard vs promo, faut-il racheter ?",
+    kicker: "Sport",
+    thumb: "https://gaming-cdn.com/images/products/21656/616x353/ea-sports-fc-27-pc-ea-app-cover.jpg",
+    evergreen: true,
+    seasons: ["ete", "automne"],
+  },
+  {
     id: "instant-gaming-fiable",
     href: "/guides/instant-gaming-fiable.html",
     title: "Instant Gaming fiable ?",
@@ -115,7 +145,7 @@ window.JEUXSTASH_GUIDES = [
     title: "Jeux de sport",
     blurb: "Faut-il racheter chaque année ?",
     kicker: "Sport",
-    thumb: "https://cdn.cloudflare.steamstatic.com/steam/apps/2669320/header.jpg",
+    thumb: "https://gaming-cdn.com/images/products/21656/616x353/ea-sports-fc-27-pc-ea-app-cover.jpg",
     seasons: ["ete", "automne"],
   },
 ];

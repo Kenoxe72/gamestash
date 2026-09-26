@@ -44,9 +44,9 @@ window.JEUXSTASH_SEASON = (function () {
       label: "Hiver",
       eyebrow: "Soldes & soirées canapé",
       blurb: "Gros solo, chill, et promos de fin d’année.",
-      heroPrefer: ["Baldur's Gate 3", "Cyberpunk 2077", "Red Dead Redemption 2", "Hades", "Stardew Valley"],
+      heroPrefer: ["Baldur's Gate 3", "Cyberpunk 2077", "Call of Duty: Black Ops 6", "Hades", "Stardew Valley"],
       boost: ["chill", "hot"],
-      guideBoost: ["game-pass-vs-acheter", "cyberpunk-pas-cher", "elden-ring-pas-cher", "acheter-jeux-pas-cher"],
+      guideBoost: ["call-of-duty-pas-cher", "gta-6-pas-cher", "game-pass-vs-acheter", "acheter-jeux-pas-cher"],
     },
     printemps: {
       label: "Printemps",
@@ -60,17 +60,17 @@ window.JEUXSTASH_SEASON = (function () {
       label: "Été",
       eyebrow: "Sessions courtes & course",
       blurb: "Parties rapides, sport, conduite.",
-      heroPrefer: ["Forza Horizon 5", "Overcooked 2", "GTA V Enhanced", "Helldivers 2", "EA Sports FC"],
+      heroPrefer: ["Forza Horizon 5", "Overcooked 2", "EA Sports FC 27", "Helldivers 2", "Minecraft"],
       boost: ["sport", "coop"],
-      guideBoost: ["meilleurs-jeux-sport-2026", "jeux-ce-soir-pas-cher", "pc-gaming-petit-budget"],
+      guideBoost: ["ea-fc-pas-cher", "meilleurs-jeux-sport-2026", "jeux-ce-soir-pas-cher", "pc-gaming-petit-budget"],
     },
     automne: {
       label: "Automne",
       eyebrow: "Rentrée gaming",
       blurb: "Nouveautés, RPG, gros titres en promo.",
-      heroPrefer: ["WARDOGS", "Elden Ring", "Baldur's Gate 3", "Helldivers 2", "Hogwarts Legacy"],
+      heroPrefer: ["Call of Duty: Black Ops 6", "Grand Theft Auto VI", "EA Sports FC 27", "Elden Ring", "Baldur's Gate 3"],
       boost: ["hot", "action"],
-      guideBoost: ["elden-ring-pas-cher", "cyberpunk-pas-cher", "baldurs-gate-3-pas-cher", "cle-steam-pas-cher", "instant-gaming-fiable"],
+      guideBoost: ["call-of-duty-pas-cher", "gta-6-pas-cher", "ea-fc-pas-cher", "elden-ring-pas-cher", "instant-gaming-fiable"],
     },
   };
 
