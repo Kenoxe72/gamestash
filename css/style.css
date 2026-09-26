@@ -515,6 +515,10 @@ nav .nav-current {
   background: rgba(255, 214, 102, 0.95);
 }
 
+.game-badge--amz {
+  background: rgba(255, 180, 84, 0.95);
+}
+
 .game-badge--out {
   right: 0.55rem;
   top: 0.55rem;

@@ -84,10 +84,21 @@
     const out = game.stock === "out";
     const price = formatPrice(game.price);
     const plat = platLabel(platformsOf(game));
+    const hasAmz = !!game.amazon;
     let html = "";
-    if (out) html += '<span class="game-badge game-badge--out">Rupture</span>';
+    if (out) html += '<span class="game-badge game-badge--out">Clé rupture</span>';
     if (plat) html += '<span class="game-badge game-badge--plat">' + esc(plat) + "</span>";
-    if (price) html += '<span class="game-badge game-badge--price">' + price + "</span>";
+    // Prix jaquette = toujours Instant Gaming (clé). Jamais le prix Amazon.
+    if (price && !out) {
+      html +=
+        '<span class="game-badge game-badge--price" title="Prix clé Instant Gaming">' +
+        "Clé " +
+        price +
+        "</span>";
+    } else if (hasAmz && out) {
+      html +=
+        '<span class="game-badge game-badge--price game-badge--amz" title="Voir le prix boîte sur Amazon">Boîte Amazon</span>';
+    }
     return html ? '<span class="game-badges">' + html + "</span>" : "";
   }
 
@@ -113,28 +124,33 @@
     const ig = game.ig;
     const amzQ = game.amazon;
     const oos = game.stock === "out";
+    const price = formatPrice(game.price);
     const parts = [];
 
     if (ig) {
       if (oos) {
         parts.push('<span class="btn buy small is-oos" aria-disabled="true">Clé en rupture</span>');
       } else {
+        const label = price ? "Clé · " + price : "Clé digitale";
         parts.push(
           '<a class="btn buy small" href="' +
             esc(ig) +
-            '" rel="sponsored noopener" target="_blank" title="Clé digitale Instant Gaming">Clé digitale</a>'
+            '" rel="sponsored noopener" target="_blank" title="Clé digitale Instant Gaming">' +
+            esc(label) +
+            "</a>"
         );
       }
     }
 
     if (amzQ) {
+      // Amazon = prix sur place (souvent différent / plus bas en boîte)
       const cls = ig && !oos ? "btn ghost small" : "btn buy small";
       parts.push(
         '<a class="' +
           cls +
           '" href="' +
           esc(amazonGameUrl(amzQ)) +
-          '" rel="sponsored noopener" target="_blank" title="Version boîte / physique sur Amazon">Boîte Amazon</a>'
+          '" rel="sponsored noopener" target="_blank" title="Version physique — prix affiché sur Amazon">Boîte · prix Amazon</a>'
       );
     }
 
