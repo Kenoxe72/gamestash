@@ -4,7 +4,7 @@ Site pour **choisir un jeu ce soir** et **payer moins cher** (guides courts + li
 
 ## En ligne
 
-https://super-meringue-955b09.netlify.app
+https://gamestash-fr.netlify.app
 
 Code : https://github.com/Kenoxe72/gamestash
 

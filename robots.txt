@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://super-meringue-955b09.netlify.app/sitemap.xml
+Sitemap: https://gamestash-fr.netlify.app/sitemap.xml
