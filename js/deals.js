@@ -131,26 +131,24 @@
       if (oos) {
         parts.push('<span class="btn buy small is-oos" aria-disabled="true">Clé en rupture</span>');
       } else {
-        const label = price ? "Clé · " + price : "Clé digitale";
         parts.push(
           '<a class="btn buy small" href="' +
             esc(ig) +
-            '" rel="sponsored noopener" target="_blank" title="Clé digitale Instant Gaming">' +
-            esc(label) +
-            "</a>"
+            '" rel="sponsored noopener" target="_blank" title="Clé digitale Instant Gaming' +
+            (price ? " — " + price : "") +
+            '">Clé digitale</a>'
         );
       }
     }
 
     if (amzQ) {
-      // Amazon = prix sur place (souvent différent / plus bas en boîte)
       const cls = ig && !oos ? "btn ghost small" : "btn buy small";
       parts.push(
         '<a class="' +
           cls +
           '" href="' +
           esc(amazonGameUrl(amzQ)) +
-          '" rel="sponsored noopener" target="_blank" title="Version physique — prix affiché sur Amazon">Boîte · prix Amazon</a>'
+          '" rel="sponsored noopener" target="_blank" title="Version physique — prix sur Amazon">Boîte Amazon</a>'
       );
     }
 
