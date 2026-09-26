@@ -1,10 +1,35 @@
 (function () {
-  function amazonUrl(query) {
-    var tag = (window.JEUXSTASH_AMAZON_TAG || "").trim();
-    var url =
-      "https://www.amazon.fr/s?k=" + encodeURIComponent(query) + "&i=computers";
-    if (tag) url += "&tag=" + encodeURIComponent(tag);
-    return url;
+  function amazonTag() {
+    return (window.JEUXSTASH_AMAZON_TAG || "").trim();
+  }
+
+  function withTag(url) {
+    var tag = amazonTag();
+    if (!tag) return url;
+    return url + (url.indexOf("?") >= 0 ? "&" : "?") + "tag=" + encodeURIComponent(tag);
+  }
+
+  /** Recherche pièces (DIY) */
+  function amazonPartsUrl(query) {
+    return withTag(
+      "https://www.amazon.fr/s?k=" + encodeURIComponent(query) + "&i=computers"
+    );
+  }
+
+  /**
+   * PC déjà montés dans une fourchette de prix.
+   * p_36 = prix en centimes d’euro (ex. 750€ → 75000).
+   * Tri popularité pour remonter les meilleures ventes.
+   */
+  function amazonPrebuiltUrl(query, priceMinCents, priceMaxCents) {
+    var rh = "p_36:" + priceMinCents + "-" + priceMaxCents;
+    return withTag(
+      "https://www.amazon.fr/s?k=" +
+        encodeURIComponent(query) +
+        "&i=computers&rh=" +
+        encodeURIComponent(rh) +
+        "&s=exact-aware-popularity-rank"
+    );
   }
 
   var builds = {
@@ -12,6 +37,13 @@
       title: "Entrée · ~750–800 €",
       tagline: "Full HD fluide : esport + jeux récents en réglages moyens/élevés. Budget réaliste neuf en France.",
       target: "1080p · 60 FPS et plus",
+      prebuilt: {
+        query: "PC gamer RTX RX",
+        priceMin: 65000,
+        priceMax: 85000,
+        label: "Meilleurs PC montés ~650–850 €",
+        hint: "Tours prêtes à brancher dans ce budget (triées par popularité Amazon).",
+      },
       parts: [
         {
           role: "GPU",
@@ -61,6 +93,13 @@
       title: "Confort · ~1100–1200 €",
       tagline: "Quad HD agréable pendant plusieurs années. Le palier « je m’en sers sans regret ».",
       target: "1440p · 60–100 FPS",
+      prebuilt: {
+        query: "PC gamer RTX 4070 4060 Ti",
+        priceMin: 100000,
+        priceMax: 130000,
+        label: "Meilleurs PC montés ~1000–1300 €",
+        hint: "Tours prêtes à brancher dans ce budget (triées par popularité Amazon).",
+      },
       parts: [
         {
           role: "GPU",
@@ -110,6 +149,13 @@
       title: "Haut · ~1600–1800 €",
       tagline: "1440p en ultra, début de 4K. Ray tracing et futurs jeux plus confortables.",
       target: "1440p ultra · 4K moyen",
+      prebuilt: {
+        query: "PC gamer RTX 4070 Ti 5070",
+        priceMin: 150000,
+        priceMax: 190000,
+        label: "Meilleurs PC montés ~1500–1900 €",
+        hint: "Tours prêtes à brancher dans ce budget (triées par popularité Amazon).",
+      },
       parts: [
         {
           role: "GPU",
@@ -171,12 +217,13 @@
 
   function render(key) {
     var b = builds[key] || builds.entry;
-    var hasTag = !!(window.JEUXSTASH_AMAZON_TAG || "").trim();
+    var hasTag = !!amazonTag();
+    var pb = b.prebuilt;
     var rows = b.parts
       .map(function (p) {
         var link = p.amazon
           ? '<a class="builder-amazon" href="' +
-            esc(amazonUrl(p.amazon)) +
+            esc(amazonPartsUrl(p.amazon)) +
             '" rel="sponsored noopener" target="_blank">Voir sur Amazon</a>'
           : "";
         return (
@@ -193,13 +240,6 @@
       })
       .join("");
 
-    var kitQuery =
-      key === "mid"
-        ? "RTX 4070 PC gamer"
-        : key === "high"
-          ? "RTX 5070 PC gamer"
-          : "RX 7600 PC gamer";
-
     panel.innerHTML =
       '<div class="builder-card">' +
       "<h3>" +
@@ -211,17 +251,25 @@
       '<p class="builder-target"><span>Cible</span> ' +
       esc(b.target) +
       "</p>" +
+      '<div class="builder-prebuilt">' +
+      "<p><strong>Pas envie de monter pièce par pièce&nbsp;?</strong> " +
+      esc(pb.hint) +
+      "</p>" +
+      '<a class="btn buy" href="' +
+      esc(amazonPrebuiltUrl(pb.query, pb.priceMin, pb.priceMax)) +
+      '" rel="sponsored noopener" target="_blank">' +
+      esc(pb.label) +
+      "</a>" +
+      "</div>" +
+      '<h4 class="builder-diy-title">Ou monter toi-même</h4>' +
       '<table class="builder-table"><tbody>' +
       rows +
       "</tbody></table>" +
       '<div class="row">' +
-      '<a class="btn buy small" href="' +
-      esc(amazonUrl(kitQuery)) +
-      '" rel="sponsored noopener" target="_blank">Tout chercher sur Amazon</a>' +
-      '<a class="btn ghost small" href="/deals.html?platform=pc">Remplir le disque</a>' +
+      '<a class="btn ghost small" href="/deals.html?platform=pc">Remplir le disque (jeux)</a>' +
       "</div>" +
-      '<p class="fine">Budgets indicatifs neuf, tour seule. Liens Amazon affiliés' +
-      (hasTag ? "" : " (ID Partenaire à renseigner dans la config)") +
+      '<p class="fine">Budgets indicatifs neuf, tour seule. Vérifie GPU / RAM / alim sur la fiche Amazon avant d’acheter. Liens affiliés' +
+      (hasTag ? "" : " (ID Partenaire à renseigner)") +
       " — En tant que Partenaire Amazon, JeuxStash réalise un bénéfice sur les achats éligibles.</p>" +
       "</div>";
   }
