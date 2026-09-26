@@ -1,6 +1,15 @@
 /* Catalogue JeuxStash — liens Instant Gaming affiliés (igr=gamer-47bd4c) */
 window.JEUXSTASH_CATALOG = [
   {
+    name: "WARDOGS",
+    blurb: "Le jeu du moment. FPS 100 joueurs, 3 équipes.",
+    tag: "Hot",
+    cats: ["hot", "action", "coop"],
+    steam: 1867240,
+    ig: "https://www.instant-gaming.com/fr/21740-acheter-wardogs-pc-steam/?igr=gamer-47bd4c",
+    gg: "https://gg.deals/games/?title=WARDOGS"
+  },
+  {
     name: "It Takes Two",
     blurb: "Le duo coop n°1.",
     tag: "Hot",
