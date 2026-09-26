@@ -236,27 +236,28 @@
   const used = {};
   if (hero) used[hero.name] = true;
 
-  // Toujours visibles : gros titres recherchés (pas noyés dans la rotation)
-  const mustNames = [
-    "Call of Duty: Black Ops 7",
-    "Grand Theft Auto VI",
-    "EA Sports FC 27",
-  ];
-  const must = [];
-  mustNames.forEach(function (name) {
+  fillGrid("coop", pick("coop", 6, used));
+  fillGrid("chill", pick("chill", 4, used), tipCard());
+  // Sport : FC 27 toujours en tête
+  const sportForce = [];
+  ["EA Sports FC 27"].forEach(function (name) {
     const g = byName(name);
     if (g && !used[g.name]) {
-      must.push(g);
+      sportForce.push(g);
       used[g.name] = true;
     }
   });
-  fillGrid("must", must);
-
-  fillGrid("coop", pick("coop", 6, used));
-  fillGrid("chill", pick("chill", 4, used), tipCard());
-  fillGrid("sport", pick("sport", 2, used));
-  // hits : mélange hot + boost saison, 8 cartes
-  const hits = pick("hot", 8, used);
+  fillGrid("sport", sportForce.concat(pick("sport", 2, used)).slice(0, 3));
+  // hits : mixer gros titres + hot
+  const hitForce = [];
+  ["Call of Duty: Black Ops 7", "Grand Theft Auto VI", "Black Myth: Wukong"].forEach(function (name) {
+    const g = byName(name);
+    if (g && !used[g.name]) {
+      hitForce.push(g);
+      used[g.name] = true;
+    }
+  });
+  const hits = hitForce.concat(pick("hot", 8, used)).slice(0, 10);
   if (hits.length < 8) {
     pick(null, 8 - hits.length, used).forEach(function (g) {
       hits.push(g);
