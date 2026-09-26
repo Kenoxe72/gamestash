@@ -70,7 +70,8 @@ window.JEUXSTASH_CATALOG = [
     "platforms": [
       "pc",
       "xbox"
-    ]
+    ],
+    "amazon": "Forza Horizon 5 Xbox"
   },
   {
     "name": "Deep Rock Galactic",
@@ -252,7 +253,8 @@ window.JEUXSTASH_CATALOG = [
     "stock": "ok",
     "platforms": [
       "pc"
-    ]
+    ],
+    "amazon": "Baldur's Gate 3 PC"
   },
   {
     "name": "Elden Ring",
@@ -270,7 +272,8 @@ window.JEUXSTASH_CATALOG = [
     "stock": "ok",
     "platforms": [
       "pc"
-    ]
+    ],
+    "amazon": "Elden Ring PC"
   },
   {
     "name": "Cyberpunk 2077",
@@ -288,7 +291,8 @@ window.JEUXSTASH_CATALOG = [
     "stock": "ok",
     "platforms": [
       "pc"
-    ]
+    ],
+    "amazon": "Cyberpunk 2077 PC"
   },
   {
     "name": "GTA V Enhanced",
@@ -305,7 +309,8 @@ window.JEUXSTASH_CATALOG = [
     "stock": "ok",
     "platforms": [
       "pc"
-    ]
+    ],
+    "amazon": "GTA V PC"
   },
   {
     "name": "Red Dead Redemption 2",
@@ -323,7 +328,8 @@ window.JEUXSTASH_CATALOG = [
     "stock": "ok",
     "platforms": [
       "pc"
-    ]
+    ],
+    "amazon": "Red Dead Redemption 2 PC"
   },
   {
     "name": "Sea of Thieves",
@@ -462,7 +468,8 @@ window.JEUXSTASH_CATALOG = [
     "stock": "ok",
     "platforms": [
       "pc"
-    ]
+    ],
+    "amazon": "The Witcher 3 Complete Edition PC"
   },
   {
     "name": "Hogwarts Legacy",
@@ -480,7 +487,8 @@ window.JEUXSTASH_CATALOG = [
     "stock": "ok",
     "platforms": [
       "pc"
-    ]
+    ],
+    "amazon": "Hogwarts Legacy PC"
   },
   {
     "name": "God of War",
@@ -498,7 +506,8 @@ window.JEUXSTASH_CATALOG = [
     "stock": "ok",
     "platforms": [
       "pc"
-    ]
+    ],
+    "amazon": "God of War PC"
   },
   {
     "name": "Marvel's Spider-Man",
@@ -515,7 +524,8 @@ window.JEUXSTASH_CATALOG = [
     "stock": "ok",
     "platforms": [
       "pc"
-    ]
+    ],
+    "amazon": "Spider-Man Remastered PC"
   },
   {
     "name": "Zelda: Tears of the Kingdom",
@@ -533,7 +543,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/4860-acheter-the-legend-of-zelda-tears-of-the-kingdom-switch-jeu-nintendo-eshop-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/the-legend-of-zelda-tears-of-the-kingdom/",
     "price": 63.49,
-    "stock": "ok"
+    "stock": "ok",
+    "amazon": "Zelda Tears of the Kingdom Switch"
   },
   {
     "name": "Zelda: Breath of the Wild",
@@ -551,7 +562,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/2616-acheter-the-legend-of-zelda-breath-of-the-wild-switch-jeu-nintendo-eshop-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/the-legend-of-zelda-breath-of-the-wild/",
     "price": 66.59,
-    "stock": "ok"
+    "stock": "ok",
+    "amazon": "Zelda Breath of the Wild Switch"
   },
   {
     "name": "Mario Kart 8 Deluxe",
@@ -569,7 +581,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/2615-acheter-mario-kart-8-deluxe-switch-jeu-nintendo-eshop-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/mario-kart-8-deluxe/",
     "price": 57.49,
-    "stock": "ok"
+    "stock": "ok",
+    "amazon": "Mario Kart 8 Deluxe Switch"
   },
   {
     "name": "Super Mario Odyssey",
@@ -587,7 +600,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/2618-acheter-super-mario-odyssey-switch-nintendo-eshop/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/super-mario-odyssey/",
     "price": 54.8,
-    "stock": "ok"
+    "stock": "ok",
+    "amazon": "Super Mario Odyssey Switch"
   },
   {
     "name": "Animal Crossing: New Horizons",
@@ -604,7 +618,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/4809-acheter-animal-crossing-new-horizons-switch-jeu-nintendo-eshop-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/animal-crossing-new-horizons/",
     "price": 55.19,
-    "stock": "ok"
+    "stock": "ok",
+    "amazon": "Animal Crossing New Horizons Switch"
   },
   {
     "name": "Super Smash Bros. Ultimate",
@@ -622,7 +637,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/3000-acheter-super-smash-bros-ultimate-switch-jeu-nintendo-eshop-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/super-smash-bros-ultimate/",
     "price": 65.99,
-    "stock": "ok"
+    "stock": "ok",
+    "amazon": "Super Smash Bros Ultimate Switch"
   },
   {
     "name": "Marvel's Spider-Man 2",
@@ -639,7 +655,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/15218-acheter-marvel-s-spider-man-2-playstation-5-jeu-playstation-store-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/marvels-spider-man-2/",
     "price": 65.9,
-    "stock": "out"
+    "stock": "out",
+    "amazon": "Spider-Man 2 PS5"
   },
   {
     "name": "God of War Ragnarök",
@@ -657,7 +674,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/9312-acheter-god-of-war-ragnarok-playstation-5-jeu-playstation-store-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/god-of-war-ragnarok/",
     "price": 43.42,
-    "stock": "out"
+    "stock": "out",
+    "amazon": "God of War Ragnarok PS5"
   },
   {
     "name": "Horizon Forbidden West",
@@ -675,7 +693,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/13049-acheter-horizon-forbidden-west-playstation-5-playstation-4-jeu-playstation-store-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/horizon-forbidden-west/",
     "price": 36.41,
-    "stock": "out"
+    "stock": "out",
+    "amazon": "Horizon Forbidden West PS5"
   },
   {
     "name": "The Last of Us Part I",
@@ -693,7 +712,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/12105-acheter-the-last-of-us-part-i-playstation-5-jeu-playstation-store-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/the-last-of-us-part-i/",
     "price": 67.02,
-    "stock": "out"
+    "stock": "out",
+    "amazon": "The Last of Us Part I PS5"
   },
   {
     "name": "Astro Bot",
@@ -711,7 +731,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/16944-acheter-astro-bot-playstation-5-jeu-playstation-store-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/astro-bot/",
     "price": 63.99,
-    "stock": "out"
+    "stock": "out",
+    "amazon": "Astro Bot PS5"
   },
   {
     "name": "EA Sports FC 25",
@@ -727,7 +748,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/17254-acheter-ea-sports-fc-25-playstation-5-playstation-4-jeu-playstation-store/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/ea-sports-fc-25/",
     "price": null,
-    "stock": "out"
+    "stock": "out",
+    "amazon": "EA Sports FC 25 PS5"
   },
   {
     "name": "Halo Infinite Campaign",
@@ -745,7 +767,8 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/2674-acheter-halo-infinite-campaign-pc-xbox-one-jeu-microsoft-store/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/game/halo-infinite/",
     "price": 14.69,
-    "stock": "ok"
+    "stock": "ok",
+    "amazon": "Halo Infinite Xbox Series"
   }
 ];
 window.JEUXSTASH_PRICES_UPDATED = "2026-09-26";

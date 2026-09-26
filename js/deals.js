@@ -102,19 +102,67 @@
     return href ? '<a class="btn ghost small" href="' + href + '">Guide</a>' : "";
   }
 
+  function amazonGameUrl(query) {
+    const tag = (window.JEUXSTASH_AMAZON_TAG || "").trim();
+    let url = "https://www.amazon.fr/s?k=" + encodeURIComponent(query);
+    if (tag) url += "&tag=" + encodeURIComponent(tag);
+    return url;
+  }
+
+  function buyButtons(game) {
+    const ig = game.ig;
+    const amzQ = game.amazon;
+    const oos = game.stock === "out";
+    const parts = [];
+
+    if (ig) {
+      if (oos) {
+        parts.push('<span class="btn buy small is-oos" aria-disabled="true">Clé en rupture</span>');
+      } else {
+        parts.push(
+          '<a class="btn buy small" href="' +
+            esc(ig) +
+            '" rel="sponsored noopener" target="_blank" title="Clé digitale Instant Gaming">Clé digitale</a>'
+        );
+      }
+    }
+
+    if (amzQ) {
+      const cls = ig && !oos ? "btn ghost small" : "btn buy small";
+      parts.push(
+        '<a class="' +
+          cls +
+          '" href="' +
+          esc(amazonGameUrl(amzQ)) +
+          '" rel="sponsored noopener" target="_blank" title="Version boîte / physique sur Amazon">Boîte Amazon</a>'
+      );
+    }
+
+    if (!parts.length) {
+      parts.push(
+        '<a class="btn buy small" href="https://www.instant-gaming.com/fr/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Chercher</a>'
+      );
+    }
+
+    return parts.join("");
+  }
+
+  function primaryHref(game) {
+    if (game.ig && game.stock !== "out") return game.ig;
+    if (game.amazon) return amazonGameUrl(game.amazon);
+    return game.ig || "https://www.instant-gaming.com/fr/?igr=gamer-47bd4c";
+  }
+
   function cardHTML(game) {
     const cats = (game.cats || []).join(" ");
     const plats = platformsOf(game).join(" ");
     const name = esc(game.name);
     const blurb = esc(game.blurb || "");
     const tag = esc(game.tag || "");
-    const ig = esc(game.ig);
     const gg = esc(game.gg);
     const oos = game.stock === "out";
     const cover = coverUrl(game);
-    const buy = oos
-      ? '<span class="btn buy small is-oos" aria-disabled="true">Rupture</span>'
-      : '<a class="btn buy small" href="' + ig + '" rel="sponsored noopener" target="_blank">Voir le prix</a>';
+    const primary = esc(primaryHref(game));
     const img = cover
       ? '<img class="game-cover" src="' +
         cover +
@@ -133,7 +181,7 @@
       plats +
       '">' +
       '<a class="game-cover-link" href="' +
-      ig +
+      primary +
       '" rel="sponsored noopener" target="_blank">' +
       img +
       badgesHTML(game) +
@@ -149,7 +197,7 @@
       blurb +
       "</p>" +
       '<div class="row">' +
-      buy +
+      buyButtons(game) +
       '<a class="btn ghost small" href="' +
       gg +
       '" rel="noopener" target="_blank">Comparer</a>' +

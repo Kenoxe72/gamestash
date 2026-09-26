@@ -39,10 +39,10 @@
       target: "1080p · 60 FPS et plus",
       prebuilt: {
         query: "PC gamer RTX RX",
-        priceMin: 65000,
+        priceMin: 70000,
         priceMax: 85000,
-        label: "Meilleurs PC montés ~650–850 €",
-        hint: "Tours prêtes à brancher dans ce budget (triées par popularité Amazon).",
+        label: "Meilleurs PC montés ~750–800 €",
+        hint: "Tours prêtes dans ce budget, triées par popularité Amazon. Vérifie le GPU sur la fiche.",
       },
       parts: [
         {
@@ -95,10 +95,10 @@
       target: "1440p · 60–100 FPS",
       prebuilt: {
         query: "PC gamer RTX 4070 4060 Ti",
-        priceMin: 100000,
-        priceMax: 130000,
-        label: "Meilleurs PC montés ~1000–1300 €",
-        hint: "Tours prêtes à brancher dans ce budget (triées par popularité Amazon).",
+        priceMin: 105000,
+        priceMax: 125000,
+        label: "Meilleurs PC montés ~1100–1200 €",
+        hint: "Tours prêtes dans ce budget, triées par popularité Amazon. Vérifie le GPU sur la fiche.",
       },
       parts: [
         {
@@ -151,10 +151,10 @@
       target: "1440p ultra · 4K moyen",
       prebuilt: {
         query: "PC gamer RTX 4070 Ti 5070",
-        priceMin: 150000,
-        priceMax: 190000,
-        label: "Meilleurs PC montés ~1500–1900 €",
-        hint: "Tours prêtes à brancher dans ce budget (triées par popularité Amazon).",
+        priceMin: 155000,
+        priceMax: 185000,
+        label: "Meilleurs PC montés ~1600–1800 €",
+        hint: "Tours prêtes dans ce budget, triées par popularité Amazon. Vérifie le GPU sur la fiche.",
       },
       parts: [
         {
@@ -266,7 +266,7 @@
       rows +
       "</tbody></table>" +
       '<div class="row">' +
-      '<a class="btn ghost small" href="/deals.html?platform=pc">Remplir le disque (jeux)</a>' +
+      '<a class="btn ghost small" href="/deals.html?platform=pc">Voir les jeux PC</a>' +
       "</div>" +
       '<p class="fine">Budgets indicatifs neuf, tour seule. Vérifie GPU / RAM / alim sur la fiche Amazon avant d’acheter. Liens affiliés' +
       (hasTag ? "" : " (ID Partenaire à renseigner)") +
