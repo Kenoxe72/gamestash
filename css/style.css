@@ -269,12 +269,19 @@ nav a:hover {
   min-height: 100%;
 }
 
+.game-cover-link {
+  display: block;
+  background: #0a0c0f;
+  line-height: 0;
+}
+
 .game-cover {
   display: block;
   width: 100%;
   aspect-ratio: 460 / 215;
-  object-fit: cover;
-  background: #0d1014;
+  object-fit: contain;
+  object-position: center center;
+  background: #0a0c0f;
 }
 
 .game-card-body {
