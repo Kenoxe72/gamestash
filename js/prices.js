@@ -67,7 +67,8 @@
     const wrap = document.createElement("span");
     wrap.className = "game-badges";
     wrap.innerHTML = badgesHTML(game);
-    if (wrap.childNodes.length) feature.appendChild(wrap);
+    const cover = feature.querySelector(".hero-cover") || feature;
+    if (wrap.childNodes.length) cover.appendChild(wrap);
     if (game.stock === "out") {
       feature.classList.add("is-oos");
       document.querySelectorAll(".hero-actions a.btn.buy").forEach(function (btn) {

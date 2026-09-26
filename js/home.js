@@ -169,7 +169,7 @@
     if (feature) {
       feature.href = game.ig;
       feature.classList.toggle("is-oos", game.stock === "out");
-      const img = feature.querySelector("img");
+      const img = feature.querySelector(".hero-cover img, img");
       if (img) {
         img.src = coverUrl(game);
         img.alt = game.name;
@@ -180,7 +180,9 @@
       if (em) em.textContent = game.blurb || plan.blurb;
       const old = feature.querySelector(".game-badges");
       if (old) old.remove();
-      feature.insertAdjacentHTML("beforeend", badgesHTML(game));
+      const cover = feature.querySelector(".hero-cover");
+      if (cover) cover.insertAdjacentHTML("beforeend", badgesHTML(game));
+      else feature.insertAdjacentHTML("beforeend", badgesHTML(game));
     }
     if (actions) {
       const buy = actions.querySelector(".btn.buy, .btn.is-oos");
