@@ -35,6 +35,10 @@ body {
   line-height: 1.5;
 }
 
+body:has(.sticky-aff) {
+  padding-bottom: 4.5rem;
+}
+
 .bg-grid {
   pointer-events: none;
   position: fixed;
@@ -92,7 +96,8 @@ nav {
   align-items: center;
 }
 
-nav a {
+nav a,
+nav .nav-current {
   color: var(--muted);
   text-decoration: none;
   font-size: 0.9rem;
@@ -103,6 +108,13 @@ nav a:hover {
   color: #fff;
 }
 
+nav .nav-current {
+  color: #fff;
+  font-weight: 700;
+  cursor: default;
+  pointer-events: none;
+}
+
 .nav-cta {
   padding: 0.45rem 0.9rem !important;
   border-radius: 999px;
@@ -110,6 +122,11 @@ nav a:hover {
   color: var(--accent) !important;
   border: 1px solid rgba(255, 180, 84, 0.35);
   font-weight: 700 !important;
+}
+
+.nav-cta:hover {
+  background: rgba(255, 180, 84, 0.2);
+  border-color: rgba(255, 180, 84, 0.55);
 }
 
 .hero {
@@ -639,19 +656,24 @@ nav a:hover {
 }
 
 .sticky-aff {
-  position: sticky;
-  bottom: 0.75rem;
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
   z-index: 30;
   display: flex;
   justify-content: center;
-  gap: 0.55rem;
-  padding: 0 1rem 0.5rem;
-  pointer-events: none;
+  gap: 0.5rem;
+  padding: 0.35rem;
+  border-radius: 999px;
+  background: rgba(10, 12, 15, 0.88);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
 }
 
 .sticky-aff .btn {
-  pointer-events: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: none;
 }
 
 .game-cover-link:hover .game-cover {
