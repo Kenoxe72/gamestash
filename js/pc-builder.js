@@ -2,9 +2,7 @@
   function amazonUrl(query) {
     var tag = (window.JEUXSTASH_AMAZON_TAG || "").trim();
     var url =
-      "https://www.amazon.fr/s?k=" +
-      encodeURIComponent(query) +
-      "&i=computers&rh=n%3A340858031";
+      "https://www.amazon.fr/s?k=" + encodeURIComponent(query) + "&i=computers";
     if (tag) url += "&tag=" + encodeURIComponent(tag);
     return url;
   }
@@ -19,43 +17,43 @@
           role: "GPU",
           name: "RX 7600 (ou RTX 4060 / 5050)",
           why: "La pièce qui compte le plus pour les FPS. La RX 7600 tient mieux le 700–800 €.",
-          amazon: "RX 7600",
+          amazon: "RX 7600 carte graphique",
         },
         {
           role: "CPU",
           name: "Ryzen 5 5600",
           why: "Suffisant pour accompagner cette carte. Évite un vieux dual-core.",
-          amazon: "AMD Ryzen 5 5600",
+          amazon: "AMD Ryzen 5 5600 processeur",
         },
         {
           role: "RAM",
           name: "16 Go DDR4 (2×8)",
           why: "8 Go, c’est trop juste aujourd’hui. Passe à 32 Go plus tard si besoin.",
-          amazon: "16Go DDR4 3200 2x8",
+          amazon: "kit mémoire DDR4 16Go 3200 DIMM 2x8",
         },
         {
           role: "Stockage",
           name: "SSD NVMe 1 To",
           why: "Les jeux s’installent et se lancent beaucoup plus vite qu’avec un disque dur.",
-          amazon: "SSD NVMe 1To",
+          amazon: "SSD M.2 NVMe 1To interne",
         },
         {
           role: "Carte mère",
           name: "B550 (AM4)",
           why: "Compatible avec le 5600, assez de ports USB / M.2. Pas besoin du haut de gamme.",
-          amazon: "carte mere B550 AM4",
+          amazon: "carte mère B550 AM4 ATX",
         },
         {
           role: "Alim",
           name: "550–650 W 80+ Bronze",
           why: "Prends une marque connue (Corsair, be quiet!, MSI…). Évite les no-name.",
-          amazon: "alimentation 650W 80+ Bronze",
+          amazon: "alimentation PC 650W 80+ Bronze",
         },
         {
           role: "Boîtier",
           name: "Mid-tower avec bon airflow",
           why: "Priorité à la ventilation, pas aux LED. 2–3 ventilos suffisent.",
-          amazon: "boitier PC mid tower airflow",
+          amazon: "boîtier PC mid-tower ATX airflow",
         },
       ],
     },
@@ -68,43 +66,43 @@
           role: "GPU",
           name: "RTX 4070 / RX 7800 XT / RTX 5060 Ti",
           why: "Bon équilibre perf / prix pour du 1440p. Compare le prix du jour avant d’acheter.",
-          amazon: "RTX 4070",
+          amazon: "RTX 4070 carte graphique",
         },
         {
           role: "CPU",
           name: "Ryzen 5 7600 (AM5)",
           why: "Plateforme récente : tu pourras changer le processeur plus tard sans tout racheter.",
-          amazon: "AMD Ryzen 5 7600",
+          amazon: "AMD Ryzen 5 7600 processeur",
         },
         {
           role: "RAM",
           name: "32 Go DDR5",
           why: "Chrome, Discord et mods en même temps sans ralentir.",
-          amazon: "32Go DDR5 6000 2x16",
+          amazon: "kit mémoire DDR5 32Go 6000 DIMM 2x16",
         },
         {
           role: "Stockage",
           name: "SSD NVMe 2 To",
           why: "Un gros jeu AAA prend souvent 100 Go et plus. 1 To se remplit vite.",
-          amazon: "SSD NVMe 2To",
+          amazon: "SSD M.2 NVMe 2To interne",
         },
         {
           role: "Carte mère",
           name: "B650 (Wi‑Fi si possible)",
           why: "Assez pour le GPU et le SSD rapide, Wi‑Fi pratique si pas de câble.",
-          amazon: "carte mere B650 wifi",
+          amazon: "carte mère B650 wifi AM5",
         },
         {
           role: "Alim",
           name: "750 W 80+ Gold",
           why: "De la marge si tu changes de carte graphique un jour.",
-          amazon: "alimentation 750W 80+ Gold",
+          amazon: "alimentation PC 750W 80+ Gold",
         },
         {
           role: "Boîtier",
           name: "Mid-tower mesh",
           why: "Avant grillagé = GPU plus au frais, moins de bruit.",
-          amazon: "boitier PC mesh mid tower",
+          amazon: "boîtier PC mid-tower mesh ATX",
         },
       ],
     },
@@ -117,43 +115,43 @@
           role: "GPU",
           name: "RTX 5070 / 4070 Ti Super",
           why: "Réserve de puissance pour 3–4 ans. Vérifie le prix neuf vs promo.",
-          amazon: "RTX 5070",
+          amazon: "RTX 5070 carte graphique",
         },
         {
           role: "CPU",
           name: "Ryzen 7 7700 / 9700X",
           why: "Utile si tu joues et streames en même temps.",
-          amazon: "AMD Ryzen 7 7700",
+          amazon: "AMD Ryzen 7 7700 processeur",
         },
         {
           role: "RAM",
           name: "32 Go DDR5 ~6000",
           why: "Assez pour le gaming. 64 Go seulement si montage vidéo / 3D.",
-          amazon: "32Go DDR5 6000 CL30",
+          amazon: "kit mémoire DDR5 32Go 6000 DIMM",
         },
         {
           role: "Stockage",
           name: "SSD NVMe 2 To Gen4",
           why: "Jeux sur le SSD rapide. Un second disque pour les archives si besoin.",
-          amazon: "SSD NVMe Gen4 2To",
+          amazon: "SSD M.2 NVMe Gen4 2To",
         },
         {
           role: "Carte mère",
           name: "B650 / X670",
           why: "Alimentation CPU correcte, beaucoup de ports USB.",
-          amazon: "carte mere B650",
+          amazon: "carte mère B650 AM5 ATX",
         },
         {
           role: "Alim",
           name: "850 W Gold (ATX 3)",
           why: "Prête pour les cartes récentes avec câble 12VHPWR.",
-          amazon: "alimentation 850W Gold ATX 3.0",
+          amazon: "alimentation PC 850W Gold ATX 3.0",
         },
         {
           role: "Cooling",
           name: "Ventirad tour correct",
           why: "Un bon air cooler suffit. Watercooling AIO = option, pas une obligation.",
-          amazon: "ventirad CPU tour",
+          amazon: "ventirad CPU tour AM5 AM4",
         },
       ],
     },
