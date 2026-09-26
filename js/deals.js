@@ -102,15 +102,64 @@
     return html ? '<span class="game-badges">' + html + "</span>" : "";
   }
 
+  function norm(s) {
+    return String(s || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim();
+  }
+
+  function searchHaystack(game) {
+    const parts = [game.name, game.blurb];
+    if (game.aliases && game.aliases.length) parts.push(game.aliases.join(" "));
+    return norm(parts.join(" "));
+  }
+
+  function queryVariants(q) {
+    const n = norm(q);
+    if (!n) return [];
+    const out = [n, n.replace(/\s+/g, "")];
+    // chiffres ↔ chiffres romains (gta 6 ↔ gta vi)
+    out.push(n.replace(/\b6\b/g, "vi").replace(/\b7\b/g, "vii").replace(/\b5\b/g, "v").replace(/\b4\b/g, "iv").replace(/\b3\b/g, "iii").replace(/\b2\b/g, "ii"));
+    out.push(n.replace(/\bvii\b/g, "7").replace(/\bvi\b/g, "6").replace(/\bv\b/g, "5").replace(/\biv\b/g, "4").replace(/\biii\b/g, "3").replace(/\bii\b/g, "2"));
+    // dédup
+    const seen = {};
+    return out.filter(function (v) {
+      if (!v || seen[v]) return false;
+      seen[v] = true;
+      return true;
+    });
+  }
+
+  function matchesQuery(game, q) {
+    if (!q) return true;
+    const hay = searchHaystack(game);
+    const hayCompact = hay.replace(/\s+/g, "");
+    const variants = queryVariants(q);
+    for (let i = 0; i < variants.length; i++) {
+      const v = variants[i];
+      if (hay.indexOf(v) !== -1) return true;
+      if (hayCompact.indexOf(v.replace(/\s+/g, "")) !== -1) return true;
+    }
+    return false;
+  }
+
   function guideLink(game) {
     const map = {
       "Elden Ring": "/guides/elden-ring-pas-cher.html",
       "Cyberpunk 2077": "/guides/cyberpunk-pas-cher.html",
       "Baldur's Gate 3": "/guides/baldurs-gate-3-pas-cher.html",
       "Forza Horizon 5": "/guides/forza-horizon-5-pas-cher.html",
+      "EA Sports FC 27": "/guides/ea-fc-pas-cher.html",
+      "Grand Theft Auto VI": "/guides/gta-6-pas-cher.html",
     };
-    const href = map[game.name];
-    return href ? '<a class="btn ghost small" href="' + href + '">Guide</a>' : "";
+    if (map[game.name]) return '<a class="btn ghost small" href="' + map[game.name] + '">Guide</a>';
+    if ((game.name || "").indexOf("Call of Duty") === 0) {
+      return '<a class="btn ghost small" href="/guides/call-of-duty-pas-cher.html">Guide</a>';
+    }
+    return "";
   }
 
   function amazonGameUrl(query) {
@@ -271,10 +320,7 @@
       const plats = platformsOf(g);
       const catOk = activeCat === "all" || (g.cats || []).indexOf(activeCat) !== -1;
       const platOk = activePlat === "all" || plats.indexOf(activePlat) !== -1;
-      const qOk =
-        !q ||
-        g.name.toLowerCase().indexOf(q) !== -1 ||
-        (g.blurb || "").toLowerCase().indexOf(q) !== -1;
+      const qOk = matchesQuery(g, q);
       const stockOk = !stockOnly || !stockOnly.checked || g.stock === "ok";
       const cheapOk = !under20 || !under20.checked || (g.price != null && g.price > 0 && g.price < 20);
       return catOk && platOk && qOk && stockOk && cheapOk;

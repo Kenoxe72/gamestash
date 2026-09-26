@@ -238,7 +238,14 @@ window.JEUXSTASH_CATALOG = [
     "platforms": [
       "pc"
     ],
-    "amazon": "Call of Duty Black Ops 7"
+    "amazon": "Call of Duty Black Ops 7",
+    "aliases": [
+      "bo7",
+      "bo 7",
+      "black ops 7",
+      "cod bo7",
+      "call of duty 7"
+    ]
   },
   {
     "name": "Grand Theft Auto VI",
@@ -256,7 +263,14 @@ window.JEUXSTASH_CATALOG = [
     "platforms": [
       "pc"
     ],
-    "amazon": "Grand Theft Auto VI"
+    "amazon": "Grand Theft Auto VI",
+    "aliases": [
+      "gta 6",
+      "gta6",
+      "gta vi",
+      "gta 6 pc",
+      "grand theft auto 6"
+    ]
   },
   {
     "name": "Minecraft",
@@ -293,7 +307,593 @@ window.JEUXSTASH_CATALOG = [
     "platforms": [
       "pc"
     ],
-    "amazon": "EA Sports FC 27"
+    "amazon": "EA Sports FC 27",
+    "aliases": [
+      "fc27",
+      "fc 27",
+      "ea fc 27",
+      "fifa 27",
+      "fc 2027"
+    ]
+  },
+  {
+    "name": "Black Myth: Wukong",
+    "blurb": "Action RPG mythologique. Gros solo.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "aliases": [
+      "wukong",
+      "black myth"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/7678/616x353/black-myth-wukong-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/7678-acheter-black-myth-wukong-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Black+Myth+Wukong",
+    "price": 34.99,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Black Myth Wukong PC"
+  },
+  {
+    "name": "Clair Obscur: Expedition 33",
+    "blurb": "RPG au tour par tour acclamé.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "chill"
+    ],
+    "aliases": [
+      "expedition 33",
+      "clair obscur"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/17015/616x353/clair-obscur-expedition-33-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/17015-acheter-clair-obscur-expedition-33-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Clair+Obscur+Expedition+33",
+    "price": 22.79,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Clair Obscur Expedition 33"
+  },
+  {
+    "name": "Monster Hunter Wilds",
+    "blurb": "Chasse en coop, le nouveau MH.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action",
+      "coop"
+    ],
+    "aliases": [
+      "mh wilds",
+      "monster hunter"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/7930/616x353/monster-hunter-wilds-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/7930-acheter-monster-hunter-wilds-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Monster+Hunter+Wilds",
+    "price": 22.59,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Monster Hunter Wilds PC"
+  },
+  {
+    "name": "Assassin's Creed Shadows",
+    "blurb": "Japon féodal. Ubisoft Connect.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action",
+      "chill"
+    ],
+    "aliases": [
+      "ac shadows",
+      "assassin creed shadows"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/12831/616x353/assassin-s-creed-shadows-pc-ubisoft-connect-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/12831-acheter-assassin-s-creed-shadows-pc-ubisoft-connect/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Assassin%27s+Creed+Shadows",
+    "price": 25.19,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Assassin's Creed Shadows"
+  },
+  {
+    "name": "Indiana Jones and the Great Circle",
+    "blurb": "Aventure 1ère personne Bethesda.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action",
+      "chill"
+    ],
+    "aliases": [
+      "indiana jones",
+      "cercle ancien",
+      "great circle"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/8043/616x353/indiana-jones-et-le-cercle-ancien-pc-jeu-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/8043-acheter-indiana-jones-et-le-cercle-ancien-pc-jeu-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Indiana+Jones+Great+Circle",
+    "price": 34.79,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Indiana Jones Great Circle"
+  },
+  {
+    "name": "DOOM: The Dark Ages",
+    "blurb": "Le nouveau DOOM. Slayer mode on.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "aliases": [
+      "doom dark ages",
+      "doom 2025"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/16798/616x353/doom-the-dark-ages-pc-jeu-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/16798-acheter-doom-the-dark-ages-pc-jeu-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=DOOM+The+Dark+Ages",
+    "price": 22.89,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "DOOM The Dark Ages"
+  },
+  {
+    "name": "Kingdom Come: Deliverance II",
+    "blurb": "RPG médiéval réaliste, suite attendue.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "chill"
+    ],
+    "aliases": [
+      "kcd2",
+      "kingdom come 2"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/8988/616x353/kingdom-come-deliverance-ii-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/8988-acheter-kingdom-come-deliverance-ii-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Kingdom+Come+Deliverance+2",
+    "price": 20.39,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Kingdom Come Deliverance 2"
+  },
+  {
+    "name": "Silent Hill 2",
+    "blurb": "Horreur remake. Atmosphère lourde.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "chill"
+    ],
+    "aliases": [
+      "silent hill",
+      "sh2"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/13083/616x353/silent-hill-2-pc-jeu-steam-europe-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/13083-acheter-silent-hill-2-pc-jeu-steam-europe/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Silent+Hill+2",
+    "price": 21.99,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Silent Hill 2 PC"
+  },
+  {
+    "name": "Ghost of Tsushima Director's Cut",
+    "blurb": "Samouraï open world. Director's Cut.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action",
+      "chill"
+    ],
+    "aliases": [
+      "ghost of tsushima",
+      "tsushima"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/9093/616x353/ghost-of-tsushima-director-s-cut-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/9093-acheter-ghost-of-tsushima-director-s-cut-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Ghost+of+Tsushima",
+    "price": 29.99,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Ghost of Tsushima PC"
+  },
+  {
+    "name": "Palworld",
+    "blurb": "Pokémon meets survival craft.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "coop",
+      "chill"
+    ],
+    "aliases": [
+      "pal world"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/23676/616x353/palworld-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/23676-acheter-palworld-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Palworld",
+    "price": 19.99,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Palworld PC"
+  },
+  {
+    "name": "Hades II",
+    "blurb": "Suite du roguelike d’enfer.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action",
+      "chill"
+    ],
+    "aliases": [
+      "hades 2",
+      "hades ii"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/13290/616x353/hades-ii-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/13290-acheter-hades-ii-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Hades+II",
+    "price": 16.2,
+    "stock": "out",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Hades II"
+  },
+  {
+    "name": "Split Fiction",
+    "blurb": "Coop narratif des créateurs d’It Takes Two.",
+    "tag": "Hot",
+    "cats": [
+      "coop",
+      "hot"
+    ],
+    "aliases": [
+      "splitfiction"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/17864/616x353/split-fiction-pc-jeu-ea-app-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/17864-acheter-split-fiction-pc-jeu-ea-app/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Split+Fiction",
+    "price": 40.49,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Split Fiction"
+  },
+  {
+    "name": "Warhammer 40,000: Space Marine 2",
+    "blurb": "Tirades de bolter, coop 3.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action",
+      "coop"
+    ],
+    "aliases": [
+      "space marine 2",
+      "warhammer"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/10140/616x353/warhammer-40-000-space-marine-2-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/10140-acheter-warhammer-40-000-space-marine-2-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Space+Marine+2",
+    "price": 15.19,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Space Marine 2"
+  },
+  {
+    "name": "Stellar Blade",
+    "blurb": "Action spectacle, désormais sur PC.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "aliases": [
+      "stellarblade"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/16874/616x353/stellar-blade-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/16874-acheter-stellar-blade-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Stellar+Blade",
+    "price": 35.29,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Stellar Blade PC"
+  },
+  {
+    "name": "Lies of P",
+    "blurb": "Souls-like Pinocchio. Exigeant.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "aliases": [
+      "lies of p",
+      "lie of p"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/8855/616x353/lies-of-p-pc-jeu-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/8855-acheter-lies-of-p-pc-jeu-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Lies+of+P",
+    "price": 19.79,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Lies of P"
+  },
+  {
+    "name": "Resident Evil 4",
+    "blurb": "Remake 2023. Horreur et action.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "aliases": [
+      "re4",
+      "resident evil 4 remake",
+      "re4 remake"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/6772/616x353/resident-evil-4-2023-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/6772-acheter-resident-evil-4-2023-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Resident+Evil+4",
+    "price": 8.29,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Resident Evil 4 PC"
+  },
+  {
+    "name": "TEKKEN 8",
+    "blurb": "La ref des combats 3D.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action",
+      "sport"
+    ],
+    "aliases": [
+      "tekken",
+      "tekken8"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/9579/616x353/tekken-8-pc-jeu-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/9579-acheter-tekken-8-pc-jeu-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=TEKKEN+8",
+    "price": 18.21,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Tekken 8"
+  },
+  {
+    "name": "Street Fighter 6",
+    "blurb": "Combo et ranked. Petit prix souvent.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action",
+      "sport"
+    ],
+    "aliases": [
+      "sf6",
+      "street fighter"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/6008/616x353/street-fighter-6-pc-jeu-steam-europe-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/6008-acheter-street-fighter-6-pc-jeu-steam-europe/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Street+Fighter+6",
+    "price": 11.59,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Street Fighter 6"
+  },
+  {
+    "name": "Metaphor: ReFantazio",
+    "blurb": "JRPG Atlus, Game of the Year vibe.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "chill"
+    ],
+    "aliases": [
+      "metaphor",
+      "refantazio"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/14352/616x353/metaphor-refantazio-pc-jeu-steam-europe-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/14352-acheter-metaphor-refantazio-pc-jeu-steam-europe/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Metaphor+ReFantazio",
+    "price": 18.29,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Metaphor ReFantazio"
+  },
+  {
+    "name": "Persona 3 Reload",
+    "blurb": "JRPG nocturne, remake soigné.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "chill"
+    ],
+    "aliases": [
+      "p3r",
+      "persona 3"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/14279/616x353/persona-3-reload-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/14279-acheter-persona-3-reload-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Persona+3+Reload",
+    "price": 15.59,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Persona 3 Reload"
+  },
+  {
+    "name": "Sekiro: Shadows Die Twice",
+    "blurb": "GOTY FromSoftware. Parry or die.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "aliases": [
+      "sekiro"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/3325/616x353/sekiro-shadows-die-twice-goty-edition-goty-edition-pc-jeu-steam-europe-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/3325-acheter-sekiro-shadows-die-twice-goty-edition-goty-edition-pc-jeu-steam-europe/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Sekiro",
+    "price": 33.33,
+    "stock": "out",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Sekiro PC"
+  },
+  {
+    "name": "Dragon's Dogma 2",
+    "blurb": "Open world + pions. Capcom.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action",
+      "chill"
+    ],
+    "aliases": [
+      "dragons dogma 2",
+      "dd2"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/7911/616x353/dragon-s-dogma-2-pc-jeu-steam-europe-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/7911-acheter-dragon-s-dogma-2-pc-jeu-steam-europe/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Dragon%27s+Dogma+2",
+    "price": 12.39,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Dragon's Dogma 2"
+  },
+  {
+    "name": "Until Dawn",
+    "blurb": "Horreur narrative, choix qui comptent.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "chill"
+    ],
+    "aliases": [
+      "until dawn"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/15739/616x353/until-dawn-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/15739-acheter-until-dawn-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Until+Dawn",
+    "price": 30.09,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Until Dawn PC"
+  },
+  {
+    "name": "Schedule I",
+    "blurb": "Sim crime absurde, hit indie.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "chill"
+    ],
+    "aliases": [
+      "schedule 1",
+      "schedule one"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/18918/616x353/schedule-i-pc-jeu-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/18918-acheter-schedule-i-pc-jeu-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Schedule+I",
+    "price": 17.84,
+    "stock": "out",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Schedule I"
+  },
+  {
+    "name": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+    "blurb": "FPS survival Zone. Xbox/PC.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "aliases": [
+      "stalker 2",
+      "stalker"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/9766/616x353/s-t-a-l-k-e-r-2-heart-of-chornobyl-xbox-series-x-s-microsoft-store-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/9766-acheter-s-t-a-l-k-e-r-2-heart-of-chornobyl-xbox-series-x-s-microsoft-store/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=STALKER+2",
+    "price": 36.49,
+    "stock": "ok",
+    "platforms": [
+      "xbox",
+      "pc"
+    ],
+    "amazon": "STALKER 2"
+  },
+  {
+    "name": "Alan Wake 2",
+    "blurb": "Horreur narrative Remedy.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "chill"
+    ],
+    "aliases": [
+      "alan wake"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/7493/616x353/alan-wake-2-pc-jeu-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/7493-acheter-alan-wake-2-pc-jeu/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Alan+Wake+2",
+    "price": 39.99,
+    "stock": "out",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "Alan Wake 2"
   },
   {
     "name": "Baldur's Gate 3",
@@ -368,7 +968,13 @@ window.JEUXSTASH_CATALOG = [
     "platforms": [
       "pc"
     ],
-    "amazon": "GTA V PC"
+    "amazon": "GTA V PC",
+    "aliases": [
+      "gta 5",
+      "gta5",
+      "gta v",
+      "grand theft auto 5"
+    ]
   },
   {
     "name": "Red Dead Redemption 2",
@@ -809,7 +1415,8 @@ window.JEUXSTASH_CATALOG = [
     "gg": "https://gg.deals/games/?title=Call+of+Duty+Black+Ops+7",
     "price": 52.69,
     "stock": "ok",
-    "amazon": "Call of Duty Black Ops 7 Xbox"
+    "amazon": "Call of Duty Black Ops 7 Xbox",
+    "aliases": []
   },
   {
     "name": "Halo Infinite Campaign",
