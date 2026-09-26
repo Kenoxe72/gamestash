@@ -243,7 +243,7 @@ window.JEUXSTASH_CATALOG = [
   {
     "name": "Grand Theft Auto VI",
     "blurb": "Précommande PC Rockstar. Surveille le prix avant le jour J.",
-    "tag": "Hot",
+    "tag": "Préco",
     "cats": [
       "hot",
       "action"
@@ -252,7 +252,7 @@ window.JEUXSTASH_CATALOG = [
     "ig": "https://www.instant-gaming.com/fr/2462-acheter-grand-theft-auto-vi-pc-rockstar/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/games/?title=Grand+Theft+Auto+VI",
     "price": null,
-    "stock": "out",
+    "stock": "ok",
     "platforms": [
       "pc"
     ],

@@ -88,8 +88,14 @@
     if (game.name === "Forza Horizon 5") {
       return '<a class="btn ghost small" href="/guides/forza-horizon-5-pas-cher.html">Guide</a>';
     }
+    if (game.name.indexOf("Call of Duty") === 0) {
+      return '<a class="btn ghost small" href="/guides/call-of-duty-pas-cher.html">Guide</a>';
+    }
+    if (game.name.indexOf("Grand Theft Auto VI") === 0 || game.name.indexOf("GTA") === 0) {
+      return '<a class="btn ghost small" href="/guides/gta-6-pas-cher.html">Guide</a>';
+    }
     if (game.name.indexOf("EA Sports") === 0) {
-      return '<a class="btn ghost small" href="/guides/meilleurs-jeux-sport-2026.html">Faut-il acheter ?</a>';
+      return '<a class="btn ghost small" href="/guides/ea-fc-pas-cher.html">Guide FC 27</a>';
     }
     return "";
   }
@@ -229,6 +235,22 @@
 
   const used = {};
   if (hero) used[hero.name] = true;
+
+  // Toujours visibles : gros titres recherchés (pas noyés dans la rotation)
+  const mustNames = [
+    "Call of Duty: Black Ops 7",
+    "Grand Theft Auto VI",
+    "EA Sports FC 27",
+  ];
+  const must = [];
+  mustNames.forEach(function (name) {
+    const g = byName(name);
+    if (g && !used[g.name]) {
+      must.push(g);
+      used[g.name] = true;
+    }
+  });
+  fillGrid("must", must);
 
   fillGrid("coop", pick("coop", 6, used));
   fillGrid("chill", pick("chill", 4, used), tipCard());
