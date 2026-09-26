@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Builder PC — 3 configs budget — JeuxStash</title>
+  <meta name="description" content="3 configs PC gaming claires : ~700 €, ~1100 €, ~1600 €. GPU d’abord, zéro blabla RGB. Puis achète tes jeux moins cher." />
+  <link rel="canonical" href="https://www.jeuxstash.fr/pc-builder.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="logo" href="/">Jeux<span>Stash</span></a>
+      <nav>
+        <a href="/">Accueil</a>
+        <a href="/guides/">Guides</a>
+        <a href="/deals.html">Prix</a>
+        <span class="nav-current" aria-current="page">Builder PC</span>
+        <a class="nav-cta" href="https://www.instant-gaming.com/fr/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Instant Gaming</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section builder-hero">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Hardware sans prise de tête</p>
+          <h2>3 configs. Tu cliques. Tu montes.</h2>
+          <p>Pas un configurateur de 40 pièces. Trois budgets réalistes 2026, GPU d’abord, et des liens pour comparer les boîtes.</p>
+        </div>
+      </div>
+      <div class="builder-tabs" role="tablist" aria-label="Budget">
+        <button type="button" class="chip is-active" data-build="entry" role="tab" aria-selected="true">~700&nbsp;€ · Entry</button>
+        <button type="button" class="chip" data-build="mid" role="tab" aria-selected="false">~1100&nbsp;€ · Sweet spot</button>
+        <button type="button" class="chip" data-build="high" role="tab" aria-selected="false">~1600&nbsp;€ · High</button>
+      </div>
+    </section>
+
+    <section class="section builder-panel" id="build-panel" aria-live="polite">
+      <!-- filled by js/pc-builder.js -->
+    </section>
+
+    <section class="section">
+      <div class="aff-box">
+        <h3>PC prêt ? Prends un jeu.</h3>
+        <p>Le hardware c’est bien. Le catalogue JeuxStash c’est pour remplir le SSD sans se ruiner.</p>
+        <div class="row">
+          <a class="btn buy small" href="/deals.html?platform=pc">Jeux PC</a>
+          <a class="btn ghost small" href="/guides/pc-gaming-petit-budget.html">Mini-guide budget</a>
+          <a class="btn ghost small" href="https://www.instant-gaming.com/fr/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Instant Gaming</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>JeuxStash</strong> — configs indicatives, prix pièces variables.</p>
+    <div class="footer-links">
+      <a href="/">Accueil</a>
+      <a href="/deals.html">Prix</a>
+      <a href="/guides/">Guides</a>
+      <a href="/a-propos.html">À propos</a>
+    </div>
+    <p class="fine">Liens boutiques externes — compare toujours avant d’acheter.</p>
+  </footer>
+
+  <script src="/js/pc-builder.js"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/seo.js"></script>
+  <script src="/js/track.js"></script>
+</body>
+</html>

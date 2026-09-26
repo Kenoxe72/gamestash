@@ -304,7 +304,7 @@ nav .nav-current {
 
 .paths {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 0.8rem;
 }
 
@@ -523,6 +523,101 @@ nav .nav-current {
   text-transform: uppercase;
   font-size: 0.68rem;
   letter-spacing: 0.06em;
+}
+
+.game-badge--plat {
+  left: 0.55rem;
+  top: 0.55rem;
+  color: #f5efe4;
+  background: rgba(12, 16, 22, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.game-cover--empty {
+  background: linear-gradient(135deg, #1a1f28, #0a0c0f);
+}
+
+.builder-hero .section-head {
+  margin-bottom: 1rem;
+}
+
+.builder-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.builder-card {
+  max-width: 720px;
+}
+
+.builder-card h3 {
+  font-family: Fraunces, serif;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  margin: 0 0 0.45rem;
+}
+
+.builder-tagline {
+  color: var(--muted);
+  margin: 0 0 0.85rem;
+  max-width: 42rem;
+}
+
+.builder-target {
+  margin: 0 0 1.1rem;
+  font-size: 0.92rem;
+  color: #f0e6d6;
+}
+
+.builder-target span {
+  display: inline-block;
+  margin-right: 0.35rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(255, 180, 84, 0.15);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.builder-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.25rem;
+}
+
+.builder-table th,
+.builder-table td {
+  text-align: left;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.builder-table th {
+  width: 6.5rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-right: 0.75rem;
+}
+
+.builder-table td strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.builder-table td span {
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 .game-card.is-oos .game-cover,

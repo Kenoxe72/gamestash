@@ -2,6 +2,7 @@
   const grid = document.getElementById("deals-grid");
   const search = document.getElementById("deals-search");
   const filters = document.getElementById("deals-filters");
+  const platFilters = document.getElementById("deals-platforms");
   const empty = document.getElementById("deals-empty");
   const countEl = document.getElementById("deals-count");
   const sortEl = document.getElementById("deals-sort");
@@ -11,6 +12,7 @@
   if (!grid || !window.JEUXSTASH_CATALOG) return;
 
   let activeCat = "all";
+  let activePlat = "all";
 
   if (updatedEl && window.JEUXSTASH_PRICES_UPDATED) {
     try {
@@ -23,11 +25,15 @@
     }
   }
 
-  // ?q= / #hash prefill
+  // ?q= / ?platform= / #hash prefill
   try {
     const params = new URLSearchParams(location.search);
     const q0 = params.get("q") || (location.hash ? decodeURIComponent(location.hash.slice(1)) : "");
     if (q0 && search) search.value = q0;
+    const p0 = (params.get("platform") || "").toLowerCase();
+    if (p0 && ["pc", "ps5", "switch", "xbox"].indexOf(p0) !== -1) {
+      activePlat = p0;
+    }
   } catch (e) {}
 
   function esc(str) {
@@ -38,9 +44,17 @@
       .replace(/>/g, "&gt;");
   }
 
+  function platformsOf(game) {
+    if (game.platforms && game.platforms.length) return game.platforms;
+    return ["pc"];
+  }
+
   function coverUrl(game) {
     if (game.cover) return game.cover;
-    return "https://cdn.cloudflare.steamstatic.com/steam/apps/" + game.steam + "/header.jpg";
+    if (game.steam) {
+      return "https://cdn.cloudflare.steamstatic.com/steam/apps/" + game.steam + "/header.jpg";
+    }
+    return "";
   }
 
   function formatPrice(n) {
@@ -53,11 +67,26 @@
     );
   }
 
+  function platLabel(plats) {
+    const order = ["pc", "ps5", "switch", "xbox"];
+    const labels = { pc: "PC", ps5: "PS5", switch: "Switch", xbox: "Xbox" };
+    return order
+      .filter(function (p) {
+        return plats.indexOf(p) !== -1;
+      })
+      .map(function (p) {
+        return labels[p];
+      })
+      .join(" · ");
+  }
+
   function badgesHTML(game) {
     const out = game.stock === "out";
     const price = formatPrice(game.price);
+    const plat = platLabel(platformsOf(game));
     let html = "";
     if (out) html += '<span class="game-badge game-badge--out">Rupture</span>';
+    if (plat) html += '<span class="game-badge game-badge--plat">' + esc(plat) + "</span>";
     if (price) html += '<span class="game-badge game-badge--price">' + price + "</span>";
     return html ? '<span class="game-badges">' + html + "</span>" : "";
   }
@@ -75,15 +104,24 @@
 
   function cardHTML(game) {
     const cats = (game.cats || []).join(" ");
+    const plats = platformsOf(game).join(" ");
     const name = esc(game.name);
     const blurb = esc(game.blurb || "");
     const tag = esc(game.tag || "");
     const ig = esc(game.ig);
     const gg = esc(game.gg);
     const oos = game.stock === "out";
+    const cover = coverUrl(game);
     const buy = oos
       ? '<span class="btn buy small is-oos" aria-disabled="true">Rupture</span>'
       : '<a class="btn buy small" href="' + ig + '" rel="sponsored noopener" target="_blank">Voir le prix</a>';
+    const img = cover
+      ? '<img class="game-cover" src="' +
+        cover +
+        '" alt="' +
+        name +
+        '" width="460" height="215" loading="lazy" />'
+      : '<div class="game-cover game-cover--empty" aria-hidden="true"></div>';
     return (
       '<article class="game-card' +
       (oos ? " is-oos" : "") +
@@ -91,15 +129,13 @@
       game.name.toLowerCase().replace(/"/g, "") +
       '" data-cats="' +
       cats +
+      '" data-platforms="' +
+      plats +
       '">' +
       '<a class="game-cover-link" href="' +
       ig +
       '" rel="sponsored noopener" target="_blank">' +
-      '<img class="game-cover" src="' +
-      coverUrl(game) +
-      '" alt="' +
-      name +
-      '" width="460" height="215" loading="lazy" />' +
+      img +
       badgesHTML(game) +
       "</a>" +
       '<div class="game-card-body">' +
@@ -142,7 +178,6 @@
         return a.name.localeCompare(b.name, "fr");
       });
     } else {
-      // featured: en stock d’abord, puis prix croissant
       copy.sort(function (a, b) {
         const sa = a.stock === "ok" ? 0 : 1;
         const sb = b.stock === "ok" ? 0 : 1;
@@ -161,23 +196,37 @@
     if (empty) empty.hidden = list.length > 0;
   }
 
+  function syncPlatChips() {
+    if (!platFilters) return;
+    platFilters.querySelectorAll("[data-platform]").forEach(function (b) {
+      b.classList.toggle("is-active", b.getAttribute("data-platform") === activePlat);
+    });
+  }
+
   function apply() {
     const q = (search && search.value ? search.value : "").trim().toLowerCase();
     let list = window.JEUXSTASH_CATALOG.filter(function (g) {
+      const plats = platformsOf(g);
       const catOk = activeCat === "all" || (g.cats || []).indexOf(activeCat) !== -1;
-      const qOk = !q || g.name.toLowerCase().indexOf(q) !== -1 || (g.blurb || "").toLowerCase().indexOf(q) !== -1;
+      const platOk = activePlat === "all" || plats.indexOf(activePlat) !== -1;
+      const qOk =
+        !q ||
+        g.name.toLowerCase().indexOf(q) !== -1 ||
+        (g.blurb || "").toLowerCase().indexOf(q) !== -1;
       const stockOk = !stockOnly || !stockOnly.checked || g.stock === "ok";
       const cheapOk = !under20 || !under20.checked || (g.price != null && g.price > 0 && g.price < 20);
-      return catOk && qOk && stockOk && cheapOk;
+      return catOk && platOk && qOk && stockOk && cheapOk;
     });
     list = sortList(list);
     render(list);
+    syncPlatChips();
 
-    // sync ?q= without reload spam
     try {
       const url = new URL(location.href);
       if (q) url.searchParams.set("q", q);
       else url.searchParams.delete("q");
+      if (activePlat !== "all") url.searchParams.set("platform", activePlat);
+      else url.searchParams.delete("platform");
       history.replaceState(null, "", url.pathname + url.search + url.hash);
     } catch (e) {}
   }
@@ -194,10 +243,20 @@
     });
   }
 
+  if (platFilters) {
+    platFilters.addEventListener("click", function (e) {
+      const btn = e.target.closest("[data-platform]");
+      if (!btn) return;
+      activePlat = btn.getAttribute("data-platform");
+      apply();
+    });
+  }
+
   if (search) search.addEventListener("input", apply);
   if (sortEl) sortEl.addEventListener("change", apply);
   if (stockOnly) stockOnly.addEventListener("change", apply);
   if (under20) under20.addEventListener("change", apply);
 
+  syncPlatChips();
   apply();
 })();
