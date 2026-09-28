@@ -960,7 +960,7 @@ window.JEUXSTASH_CATALOG = [
       "hot",
       "action"
     ],
-    "steam": 271590,
+    "steam": 3240220,
     "ig": "https://www.instant-gaming.com/fr/4211-acheter-grand-theft-auto-v-enhanced-pc-rockstar/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/games/?title=Grand+Theft+Auto+V",
     "price": 9.79,
@@ -1055,7 +1055,8 @@ window.JEUXSTASH_CATALOG = [
       "action",
       "hot"
     ],
-    "steam": 2231380,
+    "steam": 2239550,
+    "cover": "https://gaming-cdn.com/images/products/2540/616x353/watch-dogs-legion-pc-jeu-ubisoft-connect-europe-cover.jpg",
     "ig": "https://www.instant-gaming.com/fr/2540-acheter-watch-dogs-legion-pc-jeu-ubisoft-connect-europe/?igr=gamer-47bd4c",
     "gg": "https://gg.deals/games/?title=Watch+Dogs+Legion",
     "price": 5.29,
