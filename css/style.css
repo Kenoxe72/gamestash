@@ -1324,6 +1324,99 @@ nav .nav-current {
   animation-delay: 0.34s;
 }
 
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 5.5rem;
+  z-index: 80;
+  transform: translateX(-50%) translateY(12px);
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(18, 22, 28, 0.95);
+  border: 1px solid rgba(255, 180, 84, 0.45);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.toast.is-on {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.deals-recent {
+  margin: 0 0 1.1rem;
+}
+
+.deals-recent-head {
+  margin-bottom: 0.45rem;
+}
+
+.deals-recent-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.recent-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  font: inherit;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.recent-chip em {
+  font-style: normal;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.recent-chip:hover {
+  border-color: rgba(255, 180, 84, 0.45);
+  background: rgba(255, 180, 84, 0.08);
+}
+
+.game-card.anim-card {
+  animation: fade-up 0.45s ease both;
+  animation-delay: calc(var(--i, 0) * 0.03s);
+}
+
+.game-card.is-lucky {
+  border-color: rgba(255, 180, 84, 0.7);
+  box-shadow: 0 0 0 1px rgba(255, 180, 84, 0.35), 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.live-price {
+  margin: 0 0 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(255, 180, 84, 0.1);
+  border: 1px solid rgba(255, 180, 84, 0.28);
+  color: #f5efe4;
+  font-size: 0.92rem;
+}
+
+.live-price strong {
+  color: var(--accent);
+}
+
+.guide-card {
+  animation: fade-up 0.4s ease both;
+  animation-delay: calc(var(--i, 0) * 0.04s);
+}
 
 @media (max-width: 800px) {
   .paths,
@@ -1353,7 +1446,9 @@ nav .nav-current {
   }
 
   .anim-fade,
-  .hero-feature {
+  .hero-feature,
+  .game-card.anim-card,
+  .guide-card {
     animation: none !important;
     opacity: 1;
     transform: none;

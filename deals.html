@@ -41,8 +41,9 @@
       <div class="deals-search-row">
         <label class="search-wrap">
           <span class="sr-only">Rechercher un jeu</span>
-          <input id="deals-search" type="search" placeholder="Rechercher un jeu…" autocomplete="off" />
+          <input id="deals-search" type="search" placeholder="Rechercher un jeu… (raccourci /)" autocomplete="off" />
         </label>
+        <button type="button" class="btn ghost small" id="deals-lucky" title="Un jeu au hasard en stock">Surprise</button>
         <label class="sort-wrap">
           <span class="sr-only">Trier</span>
           <select id="deals-sort">
@@ -101,6 +102,13 @@
       </div>
     </div>
 
+    <div id="deals-recent" class="deals-recent" hidden>
+      <div class="deals-recent-head">
+        <span class="filter-label">Vu récemment</span>
+      </div>
+      <div id="deals-recent-track" class="deals-recent-track"></div>
+    </div>
+
     <div id="deals-grid" class="game-grid"></div>
     <p id="deals-empty" class="deals-empty" hidden>Aucun jeu pour ce filtre. Essayez « Tous » ou une autre recherche.</p>
 
@@ -128,9 +136,9 @@
   </footer>
 
   <script src="/js/config.js"></script>
-  <script src="/js/catalog.js?v=20260926i"></script>
-  <script src="/js/deals.js?v=20260926i"></script>
-  <script src="/js/ui.js"></script>
+  <script src="/js/catalog.js?v=20260928"></script>
+  <script src="/js/deals.js?v=20260928"></script>
+  <script src="/js/ui.js?v=20260928"></script>
   <script src="/js/seo.js"></script>
   <script src="/js/track.js"></script>
 </body>

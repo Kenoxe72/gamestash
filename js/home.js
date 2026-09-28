@@ -267,6 +267,44 @@
 
   const stamp = document.getElementById("season-stamp");
   if (stamp) {
-        stamp.textContent = "sélection " + plan.label.toLowerCase() + " · ça tourne chaque mois";
+    stamp.textContent = "sélection " + plan.label.toLowerCase() + " · ça tourne chaque mois";
+  }
+
+  // Guides money block — boost saison
+  const money = document.getElementById("money-links");
+  const guides = window.JEUXSTASH_GUIDES;
+  if (money && guides && guides.length) {
+    const boost = plan.guideBoost || [];
+    const ranked = guides.slice().sort(function (a, b) {
+      const sa = boost.indexOf(a.id) !== -1 ? 10 : a.evergreen ? 3 : 0;
+      const sb = boost.indexOf(b.id) !== -1 ? 10 : b.evergreen ? 3 : 0;
+      return sb - sa;
+    });
+    money.innerHTML = ranked
+      .slice(0, 6)
+      .map(function (g) {
+        return (
+          '<a href="' +
+          g.href +
+          '"><strong>' +
+          esc(g.title) +
+          "</strong><span>" +
+          esc(g.blurb) +
+          "</span></a>"
+        );
+      })
+      .join("");
+  }
+
+  // Surprise-moi → deals avec un jeu random
+  const lucky = document.getElementById("home-lucky");
+  if (lucky) {
+    lucky.addEventListener("click", function () {
+      const pool = catalog.filter(function (g) {
+        return g.stock === "ok" && g.price != null;
+      });
+      const g = pool[Math.floor(Math.random() * pool.length)] || catalog[0];
+      location.href = "/deals.html?q=" + encodeURIComponent(g.name);
+    });
   }
 })();

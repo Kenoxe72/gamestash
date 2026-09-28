@@ -7,6 +7,7 @@
 
   const plan = seasonApi.current();
   const boost = plan.guideBoost || [];
+  let showAll = false;
 
   function score(g) {
     let s = 0;
@@ -20,23 +21,25 @@
     return score(b) - score(a);
   });
 
-  // Affiche 7 guides max (varie), evergreen toujours inclus
-  const shown = [];
-  const seen = {};
-  ordered.forEach(function (g) {
-    if (shown.length >= 7) return;
-    if (g.evergreen || boost.indexOf(g.id) !== -1 || (g.seasons && g.seasons.indexOf(plan.key) !== -1)) {
-      shown.push(g);
-      seen[g.id] = true;
-    }
-  });
-  ordered.forEach(function (g) {
-    if (shown.length >= 7) return;
-    if (!seen[g.id]) {
-      shown.push(g);
-      seen[g.id] = true;
-    }
-  });
+  function pickSeasonal() {
+    const shown = [];
+    const seen = {};
+    ordered.forEach(function (g) {
+      if (shown.length >= 7) return;
+      if (g.evergreen || boost.indexOf(g.id) !== -1 || (g.seasons && g.seasons.indexOf(plan.key) !== -1)) {
+        shown.push(g);
+        seen[g.id] = true;
+      }
+    });
+    ordered.forEach(function (g) {
+      if (shown.length >= 7) return;
+      if (!seen[g.id]) {
+        shown.push(g);
+        seen[g.id] = true;
+      }
+    });
+    return shown;
+  }
 
   function cardHTML(g, i) {
     const num = String(i + 1).padStart(2, "0");
@@ -49,6 +52,8 @@
       featured +
       '" href="' +
       g.href +
+      '" style="--i:' +
+      i +
       '">' +
       thumb +
       '<span class="guide-num">' +
@@ -67,13 +72,29 @@
     );
   }
 
-  grid.innerHTML = shown.map(cardHTML).join("");
-
-  const note = document.getElementById("guides-season-note");
-  if (note) {
-    note.textContent =
-      "À la une ce " +
-      plan.label.toLowerCase() +
-      " · les autres guides restent accessibles via Google / sitemap.";
+  function render() {
+    const list = showAll ? ordered : pickSeasonal();
+    grid.innerHTML = list.map(cardHTML).join("");
+    const note = document.getElementById("guides-season-note");
+    if (note) {
+      note.textContent = showAll
+        ? list.length + " guides · filtre saison désactivé"
+        : "À la une ce " + plan.label.toLowerCase() + " · " + list.length + " guides";
+    }
+    const toggle = document.getElementById("guides-toggle-all");
+    if (toggle) {
+      toggle.textContent = showAll ? "Voir la sélection" : "Tous les guides";
+      toggle.setAttribute("aria-pressed", showAll ? "true" : "false");
+    }
   }
+
+  const toggle = document.getElementById("guides-toggle-all");
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      showAll = !showAll;
+      render();
+    });
+  }
+
+  render();
 })();

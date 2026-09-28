@@ -25,7 +25,7 @@
     }
   }
 
-  // ?q= / ?platform= / #hash prefill
+  // ?q= / ?platform= / ?style= / ?sort= / ?stock= / ?under20=
   try {
     const params = new URLSearchParams(location.search);
     const q0 = params.get("q") || (location.hash ? decodeURIComponent(location.hash.slice(1)) : "");
@@ -34,7 +34,24 @@
     if (p0 && ["pc", "ps5", "switch", "xbox"].indexOf(p0) !== -1) {
       activePlat = p0;
     }
+    const c0 = (params.get("style") || "").toLowerCase();
+    if (c0 && ["hot", "coop", "chill", "action", "sport"].indexOf(c0) !== -1) {
+      activeCat = c0;
+    }
+    const s0 = params.get("sort");
+    if (s0 && sortEl) {
+      const ok = ["featured", "price-asc", "price-desc", "name"];
+      if (ok.indexOf(s0) !== -1) sortEl.value = s0;
+    }
+    if (params.get("stock") === "1" && stockOnly) stockOnly.checked = true;
+    if (params.get("under20") === "1" && under20) under20.checked = true;
   } catch (e) {}
+
+  if (filters) {
+    filters.querySelectorAll("[data-filter]").forEach(function (b) {
+      b.classList.toggle("is-active", b.getAttribute("data-filter") === activeCat);
+    });
+  }
 
   function esc(str) {
     return String(str)
@@ -265,6 +282,9 @@
       gg +
       '" rel="noopener" target="_blank">Comparer</a>' +
       guideLink(game) +
+      '<button type="button" class="btn ghost small js-share-deal" data-name="' +
+      name +
+      '" title="Copier le lien de recherche">Partager</button>' +
       "</div></div></article>"
     );
   }
@@ -301,8 +321,72 @@
     return copy;
   }
 
+  const RECENT_KEY = "jeuxstash_recent";
+
+  function loadRecent() {
+    try {
+      return JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveRecent(name) {
+    if (!name) return;
+    var list = loadRecent().filter(function (n) {
+      return n !== name;
+    });
+    list.unshift(name);
+    list = list.slice(0, 6);
+    try {
+      localStorage.setItem(RECENT_KEY, JSON.stringify(list));
+    } catch (e) {}
+    renderRecent();
+  }
+
+  function byName(name) {
+    for (var i = 0; i < window.JEUXSTASH_CATALOG.length; i++) {
+      if (window.JEUXSTASH_CATALOG[i].name === name) return window.JEUXSTASH_CATALOG[i];
+    }
+    return null;
+  }
+
+  function renderRecent() {
+    var wrap = document.getElementById("deals-recent");
+    var track = document.getElementById("deals-recent-track");
+    if (!wrap || !track) return;
+    var names = loadRecent();
+    var games = names.map(byName).filter(Boolean);
+    if (!games.length) {
+      wrap.hidden = true;
+      return;
+    }
+    wrap.hidden = false;
+    track.innerHTML = games
+      .map(function (g) {
+        var price =
+          g.price != null
+            ? Number(g.price).toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "\u00a0€"
+            : "—";
+        return (
+          '<button type="button" class="recent-chip" data-q="' +
+          esc(g.name) +
+          '"><span>' +
+          esc(g.name) +
+          "</span><em>" +
+          price +
+          "</em></button>"
+        );
+      })
+      .join("");
+  }
+
   function render(list) {
-    grid.innerHTML = list.map(cardHTML).join("");
+    grid.innerHTML = list
+      .map(function (g, i) {
+        return cardHTML(g).replace('class="game-card', 'class="game-card anim-card" style="--i:' + i + '"');
+      })
+      .join("");
     if (countEl) countEl.textContent = list.length + (list.length > 1 ? " jeux" : " jeu");
     if (empty) empty.hidden = list.length > 0;
   }
@@ -311,6 +395,13 @@
     if (!platFilters) return;
     platFilters.querySelectorAll("[data-platform]").forEach(function (b) {
       b.classList.toggle("is-active", b.getAttribute("data-platform") === activePlat);
+    });
+  }
+
+  function syncStyleChips() {
+    if (!filters) return;
+    filters.querySelectorAll("[data-filter]").forEach(function (b) {
+      b.classList.toggle("is-active", b.getAttribute("data-filter") === activeCat);
     });
   }
 
@@ -328,6 +419,7 @@
     list = sortList(list);
     render(list);
     syncPlatChips();
+    syncStyleChips();
 
     try {
       const url = new URL(location.href);
@@ -335,18 +427,87 @@
       else url.searchParams.delete("q");
       if (activePlat !== "all") url.searchParams.set("platform", activePlat);
       else url.searchParams.delete("platform");
+      if (activeCat !== "all") url.searchParams.set("style", activeCat);
+      else url.searchParams.delete("style");
+      const sortMode = sortEl ? sortEl.value : "featured";
+      if (sortMode && sortMode !== "featured") url.searchParams.set("sort", sortMode);
+      else url.searchParams.delete("sort");
+      if (stockOnly && stockOnly.checked) url.searchParams.set("stock", "1");
+      else url.searchParams.delete("stock");
+      if (under20 && under20.checked) url.searchParams.set("under20", "1");
+      else url.searchParams.delete("under20");
       history.replaceState(null, "", url.pathname + url.search + url.hash);
     } catch (e) {}
   }
+
+  function luckyPick() {
+    const pool = window.JEUXSTASH_CATALOG.filter(function (g) {
+      return g.stock === "ok" && g.price != null && g.price > 0;
+    });
+    if (!pool.length) return;
+    const g = pool[Math.floor(Math.random() * pool.length)];
+    if (search) search.value = g.name;
+    activeCat = "all";
+    activePlat = "all";
+    if (stockOnly) stockOnly.checked = false;
+    if (under20) under20.checked = false;
+    apply();
+    saveRecent(g.name);
+    const card = grid.querySelector(".game-card");
+    if (card) {
+      card.classList.add("is-lucky");
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    if (window.JEUXSTASH_toast) {
+      window.JEUXSTASH_toast("Surprise : " + g.name);
+    }
+  }
+
+  grid.addEventListener("click", function (e) {
+    const share = e.target.closest(".js-share-deal");
+    if (share) {
+      e.preventDefault();
+      const name = share.getAttribute("data-name") || "";
+      const url = location.origin + "/deals.html?q=" + encodeURIComponent(name);
+      function ok() {
+        if (window.JEUXSTASH_toast) window.JEUXSTASH_toast("Lien copié");
+        saveRecent(name);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(ok).catch(function () {
+          window.prompt("Copie ce lien :", url);
+        });
+      } else {
+        window.prompt("Copie ce lien :", url);
+      }
+      return;
+    }
+    const cover = e.target.closest(".game-cover-link");
+    if (cover) {
+      const card = cover.closest(".game-card");
+      const title = card && card.querySelector("h3");
+      if (title) saveRecent(title.textContent);
+    }
+  });
+
+  const recentTrack = document.getElementById("deals-recent-track");
+  if (recentTrack) {
+    recentTrack.addEventListener("click", function (e) {
+      const chip = e.target.closest(".recent-chip");
+      if (!chip || !search) return;
+      search.value = chip.getAttribute("data-q") || "";
+      apply();
+    });
+  }
+
+  const luckyBtn = document.getElementById("deals-lucky");
+  if (luckyBtn) luckyBtn.addEventListener("click", luckyPick);
 
   if (filters) {
     filters.addEventListener("click", function (e) {
       const btn = e.target.closest("[data-filter]");
       if (!btn) return;
       activeCat = btn.getAttribute("data-filter");
-      filters.querySelectorAll("[data-filter]").forEach(function (b) {
-        b.classList.toggle("is-active", b === btn);
-      });
       apply();
     });
   }
@@ -366,5 +527,7 @@
   if (under20) under20.addEventListener("change", apply);
 
   syncPlatChips();
+  syncStyleChips();
+  renderRecent();
   apply();
 })();
