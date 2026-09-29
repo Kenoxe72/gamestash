@@ -4,19 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JeuxStash — Choisir un jeu, payer moins</title>
-  <meta name="description" content="Jeux pas cher : idées coop/chill, prix Instant Gaming, guidés clés Steam. Compare en 1 clic, sans blabla." />
+  <meta name="description" content="Jeux pas cher : idées coop/chill, prix Instant Gaming, guides clés Steam. Compare en 1 clic, sans blabla." />
   <link rel="canonical" href="https://www.jeuxstash.fr/" />
   <meta property="og:title" content="JeuxStash — Choisir vite, payer moins" />
-  <meta property="og:description" content="Idées de jeux + comparaison de prix en 1 clic. Coop, chill, sport." />
+  <meta property="og:description" content="Idées de jeux + comparaison de prix en 1 clic. Coop, chill, sport, rentrée gaming." />
   <meta property="og:url" content="https://www.jeuxstash.fr/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="JeuxStash" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="https://www.jeuxstash.fr/img/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="JeuxStash — Choisir un jeu, payer moins" />
+  <meta name="twitter:image" content="https://www.jeuxstash.fr/img/og-default.png" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/style.css?v=20260929h2" />
 </head>
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
@@ -27,68 +34,74 @@
       <nav>
         <a href="/#idees">Idées</a>
         <a href="/guides/">Guides</a>
-        <a href="/deals.html">Jeux</a>
-        <a href="/pc-builder.html">Builder PC</a>
+        <a href="/deals">Jeux</a>
+        <a href="/pc-builder">Builder PC</a>
         <a class="nav-cta" href="https://www.instant-gaming.com/fr/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Instant Gaming</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <p class="eyebrow anim-fade">Hey — on va te faire gagner du temps</p>
-      <h1 class="anim-fade delay-1">Un jeu qui te botte.<br />Un prix cool.</h1>
-      <p class="lead anim-fade delay-2">Pas de catalogue infini. Juste des idées claires, le prix sous la jaquette, et deux boutons : <strong>Acheter</strong> ou <strong>Comparer</strong>. C’est tout.</p>
-      <div class="hero-actions anim-fade delay-3">
-        <a class="btn buy" href="https://www.instant-gaming.com/fr/4824-acheter-elden-ring-pc-steam/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Voir le prix — Elden Ring</a>
-        <a class="btn ghost" href="#idees">Je choisis mon vibe</a>
+    <section class="hero hero--immersive">
+      <div class="hero-bg" aria-hidden="true">
+        <img id="hero-bg-img" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_hero_2x.jpg" srcset="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_hero.jpg 960w, https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_hero_2x.jpg 1920w" sizes="100vw" alt="" width="1920" height="620" loading="eager" fetchpriority="high" />
+        <div class="hero-bg-shade"></div>
       </div>
-      <a class="hero-feature anim-fade delay-4" href="https://www.instant-gaming.com/fr/4824-acheter-elden-ring-pc-steam/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">
-        <span class="hero-cover">
-          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring" width="460" height="215" loading="eager" />
-        </span>
-        <span>
-          <strong>Elden Ring</strong>
-          <em>Open world exigeant. À prendre en promo.</em>
-        </span>
-      </a>
+      <div class="hero-inner anim-fade">
+        <p class="hero-brand">Jeux<span>Stash</span></p>
+        <p class="eyebrow" id="hero-season">Rentrée gaming · Automne</p>
+        <h1>Un jeu qui te botte.<br />Un prix cool.</h1>
+        <p class="lead">Pas de catalogue infini. Le prix sous la jaquette — <strong>Voir le prix</strong> ou <strong>Comparer</strong>.</p>
+        <div class="hero-actions">
+          <a class="btn buy" href="https://www.instant-gaming.com/fr/4824-acheter-elden-ring-pc-steam/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Voir le prix — Elden Ring</a>
+          <a class="btn ghost" href="#idees">Je choisis mon vibe</a>
+        </div>
+        <p class="hero-note">
+          <a id="season-cta" href="/guides/black-friday-jeux-2026">Black Friday approche — préparer ma liste</a>
+          <span class="hero-note-sep" aria-hidden="true">·</span>
+          <a href="/deals?under20=1">Sous 20&nbsp;€</a>
+        </p>
+      </div>
     </section>
 
     <section class="section" id="idees">
       <div class="section-head">
         <div>
           <h2>Tu joues comment ce soir&nbsp;?</h2>
-          <p>Choisis ta case — on te filera 2–3 idées, pas 40.</p>
+          <p>Choisis ta case — 2–3 idées, pas 40. <button type="button" class="linkish" id="home-lucky">Au pif</button></p>
         </div>
-        <button type="button" class="btn ghost small" id="home-lucky">Surprise-moi</button>
       </div>
-      <div class="paths">
+      <div class="paths paths--4">
         <a class="path" href="#coop">
           <span class="path-label">Duo / potes</span>
           <strong>À deux</strong>
           <span>Canapé ou Discord — fun immédiat.</span>
         </a>
-        <a class="path" href="#chill">
-          <span class="path-label">Solo zen</span>
-          <strong>Mode chill</strong>
-          <span>Éteindre le cerveau, zéro pression.</span>
+        <a class="path" href="#hits">
+          <span class="path-label">Solo &amp; hits</span>
+          <strong>Jeux du moment</strong>
+          <span>Elden, COD, Wukong — prix sous la jaquette.</span>
         </a>
-        <a class="path" href="#sport">
-          <span class="path-label">Compète</span>
-          <strong>Sport & course</strong>
-          <span>Ou attendre la soldes — on te dit quand.</span>
-        </a>
-        <a class="path" href="/deals.html?platform=ps5">
+        <a class="path" href="/deals?platform=ps5">
           <span class="path-label">Console</span>
           <strong>PS5 · Switch · Xbox</strong>
-          <span>Clés console aussi — filtre en 1 clic.</span>
+          <span>Clés console — filtre en 1 clic.</span>
         </a>
-        <a class="path" href="/pc-builder.html">
+        <a class="path" href="/pc-builder">
           <span class="path-label">Hardware</span>
           <strong>Builder PC</strong>
-          <span>3 configs budget → high-end. Clique et monte.</span>
+          <span>3 configs budget → high-end.</span>
         </a>
       </div>
+      <p class="quick-links">
+        <span class="quick-links-label">Souvent cherché</span>
+        <a href="/deals?q=elden+ring">Elden Ring</a>
+        <a href="/deals?q=black+ops+7">Black Ops 7</a>
+        <a href="/deals?q=gta+6">GTA 6</a>
+        <a href="/deals?q=fc+27">FC 27</a>
+        <a href="/deals?q=wukong">Wukong</a>
+        <a href="/guides/black-friday-jeux-2026">Black Friday</a>
+      </p>
     </section>
 
     <section class="section" id="coop">
@@ -101,33 +114,13 @@
       <div class="game-grid" data-rotate></div>
     </section>
 
-    <section class="section" id="chill">
-      <div class="section-head">
-        <div>
-          <h2>Solo chill</h2>
-          <p>Une run, une série, zéro FOMO.</p>
-        </div>
-      </div>
-      <div class="game-grid" data-rotate></div>
-    </section>
-
-    <section class="section" id="sport">
-      <div class="section-head">
-        <div>
-          <h2>Sport</h2>
-          <p>Faut-il vraiment la version de cette année&nbsp;?</p>
-        </div>
-      </div>
-      <div class="game-grid" data-rotate></div>
-    </section>
-
     <section class="section" id="hits">
       <div class="section-head">
         <div>
-          <h2>Les classiques en promo</h2>
-          <p>Tu hésites&nbsp;? Regarde le prix, compare, clique. Simple.</p>
+          <h2>Jeux du moment</h2>
+          <p>Regarde le prix, compare, clique.</p>
         </div>
-        <a class="btn ghost small" href="/deals.html">Tout voir</a>
+        <a class="text-link" href="/deals">Tout le catalogue →</a>
       </div>
       <div class="game-grid" data-rotate></div>
     </section>
@@ -136,7 +129,7 @@
       <div class="section-head">
         <div>
           <h2>Comment ça marche</h2>
-          <p>Trois gestes. Pas de compte à créer ici.</p>
+          <p>Trois gestes. Pas de compte ici.</p>
         </div>
       </div>
       <ol class="how-steps">
@@ -149,30 +142,26 @@
           <span>«&nbsp;Comparer&nbsp;» ouvre d’autres boutiques.</span>
         </li>
         <li>
-          <strong>Tu achètes où c’est mieux</strong>
+          <strong>Tu prends où c’est mieux</strong>
           <span>«&nbsp;Voir le prix&nbsp;» = Instant Gaming (sans surcoût pour toi).</span>
         </li>
       </ol>
-      <div class="hero-actions" style="margin-top:1.4rem">
-        <a class="btn buy" href="/deals.html">Voir les jeux</a>
-        <a class="btn ghost" href="/guides/acheter-jeux-pas-cher.html">3 tips pour payer moins</a>
-      </div>
+      <p class="how-cta"><a class="btn buy" href="/deals">Voir les jeux</a></p>
     </section>
 
     <section class="section" id="guides-money">
       <div class="section-head">
         <div>
-          <h2>Guides qui aident vraiment</h2>
-          <p>Les pages que les gens cherchent avant d’acheter.</p>
+          <h2>Guides utiles</h2>
+          <p>Ce que les gens lisent avant d’acheter.</p>
         </div>
-        <a class="btn ghost small" href="/guides/">Tous les guides</a>
+        <a class="text-link" href="/guides/">Tous →</a>
       </div>
       <div class="money-links" id="money-links">
-        <!-- rempli par home.js selon la saison -->
-        <a href="/guides/call-of-duty-pas-cher.html"><strong>Black Ops 7 : où acheter</strong><span>Battle.net, Xbox, Vault ou pas</span></a>
-        <a href="/guides/gta-6-pas-cher.html"><strong>GTA 6 : précommande PC</strong><span>Timing, pièges, quoi fuir</span></a>
-        <a href="/guides/ea-fc-pas-cher.html"><strong>FC 27 : racheter ou pas</strong><span>Online potes vs solo</span></a>
-        <a href="/guides/elden-ring-pas-cher.html"><strong>Elden Ring : Standard ou DLC</strong><span>Quelle édition, où comparer</span></a>
+        <a href="/guides/black-friday-jeux-2026"><strong>Black Friday jeux 2026</strong><span>Dates, wishlist, méthode</span></a>
+        <a href="/guides/meilleurs-jeux-pas-cher-automne-2026"><strong>Meilleurs jeux — automne</strong><span>8 idées + prix</span></a>
+        <a href="/guides/call-of-duty-pas-cher"><strong>Black Ops 7</strong><span>Battle.net, Xbox, Vault</span></a>
+        <a href="/guides/elden-ring-pas-cher"><strong>Elden Ring</strong><span>Standard ou DLC</span></a>
       </div>
     </section>
 
@@ -193,10 +182,6 @@
           <p class="faq-a">Affiliation : si tu achètes via nos liens, une petite commission peut revenir au site. Toi tu paies le même prix.</p>
         </details>
         <details>
-          <summary>Les clés sont légitimes ?</summary>
-          <p class="faq-a">On pointe vers des revendeurs connus et on explique les pièges. Lis aussi notre guide clés safe et Instant Gaming fiable.</p>
-        </details>
-        <details>
           <summary>Les prix sont à jour ?</summary>
           <p class="faq-a">Indicatifs, rafraîchis régulièrement. Le prix final est toujours celui de la boutique au moment du paiement. D’où le bouton Comparer.</p>
         </details>
@@ -204,30 +189,24 @@
     </section>
   </main>
 
-  <div class="sticky-aff" aria-label="Actions rapides">
-    <p class="sticky-aff-label">Prêt&nbsp;?</p>
-    <a class="btn buy small" href="https://www.instant-gaming.com/fr/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Chercher un jeu</a>
-    <a class="btn ghost small" href="/deals.html">Nos jeux</a>
-  </div>
-
   <footer class="site-footer">
     <p><strong>JeuxStash</strong> — un pote qui te dit où c’est moins cher.</p>
     <div class="footer-links">
       <a href="/guides/">Guides</a>
-      <a href="/deals.html">Jeux</a>
-      <a href="/pc-builder.html">Builder PC</a>
-      <a href="/a-propos.html">À propos</a>
-      <a href="/mentions-legales.html">Mentions</a>
+      <a href="/deals">Jeux</a>
+      <a href="/pc-builder">Builder PC</a>
+      <a href="/a-propos">À propos</a>
+      <a href="/mentions-legales">Mentions</a>
     </div>
-    <p class="fine">Acheter = Instant Gaming (affiliation). Comparer = GG.deals. Tu paies le même prix.</p>
+    <p class="fine">Voir le prix = Instant Gaming (affiliation). Comparer = GG.deals. Tu paies le même prix.</p>
   </footer>
-  <script src="/js/catalog.js?v=20260928"></script>
-  <script src="/js/season.js"></script>
-  <script src="/js/guides-data.js?v=20260928"></script>
-  <script src="/js/home.js?v=20260928"></script>
+  <script src="/js/catalog.js?v=20260929"></script>
+  <script src="/js/season.js?v=20260929h"></script>
+  <script src="/js/guides-data.js?v=20260929h"></script>
+  <script src="/js/home.js?v=20260929h2"></script>
   <script src="/js/config.js"></script>
-  <script src="/js/ui.js?v=20260928"></script>
-  <script src="/js/seo.js"></script>
+  <script src="/js/ui.js?v=20260929"></script>
+  <script src="/js/seo.js?v=20260929"></script>
   <script src="/js/track.js"></script>
 </body>
 </html>

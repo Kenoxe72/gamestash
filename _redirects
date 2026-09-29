@@ -1,0 +1,4 @@
+# Forcer www (canonical) — évite le double indexation apex / www
+https://jeuxstash.fr/* https://www.jeuxstash.fr/:splat 301
+http://jeuxstash.fr/* https://www.jeuxstash.fr/:splat 301
+http://www.jeuxstash.fr/* https://www.jeuxstash.fr/:splat 301

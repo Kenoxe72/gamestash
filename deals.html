@@ -3,9 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jeux — catalogue & bons plans — JeuxStash</title>
-  <meta name="description" content="Compare et achète moins cher : catalogue Instant Gaming affilié + comparaison multi-boutiques via GG.deals." />
-  <link rel="canonical" href="https://www.jeuxstash.fr/deals.html" />
+  <title>Jeux pas cher — catalogue & bons plans — JeuxStash</title>
+  <meta name="description" content="Catalogue jeux PC & console : prix Instant Gaming sous la jaquette, filtre sous 20 €, COD, GTA, FC 27, Elden Ring. Compare en 1 clic." />
+  <link rel="canonical" href="https://www.jeuxstash.fr/deals" />
+  <meta property="og:title" content="Jeux pas cher — JeuxStash" />
+  <meta property="og:description" content="Prix sous la jaquette + Comparer. Elden, BO7, FC 27, Wukong…" />
+  <meta property="og:url" content="https://www.jeuxstash.fr/deals" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="https://www.jeuxstash.fr/img/og-default.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="JeuxStash — Choisir un jeu, payer moins" />
+  <meta name="twitter:image" content="https://www.jeuxstash.fr/img/og-default.png" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,7 +32,7 @@
         <a href="/">Accueil</a>
         <a href="/guides/">Guides</a>
         <span class="nav-current" aria-current="page">Jeux</span>
-        <a href="/pc-builder.html">Builder PC</a>
+        <a href="/pc-builder">Builder PC</a>
         <a class="nav-cta" href="https://www.instant-gaming.com/fr/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Instant Gaming</a>
       </nav>
     </div>
@@ -43,7 +53,7 @@
           <span class="sr-only">Rechercher un jeu</span>
           <input id="deals-search" type="search" placeholder="Rechercher un jeu… (raccourci /)" autocomplete="off" />
         </label>
-        <button type="button" class="btn ghost small" id="deals-lucky" title="Un jeu au hasard en stock">Surprise</button>
+        <button type="button" class="btn ghost small" id="deals-lucky" title="Un jeu au hasard en stock">Au pif</button>
         <label class="sort-wrap">
           <span class="sr-only">Trier</span>
           <select id="deals-sort">
@@ -110,12 +120,28 @@
     </div>
 
     <div id="deals-grid" class="game-grid"></div>
-    <p id="deals-empty" class="deals-empty" hidden>Aucun jeu pour ce filtre. Essayez « Tous » ou une autre recherche.</p>
+    <p id="deals-empty" class="deals-empty" hidden>Aucun jeu pour ce filtre. Essaie « Tous » ou une autre recherche.</p>
 
     <div class="aff-box">
       <h3>Tranquille</h3>
       <p><strong>Clé digitale</strong> = Instant Gaming. <strong>Sur Amazon</strong> = version physique — le prix s’affiche chez Amazon (parfois moins cher, surtout en console).</p>
     </div>
+
+    <section class="deals-faq" id="faq" aria-label="Questions fréquentes">
+      <h2>Questions fréquentes</h2>
+      <details>
+        <summary>Les prix sont-ils à jour ?</summary>
+        <p class="faq-a">Indicatifs, rafraîchis régulièrement. Le prix final est celui de la boutique au paiement — d’où le bouton Comparer.</p>
+      </details>
+      <details>
+        <summary>Clé Instant Gaming = Steam ?</summary>
+        <p class="faq-a">Ça dépend du jeu. Lis la fiche (Steam, EA App, Battle.net, Rockstar…). En cas de doute, ouvre le guide du titre.</p>
+      </details>
+      <details>
+        <summary>Comment filtrer les bons plans ?</summary>
+        <p class="faq-a">Utilise la recherche, les plateformes, ou <a href="/deals?under20=1">sous 20 €</a>. Tu peux aussi partager l’URL filtrée.</p>
+      </details>
+    </section>
   </main>
 
   <div class="sticky-aff" aria-label="Acheter ou comparer">
@@ -128,18 +154,18 @@
     <div class="footer-links">
       <a href="/">Accueil</a>
       <a href="/guides/">Guides</a>
-      <a href="/pc-builder.html">Builder PC</a>
-      <a href="/a-propos.html">À propos</a>
-      <a href="/mentions-legales.html">Mentions</a>
+      <a href="/pc-builder">Builder PC</a>
+      <a href="/a-propos">À propos</a>
+      <a href="/mentions-legales">Mentions</a>
     </div>
     <p class="fine">Prix Instant Gaming / Amazon affiliés. « Comparer » → GG.deals.</p>
   </footer>
 
   <script src="/js/config.js"></script>
-  <script src="/js/catalog.js?v=20260928"></script>
-  <script src="/js/deals.js?v=20260928"></script>
-  <script src="/js/ui.js?v=20260928"></script>
-  <script src="/js/seo.js"></script>
+  <script src="/js/catalog.js?v=20260929"></script>
+  <script src="/js/deals.js?v=20260929"></script>
+  <script src="/js/ui.js?v=20260929"></script>
+  <script src="/js/seo.js?v=20260929"></script>
   <script src="/js/track.js"></script>
 </body>
 </html>

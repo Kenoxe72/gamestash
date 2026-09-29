@@ -266,7 +266,7 @@
       rows +
       "</tbody></table>" +
       '<div class="row">' +
-      '<a class="btn ghost small" href="/deals.html?platform=pc">Voir les jeux PC</a>' +
+      '<a class="btn ghost small" href="/deals?platform=pc">Voir les jeux PC</a>' +
       "</div>" +
       '<p class="fine">Budgets indicatifs neuf, tour seule. Vérifie GPU / RAM / alim sur la fiche Amazon avant d’acheter. Liens affiliés' +
       (hasTag ? "" : " (ID Partenaire à renseigner)") +

@@ -12,6 +12,49 @@ window.JEUXSTASH_SEASON = (function () {
     return "automne";
   }
 
+  /**
+   * Fenêtre Black Friday / Cyber Monday
+   * prep = 15 sept → 20 nov (wishlist / SEO précoce)
+   * live = 21 nov → 5 déc (soldes actives)
+   */
+  function blackFridayOf(d) {
+    const x = d || new Date();
+    const m = x.getMonth() + 1;
+    const day = x.getDate();
+    if (m === 9 && day >= 15) return "prep";
+    if (m === 10) return "prep";
+    if (m === 11 && day < 21) return "prep";
+    if (m === 11 && day >= 21) return "live";
+    if (m === 12 && day <= 5) return "live";
+    return null;
+  }
+
+  function blackFridayPlan(phase) {
+    if (phase === "live") {
+      return {
+        phase: "live",
+        eyebrow: "Black Friday",
+        blurb: "Les baisses sont là — 1 jeu, compare, clique. Pas 12 wishlists.",
+        href: "/guides/black-friday-jeux-2026",
+        cta: "Guide Black Friday",
+        secondaryHref: "/deals?under20=1",
+        secondaryCta: "Sous 20 €",
+      };
+    }
+    if (phase === "prep") {
+      return {
+        phase: "prep",
+        eyebrow: "Black Friday approche",
+        blurb: "Prépare ta liste (3 jeux max) avant le 27 nov. — on t’explique comment.",
+        href: "/guides/black-friday-jeux-2026",
+        cta: "Préparer ma liste",
+        secondaryHref: "/deals",
+        secondaryCta: "Voir les prix",
+      };
+    }
+    return null;
+  }
+
   /** Seed stable sur le mois → même ordre tout le mois, change au 1er */
   function monthSeed(d) {
     const x = d || new Date();
@@ -46,7 +89,7 @@ window.JEUXSTASH_SEASON = (function () {
       blurb: "Gros solo, chill, et promos de fin d’année.",
       heroPrefer: ["Elden Ring", "Baldur's Gate 3", "Cyberpunk 2077", "Hades", "Stardew Valley"],
       boost: ["chill", "hot"],
-      guideBoost: ["elden-ring-pas-cher", "gta-6-pas-cher", "game-pass-vs-acheter", "acheter-jeux-pas-cher"],
+      guideBoost: ["black-friday-jeux-2026", "elden-ring-pas-cher", "gta-6-pas-cher", "game-pass-vs-acheter", "acheter-jeux-pas-cher"],
     },
     printemps: {
       label: "Printemps",
@@ -70,14 +113,30 @@ window.JEUXSTASH_SEASON = (function () {
       blurb: "Nouveautés, RPG, gros titres en promo.",
       heroPrefer: ["Elden Ring", "Call of Duty: Black Ops 7", "Grand Theft Auto VI", "EA Sports FC 27", "Baldur's Gate 3"],
       boost: ["hot", "action"],
-      guideBoost: ["elden-ring-pas-cher", "call-of-duty-pas-cher", "gta-6-pas-cher", "ea-fc-pas-cher", "instant-gaming-fiable"],
+      guideBoost: ["black-friday-jeux-2026", "meilleurs-jeux-pas-cher-automne-2026", "elden-ring-pas-cher", "call-of-duty-pas-cher", "gta-6-pas-cher", "black-myth-wukong-pas-cher"],
     },
   };
 
   function current(d) {
     const key = seasonOf(d);
-    return Object.assign({ key: key, month: monthOf(d), seed: monthSeed(d) }, plans[key]);
+    const bfPhase = blackFridayOf(d);
+    return Object.assign(
+      {
+        key: key,
+        month: monthOf(d),
+        seed: monthSeed(d),
+        blackFriday: blackFridayPlan(bfPhase),
+      },
+      plans[key]
+    );
   }
 
-  return { seasonOf: seasonOf, monthSeed: monthSeed, shuffle: shuffle, plans: plans, current: current };
+  return {
+    seasonOf: seasonOf,
+    monthSeed: monthSeed,
+    shuffle: shuffle,
+    plans: plans,
+    current: current,
+    blackFridayOf: blackFridayOf,
+  };
 })();

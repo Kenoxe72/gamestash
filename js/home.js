@@ -20,6 +20,21 @@
     return "https://cdn.cloudflare.steamstatic.com/steam/apps/" + game.steam + "/header.jpg";
   }
 
+  /** Fond hero : Steam library_hero HD (header.jpg est trop petit → flou) */
+  function heroBgUrl(game) {
+    if (game.steam) {
+      return (
+        "https://cdn.cloudflare.steamstatic.com/steam/apps/" +
+        game.steam +
+        "/library_hero_2x.jpg"
+      );
+    }
+    if (game.cover && game.cover.indexOf("/616x353/") !== -1) {
+      return game.cover.replace("/616x353/", "/orig/");
+    }
+    return coverUrl(game);
+  }
+
   function formatPrice(n) {
     if (n == null || Number.isNaN(n)) return null;
     return (
@@ -77,25 +92,25 @@
 
   function guideLinks(game) {
     if (game.name === "Elden Ring") {
-      return '<a class="btn ghost small" href="/guides/elden-ring-pas-cher.html">Guide</a>';
+      return '<a class="btn ghost small" href="/guides/elden-ring-pas-cher">Guide</a>';
     }
     if (game.name === "Cyberpunk 2077") {
-      return '<a class="btn ghost small" href="/guides/cyberpunk-pas-cher.html">Guide</a>';
+      return '<a class="btn ghost small" href="/guides/cyberpunk-pas-cher">Guide</a>';
     }
     if (game.name === "Baldur's Gate 3") {
-      return '<a class="btn ghost small" href="/guides/baldurs-gate-3-pas-cher.html">Guide</a>';
+      return '<a class="btn ghost small" href="/guides/baldurs-gate-3-pas-cher">Guide</a>';
     }
     if (game.name === "Forza Horizon 5") {
-      return '<a class="btn ghost small" href="/guides/forza-horizon-5-pas-cher.html">Guide</a>';
+      return '<a class="btn ghost small" href="/guides/forza-horizon-5-pas-cher">Guide</a>';
     }
     if (game.name.indexOf("Call of Duty") === 0) {
-      return '<a class="btn ghost small" href="/guides/call-of-duty-pas-cher.html">Guide</a>';
+      return '<a class="btn ghost small" href="/guides/call-of-duty-pas-cher">Guide</a>';
     }
     if (game.name.indexOf("Grand Theft Auto VI") === 0 || game.name.indexOf("GTA") === 0) {
-      return '<a class="btn ghost small" href="/guides/gta-6-pas-cher.html">Guide</a>';
+      return '<a class="btn ghost small" href="/guides/gta-6-pas-cher">Guide</a>';
     }
     if (game.name.indexOf("EA Sports") === 0) {
-      return '<a class="btn ghost small" href="/guides/ea-fc-pas-cher.html">Guide FC 27</a>';
+      return '<a class="btn ghost small" href="/guides/ea-fc-pas-cher">Guide FC 27</a>';
     }
     return "";
   }
@@ -152,7 +167,7 @@
       "<h3>Game Pass d’abord ?</h3>" +
       "<p>Si tu testes beaucoup, l’abo peut battre l’achat.</p>" +
       '<div class="row">' +
-      '<a class="btn buy small" href="/guides/game-pass-vs-acheter.html">Mini-guide</a>' +
+      '<a class="btn buy small" href="/guides/game-pass-vs-acheter">Mini-guide</a>' +
       '<a class="btn ghost small" href="https://gg.deals/" rel="noopener" target="_blank">Comparer</a>' +
       "</div></div></article>"
     );
@@ -166,29 +181,29 @@
 
   function setHero(game) {
     if (!game) return;
-    const feature = document.querySelector(".hero-feature");
     const actions = document.querySelector(".hero-actions");
     const eyebrow = document.querySelector(".hero .eyebrow");
+    const bgImg = document.getElementById("hero-bg-img");
     if (eyebrow) {
       eyebrow.textContent = plan.eyebrow + " · " + plan.label;
     }
-    if (feature) {
-      feature.href = game.ig;
-      feature.classList.toggle("is-oos", game.stock === "out");
-      const img = feature.querySelector(".hero-cover img, img");
-      if (img) {
-        img.src = coverUrl(game);
-        img.alt = game.name;
+    if (bgImg) {
+      const hd = heroBgUrl(game);
+      bgImg.src = hd;
+      if (game.steam) {
+        bgImg.srcset =
+          "https://cdn.cloudflare.steamstatic.com/steam/apps/" +
+          game.steam +
+          "/library_hero.jpg 960w, " +
+          "https://cdn.cloudflare.steamstatic.com/steam/apps/" +
+          game.steam +
+          "/library_hero_2x.jpg 1920w";
+        bgImg.sizes = "100vw";
+      } else {
+        bgImg.removeAttribute("srcset");
+        bgImg.removeAttribute("sizes");
       }
-      const strong = feature.querySelector("strong");
-      const em = feature.querySelector("em");
-      if (strong) strong.textContent = game.name;
-      if (em) em.textContent = game.blurb || plan.blurb;
-      const old = feature.querySelector(".game-badges");
-      if (old) old.remove();
-      const cover = feature.querySelector(".hero-cover");
-      if (cover) cover.insertAdjacentHTML("beforeend", badgesHTML(game));
-      else feature.insertAdjacentHTML("beforeend", badgesHTML(game));
+      bgImg.alt = "";
     }
     if (actions) {
       const buy = actions.querySelector(".btn.buy, .btn.is-oos");
@@ -201,6 +216,8 @@
           buy.replaceWith(span);
         } else if (buy.tagName === "A") {
           buy.href = game.ig;
+          buy.rel = "sponsored noopener";
+          buy.target = "_blank";
           buy.textContent = "Voir le prix — " + game.name;
         } else {
           const a = document.createElement("a");
@@ -237,27 +254,20 @@
   if (hero) used[hero.name] = true;
 
   fillGrid("coop", pick("coop", 6, used));
-  fillGrid("chill", pick("chill", 4, used), tipCard());
-  // Sport : FC 27 toujours en tête
-  const sportForce = [];
-  ["EA Sports FC 27"].forEach(function (name) {
-    const g = byName(name);
-    if (g && !used[g.name]) {
-      sportForce.push(g);
-      used[g.name] = true;
-    }
-  });
-  fillGrid("sport", sportForce.concat(pick("sport", 2, used)).slice(0, 3));
-  // hits : mixer gros titres + hot
+
+  // Hits : gros titres + sport + hot (chill/sport sections retirées de l’accueil)
   const hitForce = [];
-  ["Call of Duty: Black Ops 7", "Grand Theft Auto VI", "Black Myth: Wukong"].forEach(function (name) {
+  ["Call of Duty: Black Ops 7", "Grand Theft Auto VI", "Black Myth: Wukong", "EA Sports FC 27"].forEach(function (name) {
     const g = byName(name);
     if (g && !used[g.name]) {
       hitForce.push(g);
       used[g.name] = true;
     }
   });
-  const hits = hitForce.concat(pick("hot", 8, used)).slice(0, 10);
+  const hits = hitForce
+    .concat(pick("hot", 6, used))
+    .concat(pick("chill", 2, used))
+    .slice(0, 10);
   if (hits.length < 8) {
     pick(null, 8 - hits.length, used).forEach(function (g) {
       hits.push(g);
@@ -268,6 +278,23 @@
   const stamp = document.getElementById("season-stamp");
   if (stamp) {
     stamp.textContent = "sélection " + plan.label.toLowerCase() + " · ça tourne chaque mois";
+  }
+
+  // Note hero : Black Friday ou sélection saison
+  const seasonCta = document.getElementById("season-cta");
+  const bf = plan.blackFriday;
+  if (seasonCta) {
+    if (bf) {
+      seasonCta.href = bf.href;
+      seasonCta.textContent =
+        bf.phase === "live" ? "Black Friday — guide soldes" : bf.eyebrow + " — " + bf.cta.toLowerCase();
+    } else if (plan.key === "automne") {
+      seasonCta.href = "/guides/meilleurs-jeux-pas-cher-automne-2026";
+      seasonCta.textContent = "Sélection automne";
+    } else {
+      seasonCta.href = "/guides/";
+      seasonCta.textContent = "Voir les guides";
+    }
   }
 
   // Guides money block — boost saison
@@ -281,7 +308,7 @@
       return sb - sa;
     });
     money.innerHTML = ranked
-      .slice(0, 6)
+      .slice(0, 4)
       .map(function (g) {
         return (
           '<a href="' +
@@ -296,7 +323,7 @@
       .join("");
   }
 
-  // Surprise-moi → deals avec un jeu random
+  // Au pif → deals avec un jeu random
   const lucky = document.getElementById("home-lucky");
   if (lucky) {
     lucky.addEventListener("click", function () {
@@ -304,7 +331,7 @@
         return g.stock === "ok" && g.price != null;
       });
       const g = pool[Math.floor(Math.random() * pool.length)] || catalog[0];
-      location.href = "/deals.html?q=" + encodeURIComponent(g.name);
+      location.href = "/deals?q=" + encodeURIComponent(g.name);
     });
   }
 })();

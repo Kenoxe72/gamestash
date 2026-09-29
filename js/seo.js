@@ -1,4 +1,4 @@
-/* SEO léger : JSON-LD WebSite / FAQ / Article */
+/* SEO léger : JSON-LD WebSite / FAQ / Article / Collection */
 (function () {
   function addJsonLd(data) {
     var s = document.createElement("script");
@@ -19,33 +19,46 @@
     inLanguage: "fr-FR",
     potentialAction: {
       "@type": "SearchAction",
-      target: origin + "/deals.html?q={search_term_string}",
+      target: origin + "/deals?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   });
 
-  if (path === "/" || path === "/index.html") {
-    var faqRoot = document.getElementById("faq");
-    if (faqRoot) {
-      var items = [];
-      faqRoot.querySelectorAll("details").forEach(function (d) {
-        var q = d.querySelector("summary");
-        var a = d.querySelector(".faq-a");
-        if (!q || !a) return;
-        items.push({
-          "@type": "Question",
-          name: q.textContent.trim(),
-          acceptedAnswer: { "@type": "Answer", text: a.textContent.trim() },
-        });
+  function injectFaq(root) {
+    if (!root) return;
+    var items = [];
+    root.querySelectorAll("details").forEach(function (d) {
+      var q = d.querySelector("summary");
+      var a = d.querySelector(".faq-a");
+      if (!q || !a) return;
+      items.push({
+        "@type": "Question",
+        name: q.textContent.trim(),
+        acceptedAnswer: { "@type": "Answer", text: a.textContent.trim() },
       });
-      if (items.length) {
-        addJsonLd({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: items,
-        });
-      }
+    });
+    if (items.length) {
+      addJsonLd({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: items,
+      });
     }
+  }
+
+  if (path === "/" || path === "/index" || path.indexOf("deals") !== -1) {
+    injectFaq(document.getElementById("faq"));
+  }
+
+  if (path.indexOf("deals") !== -1) {
+    addJsonLd({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Jeux & bons plans — JeuxStash",
+      url: origin + "/deals",
+      description: "Catalogue jeux avec prix Instant Gaming et comparaison.",
+      isPartOf: { "@type": "WebSite", name: "JeuxStash", url: origin + "/" },
+    });
   }
 
   var article = document.querySelector("article.article h1");
@@ -58,7 +71,13 @@
       description: desc ? desc.getAttribute("content") : "",
       inLanguage: "fr-FR",
       author: { "@type": "Organization", name: "JeuxStash" },
-      publisher: { "@type": "Organization", name: "JeuxStash", url: origin + "/" },
+      publisher: {
+        "@type": "Organization",
+        name: "JeuxStash",
+        url: origin + "/",
+        logo: { "@type": "ImageObject", url: origin + "/img/og-default.png" },
+      },
+      image: origin + "/img/og-default.png",
       mainEntityOfPage: origin + path,
       dateModified: document.lastModified || undefined,
     });

@@ -77,9 +77,12 @@
     grid.innerHTML = list.map(cardHTML).join("");
     const note = document.getElementById("guides-season-note");
     if (note) {
+      var seasonWord = plan.label.toLowerCase();
+      // cet devant voyelle / h muet : cet automne, cet hiver, cet été — ce printemps
+      var ce = /^[aeiouyàâäéèêëïîôùûüœæh]/i.test(seasonWord) ? "cet " : "ce ";
       note.textContent = showAll
         ? list.length + " guides · filtre saison désactivé"
-        : "À la une ce " + plan.label.toLowerCase() + " · " + list.length + " guides";
+        : "À la une " + ce + seasonWord + " · " + list.length + " guides";
     }
     const toggle = document.getElementById("guides-toggle-all");
     if (toggle) {

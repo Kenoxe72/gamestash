@@ -165,16 +165,16 @@
 
   function guideLink(game) {
     const map = {
-      "Elden Ring": "/guides/elden-ring-pas-cher.html",
-      "Cyberpunk 2077": "/guides/cyberpunk-pas-cher.html",
-      "Baldur's Gate 3": "/guides/baldurs-gate-3-pas-cher.html",
-      "Forza Horizon 5": "/guides/forza-horizon-5-pas-cher.html",
-      "EA Sports FC 27": "/guides/ea-fc-pas-cher.html",
-      "Grand Theft Auto VI": "/guides/gta-6-pas-cher.html",
+      "Elden Ring": "/guides/elden-ring-pas-cher",
+      "Cyberpunk 2077": "/guides/cyberpunk-pas-cher",
+      "Baldur's Gate 3": "/guides/baldurs-gate-3-pas-cher",
+      "Forza Horizon 5": "/guides/forza-horizon-5-pas-cher",
+      "EA Sports FC 27": "/guides/ea-fc-pas-cher",
+      "Grand Theft Auto VI": "/guides/gta-6-pas-cher",
     };
     if (map[game.name]) return '<a class="btn ghost small" href="' + map[game.name] + '">Guide</a>';
     if ((game.name || "").indexOf("Call of Duty") === 0) {
-      return '<a class="btn ghost small" href="/guides/call-of-duty-pas-cher.html">Guide</a>';
+      return '<a class="btn ghost small" href="/guides/call-of-duty-pas-cher">Guide</a>';
     }
     return "";
   }
@@ -459,7 +459,7 @@
       card.scrollIntoView({ behavior: "smooth", block: "center" });
     }
     if (window.JEUXSTASH_toast) {
-      window.JEUXSTASH_toast("Surprise : " + g.name);
+      window.JEUXSTASH_toast("Au pif : " + g.name);
     }
   }
 
@@ -468,7 +468,7 @@
     if (share) {
       e.preventDefault();
       const name = share.getAttribute("data-name") || "";
-      const url = location.origin + "/deals.html?q=" + encodeURIComponent(name);
+      const url = location.origin + "/deals?q=" + encodeURIComponent(name);
       function ok() {
         if (window.JEUXSTASH_toast) window.JEUXSTASH_toast("Lien copié");
         saveRecent(name);

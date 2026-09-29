@@ -1,8 +1,28 @@
 /* Catalogue des guides — rotation saisonnière (les fichiers HTML restent en ligne) */
 window.JEUXSTASH_GUIDES = [
   {
+    id: "black-friday-jeux-2026",
+    href: "/guides/black-friday-jeux-2026",
+    title: "Black Friday jeux 2026",
+    blurb: "Dates, wishlist, méthode — sans FOMO.",
+    kicker: "Soldes",
+    thumb: "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg",
+    evergreen: true,
+    seasons: ["automne", "hiver"],
+  },
+  {
+    id: "meilleurs-jeux-pas-cher-automne-2026",
+    href: "/guides/meilleurs-jeux-pas-cher-automne-2026",
+    title: "Meilleurs jeux — automne 2026",
+    blurb: "8 idées rentrée + où comparer le prix.",
+    kicker: "Saison",
+    thumb: "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg",
+    evergreen: true,
+    seasons: ["automne", "hiver"],
+  },
+  {
     id: "call-of-duty-pas-cher",
-    href: "/guides/call-of-duty-pas-cher.html",
+    href: "/guides/call-of-duty-pas-cher",
     title: "Black Ops 7 : où acheter",
     blurb: "Battle.net ou Xbox, Vault ou Standard, timing des promos.",
     kicker: "COD",
@@ -12,7 +32,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "gta-6-pas-cher",
-    href: "/guides/gta-6-pas-cher.html",
+    href: "/guides/gta-6-pas-cher",
     title: "GTA 6 : précommande PC",
     blurb: "Consoles d’abord, PC ensuite — quoi faire (et quoi fuir).",
     kicker: "GTA",
@@ -22,7 +42,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "ea-fc-pas-cher",
-    href: "/guides/ea-fc-pas-cher.html",
+    href: "/guides/ea-fc-pas-cher",
     title: "FC 27 : racheter ou pas ?",
     blurb: "Online potes vs solo, Standard vs Deluxe, quand attendre.",
     kicker: "Sport",
@@ -32,7 +52,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "elden-ring-pas-cher",
-    href: "/guides/elden-ring-pas-cher.html",
+    href: "/guides/elden-ring-pas-cher",
     title: "Elden Ring : Standard ou DLC",
     blurb: "Base seule, pack Erdtree, et comment ne pas surpayer.",
     kicker: "RPG",
@@ -41,8 +61,27 @@ window.JEUXSTASH_GUIDES = [
     seasons: ["hiver", "automne"],
   },
   {
+    id: "black-myth-wukong-pas-cher",
+    href: "/guides/black-myth-wukong-pas-cher",
+    title: "Wukong : où l’acheter",
+    blurb: "Clé Steam, IG vs store, pour qui c’est fait.",
+    kicker: "Action",
+    thumb: "https://gaming-cdn.com/images/products/7678/616x353/black-myth-wukong-pc-steam-cover.jpg",
+    evergreen: true,
+    seasons: ["automne", "hiver", "ete"],
+  },
+  {
+    id: "expedition-33-pas-cher",
+    href: "/guides/expedition-33-pas-cher",
+    title: "Expedition 33 : prix & édition",
+    blurb: "RPG acclamé — compare avant le plein tarif.",
+    kicker: "RPG",
+    thumb: "https://gaming-cdn.com/images/products/17015/616x353/clair-obscur-expedition-33-pc-steam-cover.jpg",
+    seasons: ["automne", "hiver", "printemps"],
+  },
+  {
     id: "instant-gaming-fiable",
-    href: "/guides/instant-gaming-fiable.html",
+    href: "/guides/instant-gaming-fiable",
     title: "Instant Gaming fiable ?",
     blurb: "Avis clair avant d’acheter une clé.",
     kicker: "Avis",
@@ -50,7 +89,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "acheter-jeux-pas-cher",
-    href: "/guides/acheter-jeux-pas-cher.html",
+    href: "/guides/acheter-jeux-pas-cher",
     title: "3 règles pour payer moins",
     blurb: "Court. Applicable ce soir.",
     kicker: "Budget",
@@ -58,7 +97,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "cles-jeux-legitimes",
-    href: "/guides/cles-jeux-legitimes.html",
+    href: "/guides/cles-jeux-legitimes",
     title: "Clés safe",
     blurb: "Repérer les pièges avant le paiement.",
     kicker: "Sécurité",
@@ -66,7 +105,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "forza-horizon-5-pas-cher",
-    href: "/guides/forza-horizon-5-pas-cher.html",
+    href: "/guides/forza-horizon-5-pas-cher",
     title: "Forza 5 : IG ou Game Pass",
     blurb: "Achat vs abo — le calcul simple.",
     kicker: "Course",
@@ -75,7 +114,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "soldes-steam-payer-moins",
-    href: "/guides/soldes-steam-payer-moins.html",
+    href: "/guides/soldes-steam-payer-moins",
     title: "Soldes Steam",
     blurb: "Wishlist utile, pas une tombe à euros.",
     kicker: "Soldes",
@@ -83,7 +122,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "cle-steam-pas-cher",
-    href: "/guides/cle-steam-pas-cher.html",
+    href: "/guides/cle-steam-pas-cher",
     title: "Clés Steam sans se faire avoir",
     blurb: "Où acheter, quoi vérifier sur la fiche.",
     kicker: "Clés",
@@ -91,7 +130,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "baldurs-gate-3-pas-cher",
-    href: "/guides/baldurs-gate-3-pas-cher.html",
+    href: "/guides/baldurs-gate-3-pas-cher",
     title: "Baldur’s Gate 3 : quand acheter",
     blurb: "GOG / Instant Gaming, timing des baisses.",
     kicker: "RPG",
@@ -100,7 +139,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "cyberpunk-pas-cher",
-    href: "/guides/cyberpunk-pas-cher.html",
+    href: "/guides/cyberpunk-pas-cher",
     title: "Cyberpunk : quelle édition",
     blurb: "Standard vs Ultimate — ce qui change vraiment.",
     kicker: "RPG",
@@ -109,7 +148,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "jeux-ce-soir-pas-cher",
-    href: "/guides/jeux-ce-soir-pas-cher.html",
+    href: "/guides/jeux-ce-soir-pas-cher",
     title: "Quoi jouer ce soir",
     blurb: "6 idées + liens prix.",
     kicker: "Idées",
@@ -117,7 +156,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "game-pass-vs-acheter",
-    href: "/guides/game-pass-vs-acheter.html",
+    href: "/guides/game-pass-vs-acheter",
     title: "Game Pass ou acheter",
     blurb: "Le calcul en 30 secondes.",
     kicker: "Choix",
@@ -125,7 +164,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "meilleurs-jeux-coop-2026",
-    href: "/guides/meilleurs-jeux-coop-2026.html",
+    href: "/guides/meilleurs-jeux-coop-2026",
     title: "Jeux coop",
     blurb: "Quoi lancer à deux.",
     kicker: "Coop",
@@ -134,7 +173,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "pc-gaming-petit-budget",
-    href: "/guides/pc-gaming-petit-budget.html",
+    href: "/guides/pc-gaming-petit-budget",
     title: "PC petit budget",
     blurb: "Où mettre l’argent.",
     kicker: "PC",
@@ -142,7 +181,7 @@ window.JEUXSTASH_GUIDES = [
   },
   {
     id: "meilleurs-jeux-sport-2026",
-    href: "/guides/meilleurs-jeux-sport-2026.html",
+    href: "/guides/meilleurs-jeux-sport-2026",
     title: "Jeux de sport",
     blurb: "Faut-il racheter chaque année ?",
     kicker: "Sport",

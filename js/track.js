@@ -5,6 +5,7 @@
   function injectCfBeacon(token) {
     if (!token || document.querySelector("script[data-cf-beacon]")) return;
     var s = document.createElement("script");
+    s.type = "module";
     s.defer = true;
     s.src = "https://static.cloudflareinsights.com/beacon.min.js";
     s.setAttribute("data-cf-beacon", JSON.stringify({ token: token }));
