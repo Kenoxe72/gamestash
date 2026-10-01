@@ -9,10 +9,12 @@
   const stockOnly = document.getElementById("deals-stock");
   const under20 = document.getElementById("deals-under20");
   const updatedEl = document.getElementById("deals-updated");
+  const verdictFilters = document.getElementById("deals-verdicts");
   if (!grid || !window.JEUXSTASH_CATALOG) return;
 
   let activeCat = "all";
   let activePlat = "all";
+  let activeVerdict = "all";
 
   if (updatedEl && window.JEUXSTASH_PRICES_UPDATED) {
     try {
@@ -40,9 +42,11 @@
     }
     const s0 = params.get("sort");
     if (s0 && sortEl) {
-      const ok = ["featured", "price-asc", "price-desc", "name"];
+      const ok = ["featured", "save", "price-asc", "price-desc", "name"];
       if (ok.indexOf(s0) !== -1) sortEl.value = s0;
     }
+    const v0 = (params.get("verdict") || "").toLowerCase();
+    if (v0 && ["buy", "wait", "abo"].indexOf(v0) !== -1) activeVerdict = v0;
     if (params.get("stock") === "1" && stockOnly) stockOnly.checked = true;
     if (params.get("under20") === "1" && under20) under20.checked = true;
   } catch (e) {}
@@ -50,6 +54,11 @@
   if (filters) {
     filters.querySelectorAll("[data-filter]").forEach(function (b) {
       b.classList.toggle("is-active", b.getAttribute("data-filter") === activeCat);
+    });
+  }
+  if (verdictFilters) {
+    verdictFilters.querySelectorAll("[data-verdict]").forEach(function (b) {
+      b.classList.toggle("is-active", b.getAttribute("data-verdict") === activeVerdict);
     });
   }
 
@@ -242,7 +251,10 @@
     const gg = esc(game.gg);
     const oos = game.stock === "out";
     const cover = coverUrl(game);
-    const primary = esc(primaryHref(game));
+    const fiche =
+      window.JEUXSTASH_FICHE && window.JEUXSTASH_FICHE.url
+        ? esc(window.JEUXSTASH_FICHE.url(game))
+        : "/deals?q=" + encodeURIComponent(game.name);
     const img = cover
       ? '<img class="game-cover" src="' +
         cover +
@@ -260,23 +272,35 @@
       '" data-platforms="' +
       plats +
       '">' +
+      '<div class="game-cover-wrap">' +
       '<a class="game-cover-link" href="' +
-      primary +
-      '" rel="sponsored noopener" target="_blank">' +
+      fiche +
+      '">' +
       img +
       badgesHTML(game) +
       "</a>" +
+      (window.JEUXSTASH_WATCH ? window.JEUXSTASH_WATCH.btnHTML(game.name) : "") +
+      "</div>" +
       '<div class="game-card-body">' +
+      '<div class="card-meta">' +
       '<span class="tag">' +
       tag +
       "</span>" +
-      "<h3>" +
+      (window.JEUXSTASH_VERDICT ? window.JEUXSTASH_VERDICT.chipHTML(game) : "") +
+      "</div>" +
+      '<h3><a class="game-title-link" href="' +
+      fiche +
+      '">' +
       name +
-      "</h3>" +
+      "</a></h3>" +
       "<p>" +
       blurb +
       "</p>" +
+      (window.JEUXSTASH_VERDICT ? window.JEUXSTASH_VERDICT.compareHTML(game) : "") +
       '<div class="row">' +
+      '<a class="btn ghost small" href="' +
+      fiche +
+      '">Fiche</a>' +
       buyButtons(game) +
       '<a class="btn ghost small" href="' +
       gg +
@@ -297,6 +321,15 @@
         const pa = a.price == null ? 9999 : a.price;
         const pb = b.price == null ? 9999 : b.price;
         return pa - pb;
+      });
+    } else if (mode === "save") {
+      copy.sort(function (a, b) {
+        const Va = window.JEUXSTASH_VERDICT ? window.JEUXSTASH_VERDICT.for(a).savePct || 0 : 0;
+        const Vb = window.JEUXSTASH_VERDICT ? window.JEUXSTASH_VERDICT.for(b).savePct || 0 : 0;
+        if (Vb !== Va) return Vb - Va;
+        const sa = a.stock === "ok" ? 0 : 1;
+        const sb = b.stock === "ok" ? 0 : 1;
+        return sa - sb;
       });
     } else if (mode === "price-desc") {
       copy.sort(function (a, b) {
@@ -389,6 +422,7 @@
       .join("");
     if (countEl) countEl.textContent = list.length + (list.length > 1 ? " jeux" : " jeu");
     if (empty) empty.hidden = list.length > 0;
+    if (window.JEUXSTASH_WATCH) window.JEUXSTASH_WATCH.syncUI();
   }
 
   function syncPlatChips() {
@@ -405,6 +439,13 @@
     });
   }
 
+  function syncVerdictChips() {
+    if (!verdictFilters) return;
+    verdictFilters.querySelectorAll("[data-verdict]").forEach(function (b) {
+      b.classList.toggle("is-active", b.getAttribute("data-verdict") === activeVerdict);
+    });
+  }
+
   function apply() {
     const q = (search && search.value ? search.value : "").trim().toLowerCase();
     let list = window.JEUXSTASH_CATALOG.filter(function (g) {
@@ -414,12 +455,16 @@
       const qOk = matchesQuery(g, q);
       const stockOk = !stockOnly || !stockOnly.checked || g.stock === "ok";
       const cheapOk = !under20 || !under20.checked || (g.price != null && g.price > 0 && g.price < 20);
-      return catOk && platOk && qOk && stockOk && cheapOk;
+      const verdictOk =
+        activeVerdict === "all" ||
+        (window.JEUXSTASH_VERDICT && window.JEUXSTASH_VERDICT.for(g).kind === activeVerdict);
+      return catOk && platOk && qOk && stockOk && cheapOk && verdictOk;
     });
     list = sortList(list);
     render(list);
     syncPlatChips();
     syncStyleChips();
+    syncVerdictChips();
 
     try {
       const url = new URL(location.href);
@@ -429,6 +474,8 @@
       else url.searchParams.delete("platform");
       if (activeCat !== "all") url.searchParams.set("style", activeCat);
       else url.searchParams.delete("style");
+      if (activeVerdict !== "all") url.searchParams.set("verdict", activeVerdict);
+      else url.searchParams.delete("verdict");
       const sortMode = sortEl ? sortEl.value : "featured";
       if (sortMode && sortMode !== "featured") url.searchParams.set("sort", sortMode);
       else url.searchParams.delete("sort");
@@ -459,7 +506,7 @@
       card.scrollIntoView({ behavior: "smooth", block: "center" });
     }
     if (window.JEUXSTASH_toast) {
-      window.JEUXSTASH_toast("Au pif : " + g.name);
+      window.JEUXSTASH_toast("Hasard : " + g.name);
     }
   }
 
@@ -468,7 +515,10 @@
     if (share) {
       e.preventDefault();
       const name = share.getAttribute("data-name") || "";
-      const url = location.origin + "/deals?q=" + encodeURIComponent(name);
+      const url =
+        window.JEUXSTASH_FICHE && window.JEUXSTASH_FICHE.url
+          ? location.origin + window.JEUXSTASH_FICHE.url(name)
+          : location.origin + "/deals?q=" + encodeURIComponent(name);
       function ok() {
         if (window.JEUXSTASH_toast) window.JEUXSTASH_toast("Lien copié");
         saveRecent(name);
@@ -517,6 +567,15 @@
       const btn = e.target.closest("[data-platform]");
       if (!btn) return;
       activePlat = btn.getAttribute("data-platform");
+      apply();
+    });
+  }
+
+  if (verdictFilters) {
+    verdictFilters.addEventListener("click", function (e) {
+      const btn = e.target.closest("[data-verdict]");
+      if (!btn) return;
+      activeVerdict = btn.getAttribute("data-verdict");
       apply();
     });
   }

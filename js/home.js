@@ -121,6 +121,10 @@
     const tag = esc(game.tag || "");
     const ig = esc(game.ig);
     const gg = esc(game.gg);
+    const fiche =
+      window.JEUXSTASH_FICHE && window.JEUXSTASH_FICHE.url
+        ? esc(window.JEUXSTASH_FICHE.url(game))
+        : "/deals?q=" + encodeURIComponent(game.name);
     const oos = game.stock === "out";
     const buy = oos
       ? '<span class="btn buy small is-oos" aria-disabled="true">Rupture</span>'
@@ -129,9 +133,10 @@
       '<article class="game-card' +
       (oos ? " is-oos" : "") +
       '">' +
+      '<div class="game-cover-wrap">' +
       '<a class="game-cover-link" href="' +
-      ig +
-      '" rel="sponsored noopener" target="_blank">' +
+      fiche +
+      '">' +
       '<img class="game-cover" src="' +
       coverUrl(game) +
       '" alt="' +
@@ -139,17 +144,28 @@
       '" width="460" height="215" loading="lazy" />' +
       badgesHTML(game) +
       "</a>" +
+      (window.JEUXSTASH_WATCH ? window.JEUXSTASH_WATCH.btnHTML(game.name) : "") +
+      "</div>" +
       '<div class="game-card-body">' +
+      '<div class="card-meta">' +
       '<span class="tag">' +
       tag +
       "</span>" +
-      "<h3>" +
+      (window.JEUXSTASH_VERDICT ? window.JEUXSTASH_VERDICT.chipHTML(game) : "") +
+      "</div>" +
+      '<h3><a class="game-title-link" href="' +
+      fiche +
+      '">' +
       name +
-      "</h3>" +
+      "</a></h3>" +
       "<p>" +
       blurb +
       "</p>" +
+      (window.JEUXSTASH_VERDICT ? window.JEUXSTASH_VERDICT.compareHTML(game) : "") +
       '<div class="row">' +
+      '<a class="btn ghost small" href="' +
+      fiche +
+      '">Fiche</a>' +
       buy +
       '<a class="btn ghost small" href="' +
       gg +
@@ -163,11 +179,11 @@
     return (
       '<article class="game-card game-card--tip">' +
       '<div class="game-card-body">' +
-      '<span class="tag">Astuce budget</span>' +
-      "<h3>Game Pass d’abord ?</h3>" +
-      "<p>Si tu testes beaucoup, l’abo peut battre l’achat.</p>" +
+      '<span class="tag">Budget</span>' +
+      "<h3>Game Pass ou achat&nbsp;?</h3>" +
+      "<p>Si vous testez beaucoup de jeux, l’abonnement peut revenir moins cher.</p>" +
       '<div class="row">' +
-      '<a class="btn buy small" href="/guides/game-pass-vs-acheter">Mini-guide</a>' +
+      '<a class="btn buy small" href="/guides/game-pass-vs-acheter">Lire le guide</a>' +
       '<a class="btn ghost small" href="https://gg.deals/" rel="noopener" target="_blank">Comparer</a>' +
       "</div></div></article>"
     );
@@ -177,6 +193,7 @@
     const el = document.querySelector("#" + id + " .game-grid[data-rotate]");
     if (!el) return;
     el.innerHTML = games.map(cardHTML).join("") + (extraHTML || "");
+    if (window.JEUXSTASH_WATCH) window.JEUXSTASH_WATCH.syncUI();
   }
 
   function setHero(game) {
@@ -253,6 +270,41 @@
   const used = {};
   if (hero) used[hero.name] = true;
 
+  // Ce soir · 2h : sessions courtes, mix solo / coop
+  (function fillTonight() {
+    var prefer = [
+      "Balatro",
+      "Vampire Survivors",
+      "It Takes Two",
+      "Hades",
+      "Overcooked 2",
+      "PlateUp!",
+      "PEAK",
+      "Content Warning",
+      "Lethal Company",
+      "Celeste",
+      "Stardew Valley",
+      "Phasmophobia",
+      "R.E.P.O.",
+      "Hollow Knight",
+    ];
+    var list = [];
+    prefer.forEach(function (name) {
+      if (list.length >= 4) return;
+      var g = byName(name);
+      if (g && g.stock === "ok" && !used[g.name]) {
+        list.push(g);
+        used[g.name] = true;
+      }
+    });
+    if (list.length < 4) {
+      pick("chill", 4 - list.length, used).forEach(function (g) {
+        if (g.stock === "ok") list.push(g);
+      });
+    }
+    fillGrid("tonight", list.slice(0, 4));
+  })();
+
   fillGrid("coop", pick("coop", 6, used));
 
   // Hits : gros titres + sport + hot (chill/sport sections retirées de l’accueil)
@@ -275,9 +327,168 @@
   }
   fillGrid("hits", hits);
 
+  // Grosses baisses : mix % fort + titres reconnus (pas que du −90 % obscur)
+  (function fillPromos() {
+    var rail = document.getElementById("promo-rail");
+    var V = window.JEUXSTASH_VERDICT;
+    if (!rail || !V) return;
+    var FAME = {
+      "Elden Ring": 1,
+      "Baldur's Gate 3": 1,
+      "Cyberpunk 2077": 1,
+      "Hollow Knight: Silksong": 1,
+      "Hollow Knight": 0.85,
+      Balatro: 0.95,
+      "Black Myth: Wukong": 1,
+      "Helldivers 2": 0.95,
+      "Red Dead Redemption 2": 0.95,
+      "The Witcher 3": 0.9,
+      "Hades II": 0.9,
+      Hades: 0.8,
+      "Clair Obscur: Expedition 33": 0.95,
+      "Monster Hunter Wilds": 0.9,
+      "Forza Horizon 5": 0.85,
+      "GTA V Enhanced": 0.85,
+      "Warhammer 40,000: Space Marine 2": 0.8,
+      "Resident Evil 4": 0.8,
+      "God of War": 0.85,
+      "God of War Ragnarök": 0.9,
+      "Marvel's Spider-Man": 0.8,
+      "Marvel's Spider-Man 2": 0.85,
+      "Hogwarts Legacy": 0.8,
+      "No Man's Sky": 0.75,
+      "Disco Elysium": 0.7,
+      "It Takes Two": 0.75,
+      "Sea of Thieves": 0.7,
+      Minecraft: 0.85,
+      "Call of Duty: Black Ops 7": 0.9,
+      "EA Sports FC 27": 0.75,
+      "Borderlands 4": 0.75,
+      "Death Stranding 2": 0.75,
+      "Alan Wake 2": 0.7,
+      Palworld: 0.7,
+      "Stardew Valley": 0.7,
+    };
+    function fameOf(g) {
+      if (FAME[g.name] != null) return FAME[g.name];
+      if ((g.cats || []).indexOf("hot") !== -1) return 0.45;
+      return 0.15;
+    }
+    function promoScore(g, v) {
+      var pct = v.savePct || 0;
+      var fame = fameOf(g);
+      var euros = v.store != null && g.price != null ? Math.max(0, v.store - g.price) : 0;
+      return pct * (0.5 + 0.5 * fame) + Math.min(euros, 35) * 0.35 + fame * 28;
+    }
+    var ranked = catalog
+      .filter(function (g) {
+        return g.stock === "ok" && g.price != null && g.price > 0;
+      })
+      .map(function (g) {
+        var v = V.for(g);
+        return { game: g, pct: v.savePct || 0, v: v, score: promoScore(g, v), fame: fameOf(g) };
+      })
+      .filter(function (x) {
+        return x.pct >= 25;
+      })
+      .sort(function (a, b) {
+        return b.score - a.score;
+      });
+    // Au moins 2 titres « connus » si possible, puis compléter
+    var picked = [];
+    var used = {};
+    ranked.forEach(function (x) {
+      if (picked.length >= 4) return;
+      if (x.fame < 0.7) return;
+      picked.push(x);
+      used[x.game.name] = true;
+    });
+    ranked.forEach(function (x) {
+      if (picked.length >= 4) return;
+      if (used[x.game.name]) return;
+      picked.push(x);
+      used[x.game.name] = true;
+    });
+    if (!picked.length) {
+      rail.innerHTML =
+        '<p class="fine">Pas de grosse baisse détectée pour l’instant — <a href="/deals">voir le catalogue</a>.</p>';
+      return;
+    }
+    rail.innerHTML = picked
+      .map(function (x) {
+        var g = x.game;
+        var name = esc(g.name);
+        var price = formatPrice(g.price) || "";
+        var fiche =
+          window.JEUXSTASH_FICHE && window.JEUXSTASH_FICHE.url
+            ? esc(window.JEUXSTASH_FICHE.url(g))
+            : esc(g.ig);
+        var compare =
+          x.v.store != null
+            ? "Boutique ≈ " +
+              Number(x.v.store).toLocaleString("fr-FR", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              }) +
+              "\u00a0€"
+            : "";
+        return (
+          '<div class="promo-card">' +
+          '<div class="game-cover-wrap">' +
+          '<a class="promo-card-media" href="' +
+          fiche +
+          '">' +
+          '<img src="' +
+          coverUrl(g) +
+          '" alt="" width="230" height="107" loading="lazy" />' +
+          '<span class="promo-save">−' +
+          x.pct +
+          "&nbsp;%</span>" +
+          "</a>" +
+          (window.JEUXSTASH_WATCH ? window.JEUXSTASH_WATCH.btnHTML(g.name) : "") +
+          "</div>" +
+          '<a class="promo-card-body" href="' +
+          fiche +
+          '">' +
+          "<strong>" +
+          name +
+          "</strong>" +
+          '<span class="promo-price">' +
+          price +
+          (compare ? " · " + esc(compare) : "") +
+          "</span>" +
+          "</a></div>"
+        );
+      })
+      .join("");
+    if (window.JEUXSTASH_WATCH) window.JEUXSTASH_WATCH.syncUI();
+  })();
+
+  var trust = document.getElementById("trust-stats");
+  if (trust) {
+    var n = catalog.length;
+    var cheap = catalog.filter(function (g) {
+      return g.stock === "ok" && g.price != null && g.price < 20;
+    }).length;
+    var upd = window.JEUXSTASH_PRICES_UPDATED || "";
+    var dateLabel = "récemment";
+    if (upd) {
+      try {
+        dateLabel = new Date(upd + "T12:00:00").toLocaleDateString("fr-FR", {
+          day: "numeric",
+          month: "short",
+        });
+      } catch (e) {
+        dateLabel = upd;
+      }
+    }
+    trust.textContent =
+      n + " jeux · " + cheap + " sous 20 € · maj. " + dateLabel + " · sans compte";
+  }
+
   const stamp = document.getElementById("season-stamp");
   if (stamp) {
-    stamp.textContent = "sélection " + plan.label.toLowerCase() + " · ça tourne chaque mois";
+    stamp.textContent = "sélection " + plan.label.toLowerCase() + " · mise à jour mensuelle";
   }
 
   // Note hero : Black Friday ou sélection saison
@@ -323,7 +534,7 @@
       .join("");
   }
 
-  // Au pif → deals avec un jeu random
+  // Hasard → deals avec un jeu random
   const lucky = document.getElementById("home-lucky");
   if (lucky) {
     lucky.addEventListener("click", function () {

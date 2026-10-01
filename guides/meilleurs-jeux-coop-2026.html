@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("jeuxstash-theme");
+        document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jeux coop ce soir — JeuxStash</title>
@@ -16,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/style.css?v=20261001guides3" />
 </head>
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
@@ -37,36 +48,21 @@
     <h1>À deux ce soir : lance ça</h1>
     <p class="tldr"><strong>En gros :</strong> histoire à deux → It Takes Two. Sessions courtes → Deep Rock. Chaos → Overcooked.</p>
 
-    <h2>It Takes Two</h2>
-    <p>Le meilleur “premier coop”. Clique, joue, finis contents.</p>
-    <p><a class="btn buy small" href="https://www.instant-gaming.com/fr/8103-acheter-it-takes-two-pc-jeu-ea-app/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Acheter</a>
-            <a class="btn ghost small" href="https://gg.deals/games/?title=It+Takes+Two" rel="noopener" target="_blank">Comparer</a></p>
+    
+    <div
+      class="guide-picks"
+      data-picks='[
+        {"name":"It Takes Two","note":"Le meilleur premier coop. Clique, joue, finis contents."},
+        {"name":"Deep Rock Galactic","note":"Une mission = une soirée. Parfait après 17h."},
+        {"name":"Overcooked 2","note":"40 minutes de bordel joyeux."},
+        {"name":"PlateUp!","note":"Cuisine chaos, sessions courtes."},
+        {"name":"Lethal Company","note":"Peur + micro + potes. Une run et c’est plié."},
+        {"name":"Phasmophobia","note":"Chasse aux fantômes à 4. Parfait Discord."},
+        {"name":"Stardew Valley","note":"Plus calme, ultra addictif à deux."}
+      ]'
+    ></div>
 
-    <h2>Deep Rock Galactic</h2>
-    <p>Une mission = une soirée. Parfait après 17h.</p>
-    <p><a class="btn buy small" href="https://www.instant-gaming.com/fr/6323-acheter-deep-rock-galactic-pc-jeu-steam/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Acheter</a>
-            <a class="btn ghost small" href="https://gg.deals/games/?title=Deep+Rock+Galactic" rel="noopener" target="_blank">Comparer</a></p>
-
-    <h2>Overcooked / PlateUp!</h2>
-    <p>40 minutes de bordel joyeux.</p>
-    <p><a class="btn buy small" href="https://www.instant-gaming.com/fr/2705-acheter-overcooked-2-pc-mac-jeu-steam/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Acheter Overcooked</a>
-            <a class="btn buy small" href="https://www.instant-gaming.com/fr/12605-acheter-plateup-pc-jeu-steam/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Acheter PlateUp!</a>
-            <a class="btn ghost small" href="https://gg.deals/games/?title=PlateUp" rel="noopener" target="_blank">Comparer</a></p>
-
-    <h2>Lethal Company</h2>
-    <p>Peur + micro + potes. Une run et la soirée est pliée.</p>
-    <p><a class="btn buy small" href="https://www.instant-gaming.com/fr/15274-acheter-lethal-company-pc-jeu-steam/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Acheter</a>
-            <a class="btn ghost small" href="https://gg.deals/games/?title=Lethal+Company" rel="noopener" target="_blank">Comparer</a></p>
-
-    <h2>Phasmophobia</h2>
-    <p>Chasse aux fantômes à 4. Parfait Discord.</p>
-    <p><a class="btn buy small" href="https://www.instant-gaming.com/fr/7677-acheter-phasmophobia-pc-steam/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Acheter</a>
-            <a class="btn ghost small" href="https://gg.deals/games/?title=Phasmophobia" rel="noopener" target="_blank">Comparer</a></p>
-
-    <h2>Stardew Valley</h2>
-    <p>Plus calme, mais ultra addictif à deux.</p>
-    <p><a class="btn buy small" href="https://www.instant-gaming.com/fr/1767-acheter-stardew-valley-pc-mac-jeu-steam/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Acheter</a>
-            <a class="btn ghost small" href="https://gg.deals/games/?title=Stardew+Valley" rel="noopener" target="_blank">Comparer</a></p>
+    
 
     <div class="aff-box">
       <h3>Encore hésitant ?</h3>
@@ -83,13 +79,14 @@
     </div>
     <p class="fine">Liens Instant Gaming affiliés — sans surcoût pour toi.</p>
   </footer>
-
   <script src="/js/config.js"></script>
-    <script src="/js/season.js"></script>
-  <script src="/js/guides-data.js"></script>
-  <script src="/js/catalog.js?v=20260928"></script>
-  <script src="/js/ui.js?v=20260928"></script>
-    <script src="/js/seo.js"></script>
+  <script src="/js/season.js?v=20261001thumbs"></script>
+  <script src="/js/guides-data.js?v=20261001thumbs"></script>
+  <script src="/js/catalog.js?v=20260930cover2"></script>
+  <script src="/js/fiche.js?v=20261001seo"></script>
+<script src="/js/ui.js?v=20261001guides2"></script>
+  <script src="/js/seo.js?v=20260929"></script>
   <script src="/js/track.js"></script>
+
 </body>
 </html>

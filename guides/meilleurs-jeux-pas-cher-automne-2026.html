@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("jeuxstash-theme");
+        document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Meilleurs jeux pas cher automne 2026 — JeuxStash</title>
@@ -21,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.cloudflare.steamstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/style.css?v=20261001guides3" />
 </head>
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
@@ -32,6 +43,7 @@
         <a href="/">Accueil</a>
         <a href="/guides/">Guides</a>
         <a href="/deals">Jeux</a>
+        <a href="/mes-jeux">Mes jeux</a>
         <a class="nav-cta" href="https://www.instant-gaming.com/fr/?igr=gamer-47bd4c" rel="sponsored noopener" target="_blank">Instant Gaming</a>
       </nav>
     </div>
@@ -40,28 +52,38 @@
     <p class="back-nav"><a class="back-link" href="/guides/">← Guides</a></p>
     <p class="meta">Sélection · ~4 min · automne 2026</p>
     <h1>Meilleurs jeux pas cher — automne 2026</h1>
-    <p class="tldr"><strong>En gros :</strong> 8 idées pour la rentrée. Prix indicatifs sous la jaquette sur <a href="/deals">nos jeux</a>. Compare Instant Gaming et le store officiel le même jour — prends <em>un</em> titre, pas douze.</p>
+    <p class="tldr"><strong>En gros :</strong> 8 idées pour la rentrée. Prix sous la jaquette, fiche + Instant Gaming en un clic. Compare le même jour — prends <em>un</em> titre, pas douze.</p>
 
     <h2>Solo qui tient la route</h2>
-    <ol class="steps">
-      <li><strong><a href="/guides/elden-ring-pas-cher">Elden Ring</a></strong> — open world exigeant, souvent en promo. Standard d’abord, DLC plus tard.</li>
-      <li><strong><a href="/guides/black-myth-wukong-pas-cher">Black Myth: Wukong</a></strong> — boss fights, spectacle. Idéal si tu veux un gros solo sans MMO.</li>
-      <li><strong><a href="/guides/expedition-33-pas-cher">Clair Obscur: Expedition 33</a></strong> — RPG tour par tour acclamé, souvent bien sous le plein tarif.</li>
-      <li><strong><a href="/guides/cyberpunk-pas-cher">Cyberpunk 2077</a></strong> — regarde Ultimate vs Standard + DLC à part.</li>
-    </ol>
+    <div
+      class="guide-picks"
+      data-picks='[
+        {"name":"Elden Ring","note":"Open world exigeant — Standard d’abord, DLC plus tard."},
+        {"name":"Black Myth: Wukong","note":"Boss fights, spectacle. Gros solo sans MMO."},
+        {"name":"Clair Obscur: Expedition 33","note":"RPG tour par tour acclamé, souvent sous le plein tarif."},
+        {"name":"Cyberpunk 2077","note":"Regarde Ultimate vs Standard + DLC à part."}
+      ]'
+    ></div>
 
     <h2>Avec des potes / online</h2>
-    <ol class="steps">
-      <li><strong><a href="/guides/call-of-duty-pas-cher">Call of Duty: Black Ops 7</a></strong> — vérifie Battle.net vs Xbox avant de payer.</li>
-      <li><strong><a href="/guides/ea-fc-pas-cher">EA Sports FC 27</a></strong> — racheter seulement si ton groupe est déjà passé à 27.</li>
-      <li><strong>Helldivers 2 / Deep Rock</strong> — coop direct, souvent moins cher que les AAA jour J. → <a href="/deals?q=helldivers">Helldivers</a></li>
-    </ol>
+    <div
+      class="guide-picks"
+      data-picks='[
+        {"name":"Call of Duty: Black Ops 7","note":"Vérifie Battle.net vs Xbox avant de payer."},
+        {"name":"EA Sports FC 27","note":"Racheter seulement si ton groupe est déjà passé à 27."},
+        {"name":"Helldivers 2","note":"Coop direct, souvent moins cher qu’un AAA jour J."},
+        {"name":"Deep Rock Galactic","note":"Une mission = une soirée entre nains."}
+      ]'
+    ></div>
 
     <h2>À surveiller (pas forcément à acheter aujourd’hui)</h2>
-    <ol class="steps">
-      <li><strong><a href="/guides/gta-6-pas-cher">GTA VI</a></strong> — consoles d’abord ; PC surtout en précommande. Pas de panique jour J.</li>
-      <li>Soldes Steam / Black Friday : méthode courte dans <a href="/guides/soldes-steam-payer-moins">Soldes Steam</a>.</li>
-    </ol>
+    <div
+      class="guide-picks"
+      data-picks='[
+        {"name":"Grand Theft Auto VI","note":"Consoles d’abord ; PC surtout en précommande. Pas de panique jour J."}
+      ]'
+    ></div>
+    <p>Soldes Steam / Black Friday : méthode courte dans <a href="/guides/soldes-steam-payer-moins">Soldes Steam</a> et <a href="/guides/black-friday-jeux-2026">Black Friday 2026</a>.</p>
 
     <div class="aff-box">
       <h3>Voir les prix maintenant</h3>
@@ -75,7 +97,7 @@
     <ol class="steps">
       <li>Un jeu = une soirée prévue. Sinon laisse tomber.</li>
       <li>Compare IG + store le même jour (<a href="/guides/acheter-jeux-pas-cher">méthode</a>).</li>
-      <li>Régionant aux clés ? Lis <a href="/guides/instant-gaming-fiable">Instant Gaming fiable ?</a></li>
+      <li>Débutant aux clés ? Lis <a href="/guides/instant-gaming-fiable">Instant Gaming fiable ?</a></li>
     </ol>
 
     <h2>FAQ</h2>
@@ -83,6 +105,8 @@
     <p>On gagne une commission si tu passes par Instant Gaming via nos liens — tu paies le même prix. Les idées viennent de ce qu’on voit chercher / jouer en ce moment.</p>
     <h3>Les prix changent ?</h3>
     <p>Oui. Le prix final est toujours celui de la boutique au moment du paiement. D’où le bouton Comparer.</p>
+    <h3>Je prends lequel en premier ?</h3>
+    <p>Celui que tu lances <em>ce week-end</em>. Solo → Elden / Wukong / Expedition. Online → Helldivers ou DRG. Football entre potes → FC 27 seulement si le lobby est déjà passé.</p>
 
     <p class="fine" style="margin-top:1.5rem">Liens Instant Gaming affiliés — sans surcoût pour toi. Compare toujours avant d’acheter.</p>
   </article>
@@ -90,16 +114,19 @@
     <div class="footer-links">
       <a href="/guides/">Guides</a>
       <a href="/deals">Jeux</a>
+      <a href="/mes-jeux">Mes jeux</a>
       <a href="/a-propos">À propos</a>
     </div>
     <p class="fine">Liens Instant Gaming affiliés — sans surcoût pour toi.</p>
   </footer>
   <script src="/js/config.js"></script>
-  <script src="/js/season.js"></script>
-  <script src="/js/guides-data.js?v=20260929"></script>
-  <script src="/js/catalog.js?v=20260929"></script>
-  <script src="/js/ui.js?v=20260929"></script>
+  <script src="/js/season.js?v=20261001thumbs"></script>
+  <script src="/js/guides-data.js?v=20261001thumbs"></script>
+  <script src="/js/catalog.js?v=20260930cover2"></script>
+  <script src="/js/fiche.js?v=20261001seo"></script>
+<script src="/js/ui.js?v=20261001guides2"></script>
   <script src="/js/seo.js?v=20260929"></script>
   <script src="/js/track.js"></script>
+
 </body>
 </html>

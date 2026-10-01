@@ -34,7 +34,7 @@ window.JEUXSTASH_SEASON = (function () {
       return {
         phase: "live",
         eyebrow: "Black Friday",
-        blurb: "Les baisses sont là — 1 jeu, compare, clique. Pas 12 wishlists.",
+        blurb: "Les soldes sont ouvertes — un jeu, comparez, achetez au bon prix.",
         href: "/guides/black-friday-jeux-2026",
         cta: "Guide Black Friday",
         secondaryHref: "/deals?under20=1",
@@ -45,7 +45,7 @@ window.JEUXSTASH_SEASON = (function () {
       return {
         phase: "prep",
         eyebrow: "Black Friday approche",
-        blurb: "Prépare ta liste (3 jeux max) avant le 27 nov. — on t’explique comment.",
+        blurb: "Préparez une courte liste (3 jeux max) avant le 27 novembre.",
         href: "/guides/black-friday-jeux-2026",
         cta: "Préparer ma liste",
         secondaryHref: "/deals",
@@ -85,35 +85,35 @@ window.JEUXSTASH_SEASON = (function () {
   const plans = {
     hiver: {
       label: "Hiver",
-      eyebrow: "Soldes & soirées canapé",
-      blurb: "Gros solo, chill, et promos de fin d’année.",
+      eyebrow: "Soldes d’hiver",
+      blurb: "Solo long format et promos de fin d’année.",
       heroPrefer: ["Elden Ring", "Baldur's Gate 3", "Cyberpunk 2077", "Hades", "Stardew Valley"],
       boost: ["chill", "hot"],
       guideBoost: ["black-friday-jeux-2026", "elden-ring-pas-cher", "gta-6-pas-cher", "game-pass-vs-acheter", "acheter-jeux-pas-cher"],
     },
     printemps: {
       label: "Printemps",
-      eyebrow: "Sessions à deux",
-      blurb: "Coop, party, soirées Discord.",
+      eyebrow: "Jeux à plusieurs",
+      blurb: "Coop et sessions entre amis.",
       heroPrefer: ["It Takes Two", "Deep Rock Galactic", "Sea of Thieves", "Risk of Rain 2", "PlateUp!"],
       boost: ["coop"],
       guideBoost: ["meilleurs-jeux-coop-2026", "jeux-ce-soir-pas-cher", "instant-gaming-fiable"],
     },
     ete: {
       label: "Été",
-      eyebrow: "Sessions courtes & course",
-      blurb: "Parties rapides, sport, conduite.",
+      eyebrow: "Sessions courtes",
+      blurb: "Parties rapides, sport et conduite.",
       heroPrefer: ["Forza Horizon 5", "Overcooked 2", "EA Sports FC 27", "Helldivers 2", "Minecraft"],
       boost: ["sport", "coop"],
       guideBoost: ["ea-fc-pas-cher", "meilleurs-jeux-sport-2026", "jeux-ce-soir-pas-cher", "pc-gaming-petit-budget"],
     },
     automne: {
       label: "Automne",
-      eyebrow: "Rentrée gaming",
-      blurb: "Nouveautés, RPG, gros titres en promo.",
+      eyebrow: "Rentrée",
+      blurb: "Nouveautés, RPG et gros titres en promo.",
       heroPrefer: ["Elden Ring", "Call of Duty: Black Ops 7", "Grand Theft Auto VI", "EA Sports FC 27", "Baldur's Gate 3"],
       boost: ["hot", "action"],
-      guideBoost: ["black-friday-jeux-2026", "meilleurs-jeux-pas-cher-automne-2026", "elden-ring-pas-cher", "call-of-duty-pas-cher", "gta-6-pas-cher", "black-myth-wukong-pas-cher"],
+      guideBoost: ["black-friday-jeux-2026", "meilleurs-jeux-pas-cher-automne-2026", "expedition-33-pas-cher", "call-of-duty-pas-cher", "gta-6-pas-cher", "black-myth-wukong-pas-cher"],
     },
   };
 

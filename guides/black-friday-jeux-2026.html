@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("jeuxstash-theme");
+        document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Black Friday jeux 2026 : comment payer moins — JeuxStash</title>
@@ -20,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/style.css?v=20261001guides3" />
 </head>
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
@@ -39,7 +50,7 @@
     <p class="back-nav"><a class="back-link" href="/guides/">← Guides</a></p>
     <p class="meta">Guide soldes · ~4 min · 2026</p>
     <h1>Black Friday jeux 2026 : payer moins sans te faire avoir</h1>
-    <p class="tldr"><strong>En gros :</strong> le Black Friday (fin novembre) + Cyber Monday, tout le monde baisse. Prépare <em>1 à 3</em> titres max, compare Instant Gaming et le store le même jour, ignore le reste. La FOMO est le vrai piège.</p>
+    <p class="tldr"><strong>En résumé :</strong> Black Friday (fin novembre) et Cyber Monday, les prix baissent partout. Préparez <em>1 à 3</em> titres maximum, comparez Instant Gaming et le store le même jour, et ignorez le reste. Se précipiter sur tout ce qui est soldé, c’est le vrai piège.</p>
 
     <h2>C’est quand ?</h2>
     <ol class="steps">
@@ -74,12 +85,19 @@
     </div>
 
     <h2>Quoi viser (exemples)</h2>
-    <ol class="steps">
-      <li><strong>Gros solo déjà sortis</strong> — Elden Ring, Wukong, Cyberpunk, BG3 : souvent de vraies baisses. Guides : <a href="/guides/elden-ring-pas-cher">Elden</a>, <a href="/guides/black-myth-wukong-pas-cher">Wukong</a>, <a href="/guides/cyberpunk-pas-cher">Cyberpunk</a>.</li>
-      <li><strong>AAA récents</strong> — COD / FC : parfois -20 / -30&nbsp;% seulement. Calcule si tu joueras assez. <a href="/guides/call-of-duty-pas-cher">BO7</a> · <a href="/guides/ea-fc-pas-cher">FC 27</a>.</li>
-      <li><strong>Sous 20&nbsp;€</strong> — coop / chill pour remplir le panier sans regret. → <a href="/deals?under20=1">filtre sous 20&nbsp;€</a>.</li>
-      <li><strong>GTA VI</strong> — ne panique pas sur une “offre” floue. Lis <a href="/guides/gta-6-pas-cher">précommande PC</a>.</li>
-    </ol>
+    <div
+      class="guide-picks"
+      data-picks='[
+        {"name":"Elden Ring","note":"Gros solo déjà sorti — souvent de vraies baisses."},
+        {"name":"Black Myth: Wukong","note":"Spectacle boss — compare IG vs Steam le jour J."},
+        {"name":"Cyberpunk 2077","note":"Souvent en mega-promo. Ultimate vs Standard."},
+        {"name":"Baldur\u0027s Gate 3","note":"Long RPG — prends-le si tu as le temps derrière."},
+        {"name":"Call of Duty: Black Ops 7","note":"Parfois -20/-30 % seulement. Calcule si tu joueras assez."},
+        {"name":"EA Sports FC 27","note":"Online potes → oui. Solo → attends souvent."},
+        {"name":"Grand Theft Auto VI","note":"Ignore les offres floues. Consoles d’abord."}
+      ]'
+    ></div>
+    <p>Aussi : <a href="/deals?under20=1">filtre sous 20&nbsp;€</a> pour coop / chill sans regret.</p>
 
     <h2>À éviter</h2>
     <ol class="steps">
@@ -110,11 +128,13 @@
     <p class="fine">Liens Instant Gaming affiliés — sans surcoût pour toi.</p>
   </footer>
   <script src="/js/config.js"></script>
-  <script src="/js/season.js?v=20260929bf"></script>
-  <script src="/js/guides-data.js?v=20260929bf"></script>
-  <script src="/js/catalog.js?v=20260929"></script>
-  <script src="/js/ui.js?v=20260929"></script>
+  <script src="/js/season.js?v=20261001thumbs"></script>
+  <script src="/js/guides-data.js?v=20261001thumbs"></script>
+  <script src="/js/catalog.js?v=20260930cover2"></script>
+  <script src="/js/fiche.js?v=20261001seo"></script>
+<script src="/js/ui.js?v=20261001guides2"></script>
   <script src="/js/seo.js?v=20260929"></script>
   <script src="/js/track.js"></script>
+
 </body>
 </html>
