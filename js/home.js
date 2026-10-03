@@ -47,10 +47,24 @@
 
   function badgesHTML(game) {
     const out = game.stock === "out";
+    const coming = window.JEUXSTASH_COMING && window.JEUXSTASH_COMING.isComing(game);
     const price = formatPrice(game.price);
     let html = "";
-    if (out) html += '<span class="game-badge game-badge--out">Rupture</span>';
-    if (price) html += '<span class="game-badge game-badge--price">' + price + "</span>";
+    if (coming) {
+      html +=
+        '<span class="game-badge game-badge--coming">' +
+        esc(window.JEUXSTASH_COMING.label(game)) +
+        "</span>";
+    } else if (out) {
+      html += '<span class="game-badge game-badge--out">Rupture</span>';
+    }
+    if (price) {
+      html +=
+        '<span class="game-badge game-badge--price">' +
+        (coming && out ? "Préco " : "") +
+        price +
+        "</span>";
+    }
     return html ? '<span class="game-badges">' + html + "</span>" : "";
   }
 
@@ -126,12 +140,19 @@
         ? esc(window.JEUXSTASH_FICHE.url(game))
         : "/deals?q=" + encodeURIComponent(game.name);
     const oos = game.stock === "out";
-    const buy = oos
-      ? '<span class="btn buy small is-oos" aria-disabled="true">Rupture</span>'
-      : '<a class="btn buy small" href="' + ig + '" rel="sponsored noopener" target="_blank">Voir le prix</a>';
+    const coming = window.JEUXSTASH_COMING && window.JEUXSTASH_COMING.isComing(game);
+    const buy =
+      oos && !coming
+        ? '<span class="btn buy small is-oos" aria-disabled="true">Rupture</span>'
+        : '<a class="btn buy small" href="' +
+          ig +
+          '" rel="sponsored noopener" target="_blank">' +
+          (coming ? "Précommander" : "Voir le prix") +
+          "</a>";
     return (
       '<article class="game-card' +
-      (oos ? " is-oos" : "") +
+      (oos && !coming ? " is-oos" : "") +
+      (coming ? " is-coming" : "") +
       '">' +
       '<div class="game-cover-wrap">' +
       '<a class="game-cover-link" href="' +
@@ -306,6 +327,34 @@
   })();
 
   fillGrid("coop", pick("coop", 6, used));
+
+  // À venir : précommandes / sorties (tri date croissante)
+  (function fillComing() {
+    var prefer = [
+      "Call of Duty: Modern Warfare 4",
+      "Grand Theft Auto VI",
+      "Crimson Desert Enhanced",
+      "Pragmata",
+      "The Witcher 4",
+    ];
+    var list = [];
+    prefer.forEach(function (name) {
+      var g = byName(name);
+      if (g && window.JEUXSTASH_COMING && window.JEUXSTASH_COMING.isComing(g)) list.push(g);
+    });
+    catalog.forEach(function (g) {
+      if (list.length >= 6) return;
+      if (!window.JEUXSTASH_COMING || !window.JEUXSTASH_COMING.isComing(g)) return;
+      if (list.some(function (x) { return x.name === g.name; })) return;
+      list.push(g);
+    });
+    list.sort(function (a, b) {
+      var ra = a.release || "9999";
+      var rb = b.release || "9999";
+      return String(ra).localeCompare(String(rb));
+    });
+    fillGrid("coming", list.slice(0, 6));
+  })();
 
   // Hits : gros titres + sport + hot (chill/sport sections retirées de l’accueil)
   const hitForce = [];

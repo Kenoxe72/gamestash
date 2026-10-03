@@ -226,6 +226,7 @@ window.JEUXSTASH_CATALOG = [
     "blurb": "Précommande PC Rockstar. Surveille le prix avant le jour J.",
     "tag": "Préco",
     "cats": [
+      "coming",
       "hot",
       "action"
     ],
@@ -234,6 +235,7 @@ window.JEUXSTASH_CATALOG = [
     "gg": "https://gg.deals/games/?title=Grand+Theft+Auto+VI",
     "price": null,
     "stock": "out",
+    "release": "2026",
     "platforms": [
       "pc"
     ],
@@ -251,6 +253,7 @@ window.JEUXSTASH_CATALOG = [
     "blurb": "Sortie 23 oct. 2026 — précommande Xbox / PC. Compare avant le plein tarif.",
     "tag": "Préco",
     "cats": [
+      "coming",
       "hot",
       "action"
     ],
@@ -259,6 +262,7 @@ window.JEUXSTASH_CATALOG = [
     "gg": "https://gg.deals/games/?title=Call+of+Duty+Modern+Warfare+4",
     "price": 57.99,
     "stock": "out",
+    "release": "2026-10-23",
     "platforms": [
       "pc",
       "xbox"
@@ -301,8 +305,9 @@ window.JEUXSTASH_CATALOG = [
   {
     "name": "Crimson Desert Enhanced",
     "blurb": "Open world Pearl Abyss — action, montures, factions.",
-    "tag": "Hot",
+    "tag": "Préco",
     "cats": [
+      "coming",
       "hot",
       "action"
     ],
@@ -311,6 +316,7 @@ window.JEUXSTASH_CATALOG = [
     "gg": "https://gg.deals/games/?title=Crimson+Desert",
     "price": 41.19,
     "stock": "ok",
+    "release": "2026",
     "platforms": [
       "pc"
     ],
@@ -324,8 +330,9 @@ window.JEUXSTASH_CATALOG = [
   {
     "name": "Pragmata",
     "blurb": "Action SF Capcom — duo humain / androïde sur la Lune.",
-    "tag": "Hot",
+    "tag": "Préco",
     "cats": [
+      "coming",
       "hot",
       "action"
     ],
@@ -334,6 +341,7 @@ window.JEUXSTASH_CATALOG = [
     "gg": "https://gg.deals/games/?title=Pragmata",
     "price": 49.49,
     "stock": "ok",
+    "release": "2026",
     "platforms": [
       "pc"
     ],
@@ -392,6 +400,7 @@ window.JEUXSTASH_CATALOG = [
     "blurb": "Prochain gros RPG CDPR — sortie annoncée 2028. Surveiller les préco.",
     "tag": "Préco",
     "cats": [
+      "coming",
       "hot",
       "action"
     ],
@@ -400,6 +409,7 @@ window.JEUXSTASH_CATALOG = [
     "gg": "https://gg.deals/games/?title=The+Witcher+4",
     "price": null,
     "stock": "out",
+    "release": "2028",
     "platforms": [
       "pc"
     ],
@@ -1906,3 +1916,26 @@ window.JEUXSTASH_CATALOG = [
   }
 ];
 window.JEUXSTASH_PRICES_UPDATED = "2026-10-03";
+
+/** Jeux à venir / précommandes (cat « coming » + date optionnelle) */
+window.JEUXSTASH_COMING = {
+  isComing: function (game) {
+    return !!game && (game.cats || []).indexOf("coming") !== -1;
+  },
+  label: function (game) {
+    if (!game || !game.release) return "À venir";
+    var r = String(game.release);
+    if (/^\d{4}$/.test(r)) return r;
+    try {
+      var d = new Date(r + "T12:00:00");
+      if (Number.isNaN(d.getTime())) return "À venir";
+      return d.toLocaleDateString("fr-FR", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      });
+    } catch (e) {
+      return "À venir";
+    }
+  },
+};

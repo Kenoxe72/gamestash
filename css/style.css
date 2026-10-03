@@ -827,6 +827,20 @@ html:not([data-theme="dark"]) .hero--immersive .hero-search input::placeholder {
   letter-spacing: 0.06em;
 }
 
+.game-badge--coming {
+  right: 0.55rem;
+  top: 0.55rem;
+  color: #0a1210;
+  background: rgba(120, 220, 190, 0.95);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.game-card.is-coming .tag {
+  color: var(--accent, #1a9b7a);
+}
+
 .game-badge--plat {
   left: 0.55rem;
   top: 0.55rem;

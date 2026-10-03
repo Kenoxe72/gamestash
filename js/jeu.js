@@ -118,6 +118,7 @@
   function renderShell(game) {
     var price = formatPrice(game.price);
     var oos = game.stock === "out";
+    var coming = window.JEUXSTASH_COMING && window.JEUXSTASH_COMING.isComing(game);
     var cover = bannerUrl(game);
     var coverFb = coverUrl(game);
     var srcset = bannerSrcset(game);
@@ -145,6 +146,11 @@
       '<span class="tag">' +
       esc(game.tag || "Jeu") +
       "</span>" +
+      (coming
+        ? '<span class="verdict-chip verdict-chip--wait">' +
+          esc(window.JEUXSTASH_COMING.label(game)) +
+          "</span>"
+        : "") +
       (verdict ? V.chipHTML(game) : "") +
       (window.JEUXSTASH_WATCH ? window.JEUXSTASH_WATCH.btnHTML(game.name) : "") +
       "</div>" +
@@ -159,16 +165,18 @@
         ? '<p class="price-compare">' + esc(verdict.compare) + "</p>"
         : "") +
       '<div class="fiche-price-row">' +
-      (oos
+      (oos && !coming
         ? '<span class="btn buy is-oos" aria-disabled="true">Clé en rupture</span>'
         : price
           ? '<span class="fiche-price">' + price + "</span>"
           : "") +
-      (oos
+      (oos && !coming
         ? ""
         : '<a class="btn buy" href="' +
           esc(game.ig) +
-          '" rel="sponsored noopener" target="_blank">Voir le prix sur Instant Gaming</a>') +
+          '" rel="sponsored noopener" target="_blank">' +
+          (coming ? "Précommander sur Instant Gaming" : "Voir le prix sur Instant Gaming") +
+          "</a>") +
       '<a class="btn ghost" href="' +
       esc(game.gg || "https://gg.deals/") +
       '" rel="noopener" target="_blank">Comparer</a>' +

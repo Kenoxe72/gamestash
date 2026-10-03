@@ -108,20 +108,28 @@
 
   function badgesHTML(game) {
     const out = game.stock === "out";
+    const coming = window.JEUXSTASH_COMING && window.JEUXSTASH_COMING.isComing(game);
     const price = formatPrice(game.price);
     const plat = platLabel(platformsOf(game));
     const hasAmz = !!game.amazon;
     let html = "";
-    if (out) html += '<span class="game-badge game-badge--out">Clé rupture</span>';
+    if (coming) {
+      html +=
+        '<span class="game-badge game-badge--coming">' +
+        esc(window.JEUXSTASH_COMING.label(game)) +
+        "</span>";
+    } else if (out) {
+      html += '<span class="game-badge game-badge--out">Clé rupture</span>';
+    }
     if (plat) html += '<span class="game-badge game-badge--plat">' + esc(plat) + "</span>";
     // Prix jaquette = toujours Instant Gaming (clé). Jamais le prix Amazon.
-    if (price && !out) {
+    if (price && (!out || coming)) {
       html +=
         '<span class="game-badge game-badge--price" title="Prix clé Instant Gaming">' +
-        "Clé " +
+        (coming && out ? "Préco " : "Clé ") +
         price +
         "</span>";
-    } else if (hasAmz && out) {
+    } else if (hasAmz && out && !coming) {
       html +=
         '<span class="game-badge game-badge--price game-badge--amz" title="Voir le prix sur Amazon">Sur Amazon</span>';
     }
@@ -199,11 +207,12 @@
     const ig = game.ig;
     const amzQ = game.amazon;
     const oos = game.stock === "out";
+    const coming = window.JEUXSTASH_COMING && window.JEUXSTASH_COMING.isComing(game);
     const price = formatPrice(game.price);
     const parts = [];
 
     if (ig) {
-      if (oos) {
+      if (oos && !coming) {
         parts.push('<span class="btn buy small is-oos" aria-disabled="true">Clé en rupture</span>');
       } else {
         parts.push(
@@ -211,7 +220,9 @@
             esc(ig) +
             '" rel="sponsored noopener" target="_blank" title="Clé digitale Instant Gaming' +
             (price ? " — " + price : "") +
-            '">Clé digitale</a>'
+            '">' +
+            (coming ? "Précommander" : "Clé digitale") +
+            "</a>"
         );
       }
     }
@@ -339,6 +350,14 @@
       });
     } else if (mode === "name") {
       copy.sort(function (a, b) {
+        return a.name.localeCompare(b.name, "fr");
+      });
+    } else if (activeCat === "coming") {
+      copy.sort(function (a, b) {
+        const ra = a.release || "9999";
+        const rb = b.release || "9999";
+        const c = String(ra).localeCompare(String(rb));
+        if (c) return c;
         return a.name.localeCompare(b.name, "fr");
       });
     } else {
