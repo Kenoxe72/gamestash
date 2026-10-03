@@ -23,10 +23,10 @@ window.JEUXSTASH_GUIDES = [
   {
     id: "call-of-duty-pas-cher",
     href: "/guides/call-of-duty-pas-cher",
-    title: "Black Ops 7 : où acheter",
-    blurb: "Battle.net ou Xbox, Vault ou Standard, timing des promos.",
+    title: "Black Ops 7 & MW4 : où acheter",
+    blurb: "Battle.net ou Xbox, précommande MW4, Vault ou Standard.",
     kicker: "COD",
-    thumb: "https://gaming-cdn.com/images/products/15595/616x353/call-of-duty-black-ops-7-pc-battle-net-cover.jpg",
+    thumb: "https://gaming-cdn.com/images/products/16809/616x353/call-of-duty-modern-warfare-4-xbox-series-x-s-pc-microsoft-store-cover.jpg",
     evergreen: true,
     seasons: ["automne", "hiver"],
   },

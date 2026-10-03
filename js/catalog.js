@@ -247,6 +247,170 @@ window.JEUXSTASH_CATALOG = [
     ]
   },
   {
+    "name": "Call of Duty: Modern Warfare 4",
+    "blurb": "Sortie 23 oct. 2026 — précommande Xbox / PC. Compare avant le plein tarif.",
+    "tag": "Préco",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/16809/616x353/call-of-duty-modern-warfare-4-xbox-series-x-s-pc-microsoft-store-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/16809-acheter-call-of-duty-modern-warfare-4-pc-xbox-series-x-s-microsoft-store/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Call+of+Duty+Modern+Warfare+4",
+    "price": 57.99,
+    "stock": "out",
+    "platforms": [
+      "pc",
+      "xbox"
+    ],
+    "store": 79.99,
+    "amazon": "Call of Duty Modern Warfare 4",
+    "aliases": [
+      "mw4",
+      "mw 4",
+      "modern warfare 4",
+      "cod mw4",
+      "call of duty mw4"
+    ]
+  },
+  {
+    "name": "Resident Evil Requiem",
+    "blurb": "Nouveau RE — Grace + Leon. Survival horror Capcom.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/9000/616x353/resident-evil-requiem-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/9000-acheter-resident-evil-requiem-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Resident+Evil+Requiem",
+    "price": 37.69,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "store": 69.99,
+    "amazon": "Resident Evil Requiem",
+    "aliases": [
+      "re requiem",
+      "resident evil 9",
+      "re9",
+      "requiem"
+    ]
+  },
+  {
+    "name": "Crimson Desert Enhanced",
+    "blurb": "Open world Pearl Abyss — action, montures, factions.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/8400/616x353/crimson-desert-enhanced-pc-mac-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/8400-acheter-crimson-desert-enhanced-pc-mac-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Crimson+Desert",
+    "price": 41.19,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "store": 69.99,
+    "amazon": "Crimson Desert",
+    "aliases": [
+      "crimson desert",
+      "crimson"
+    ]
+  },
+  {
+    "name": "Pragmata",
+    "blurb": "Action SF Capcom — duo humain / androïde sur la Lune.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/21402/616x353/pragmata-deluxe-edition-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/21402-acheter-pragmata-deluxe-edition-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Pragmata",
+    "price": 49.49,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "store": 69.99,
+    "amazon": "Pragmata"
+  },
+  {
+    "name": "Mafia: The Old Country",
+    "blurb": "Sicile 1900 — origines de la mafia, action à la 3e personne.",
+    "tag": "Hot",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/19337/616x353/mafia-the-old-country-pc-steam-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/19337-acheter-mafia-the-old-country-pc-steam/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Mafia+The+Old+Country",
+    "price": 44.99,
+    "stock": "ok",
+    "platforms": [
+      "pc"
+    ],
+    "store": 59.99,
+    "amazon": "Mafia The Old Country",
+    "aliases": [
+      "mafia old country",
+      "mafia 4"
+    ]
+  },
+  {
+    "name": "Ghost of Yōtei",
+    "blurb": "Suite spirituelle de Ghost of Tsushima — PS5.",
+    "tag": "PS5",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/17722/616x353/ghost-of-yotei-playstation-5-playstation-store-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/17722-acheter-ghost-of-yotei-playstation-5-playstation-store/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=Ghost+of+Yotei",
+    "price": 42.21,
+    "stock": "out",
+    "platforms": [
+      "ps5"
+    ],
+    "store": 79.99,
+    "amazon": "Ghost of Yotei PS5",
+    "aliases": [
+      "ghost of yotei",
+      "yotei",
+      "ghost yotei"
+    ]
+  },
+  {
+    "name": "The Witcher 4",
+    "blurb": "Prochain gros RPG CDPR — sortie annoncée 2028. Surveiller les préco.",
+    "tag": "Préco",
+    "cats": [
+      "hot",
+      "action"
+    ],
+    "cover": "https://gaming-cdn.com/images/products/6962/616x353/the-witcher-4-pc-cover.jpg",
+    "ig": "https://www.instant-gaming.com/fr/6962-acheter-the-witcher-4-pc/?igr=gamer-47bd4c",
+    "gg": "https://gg.deals/games/?title=The+Witcher+4",
+    "price": null,
+    "stock": "out",
+    "platforms": [
+      "pc"
+    ],
+    "amazon": "The Witcher 4",
+    "aliases": [
+      "witcher 4",
+      "witcher iv",
+      "thewitcher4"
+    ]
+  },
+  {
     "name": "Minecraft",
     "blurb": "Java & Bedrock. Petit prix, durée de vie infinie.",
     "tag": "Hot",
@@ -1391,7 +1555,11 @@ window.JEUXSTASH_CATALOG = [
     "price": 52.69,
     "stock": "ok",
     "amazon": "Call of Duty Black Ops 7 Xbox",
-    "aliases": []
+    "aliases": [
+      "bo7",
+      "black ops 7",
+      "cod bo7"
+    ]
   },
   {
     "name": "Halo Infinite Campaign",
@@ -1737,4 +1905,4 @@ window.JEUXSTASH_CATALOG = [
     "store": 7.99
   }
 ];
-window.JEUXSTASH_PRICES_UPDATED = "2026-09-30";
+window.JEUXSTASH_PRICES_UPDATED = "2026-10-03";

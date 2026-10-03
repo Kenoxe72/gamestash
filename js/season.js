@@ -111,9 +111,9 @@ window.JEUXSTASH_SEASON = (function () {
       label: "Automne",
       eyebrow: "Rentrée",
       blurb: "Nouveautés, RPG et gros titres en promo.",
-      heroPrefer: ["Elden Ring", "Call of Duty: Black Ops 7", "Grand Theft Auto VI", "EA Sports FC 27", "Baldur's Gate 3"],
+      heroPrefer: ["Call of Duty: Modern Warfare 4", "Resident Evil Requiem", "Grand Theft Auto VI", "Crimson Desert Enhanced", "EA Sports FC 27"],
       boost: ["hot", "action"],
-      guideBoost: ["black-friday-jeux-2026", "meilleurs-jeux-pas-cher-automne-2026", "expedition-33-pas-cher", "call-of-duty-pas-cher", "gta-6-pas-cher", "black-myth-wukong-pas-cher"],
+      guideBoost: ["black-friday-jeux-2026", "meilleurs-jeux-pas-cher-automne-2026", "call-of-duty-pas-cher", "gta-6-pas-cher", "expedition-33-pas-cher", "black-myth-wukong-pas-cher"],
     },
   };
 
